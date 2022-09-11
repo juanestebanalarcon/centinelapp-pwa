@@ -6,9 +6,9 @@ export function Navbar(){
     
         <div className="Navbar">
         <div className='Iconos-Navbar'>
-            <div className="home">
+            <div className="home" href="/home">
                 
-                <img src='./images/navbar/home.png'/>
+               <img src='./images/navbar/home.png'/>
             </div>
             <div className="messages">
                 
