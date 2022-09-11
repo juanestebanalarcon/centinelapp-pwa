@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Layout} from "./components";
+import { Routes, Route } from "react-router-dom";
+import { AddUsuario } from "../src/components/views/addUsuarioAdm"
+import { AddUsuarioFicha } from "../src/components/views/addUsuarioScout"
+import { AddRama } from "../src/components/views/addRama"
+import { Home } from "../src/components/views/home"
+import { Login } from "../src/components/views/login"
 function App() {
+  // Botón de descarga en Layout
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/home" element={ <Home/> }/>
+                <Route path="/login" element={ <Login/> }/>
+                <Route path="/addAdministrador" element={ <AddUsuario/> }/>
+                <Route path="/addRama" element={ <AddRama/> }/>
+                <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
+      </Routes>
+  
   );
 }
 

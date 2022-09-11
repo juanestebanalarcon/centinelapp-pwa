@@ -1,0 +1,44 @@
+.Iconos-Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+    box-sizing: content-box;
+    width: 100vw;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    align-content: center;
+}
+
+.Navbar {
+    background-color: #003049;
+    width: 100vw;
+    margin: 0%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    padding-top: 1em;
+    /* padding-left: 2em; */
+    /* padding-right: 2em; */
+    /* margin: 0%; */
+    position: fixed;
+    bottom: 0;
+    box-sizing: content-box;
+    height: 5%;
+    align-content: stretch;
+    justify-content: center;
+}
+
+body{
+    margin: 0;
+}
+
+.conte-general {
+    display: flex;
+    margin-bottom: 20%;
+    flex-direction: column;
+    height: max-content;
+}

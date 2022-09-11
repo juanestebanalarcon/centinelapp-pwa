@@ -1,0 +1,47 @@
+h1{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+
+    /* Complementos//Negro/Negro1 */
+
+    color: #292929;
+
+}
+h2{
+    /* Subtitulo/Subtitulo1 */
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+
+    /* Complementos//Negro/Negro1 */
+
+    color: #292929;
+    margin-left: 3%;
+}
+h3{
+    /* Texto/Texto1 */
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    /* Complementos//Negro/Negro1 */
+
+    color: #292929;
+    margin-left: 3%;
+}

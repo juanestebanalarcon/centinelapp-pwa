@@ -1,0 +1,15 @@
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    width: 90%;
+    color: #C1121F;
+    border-radius: 10px;
+    margin: 5%;
+    margin-top: 0%;
+    border: 1px solid #C1121F;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    width: 90%;
+    background: #C1121F;
+    border-radius: 10px;
+    margin: 5%;
+}

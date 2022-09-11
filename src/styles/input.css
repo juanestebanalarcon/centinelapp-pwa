@@ -1,0 +1,140 @@
+.cajon-input{
+        
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px; 
+    /* position: absolute; */
+    width: 85%;
+    
+    
+    /* top: 386px; */
+    background: #EEEEEE;
+    box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
+    border-radius: 10px;
+    border-color: #EEEEEE;
+    margin: auto;
+    margin-left: 3%;
+    border: 0;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 1em;
+line-height: 18px;
+display: flex;
+align-items: center;
+
+/* Complementos/Blanco/Blanco1 */
+
+color: #9c9c9c;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+    
+
+}
+
+.cajon-input:focus{
+    border: none;
+    outline: none;
+  }
+
+.cajon-select{
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px; 
+    /* position: absolute; */
+    width: 90%;
+    height: 40px;
+    
+    /* top: 386px; */
+    background: #EEEEEE;
+    box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
+    border-radius: 10px;
+    border-color: #EEEEEE;
+    margin: auto;
+    margin-left: 3%;
+    border: 0;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 1em;
+line-height: 18px;
+display: flex;
+align-items: center;
+
+/* Complementos/Blanco/Blanco1 */
+
+color: #9c9c9c;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+    
+
+
+}
+.cajon-select:focus{
+    border: none;
+    outline: none;
+  }
+
+
+  .cajon-textArea{
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px; 
+    /* position: absolute; */
+    width: 85%;
+    height: 40px;
+    
+    /* top: 386px; */
+    background: #EEEEEE;
+    box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
+    border-radius: 10px;
+    border-color: #EEEEEE;
+    margin: auto;
+    margin-left: 3%;
+    border: 0;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 1em;
+line-height: 18px;
+display: flex;
+align-items: center;
+
+/* Complementos/Blanco/Blanco1 */
+
+color: #9c9c9c;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+resize: none;
+    
+
+
+}
+.cajon-textArea:focus{
+    border: none;
+    outline: none;
+  }
+
+
+  
