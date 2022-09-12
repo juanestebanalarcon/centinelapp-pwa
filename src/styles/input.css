@@ -1,42 +1,23 @@
-.cajon-input{
-        
-    display: flex;
-    /* flex-direction: row; */
-    align-items: center;
-    padding: 10px 12px;
-    gap: 10px; 
-    /* position: absolute; */
-    width: 85%;
-    
-    
-    /* top: 386px; */
-    background: #EEEEEE;
-    box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
-    border-radius: 10px;
-    border-color: #EEEEEE;
-    margin: auto;
-    margin-left: 3%;
-    border: 0;
-    font-family: 'Ubuntu';
-font-style: normal;
-font-weight: 400;
-font-size: 1em;
-line-height: 18px;
-display: flex;
-align-items: center;
-
-/* Complementos/Blanco/Blanco1 */
-
-color: #9c9c9c;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
-    
-
+.cajon-input {
+  align-items: center;
+  background: #eee;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px -5px rgba(27,27,27,.25);
+  color: #9c9c9c;
+  display: flex;
+  flex: none;
+  flex-grow: 0;
+  font-family: Ubuntu;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  gap: 10px;
+  line-height: 18px;
+  margin: auto;
+  order: 0;
+  padding: 10px 12px;
+  width: 92%;
 }
 
 .cajon-input:focus{

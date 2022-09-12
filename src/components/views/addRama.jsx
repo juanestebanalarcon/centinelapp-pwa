@@ -13,6 +13,7 @@ export const AddRama= ()=>{
         <div className="contenido">
         <div className="conte-general">
         <Header/>
+        <div className="conte-imp">
         <h1>Añadir usuario</h1>
         <h2>En este formulario puedes crear un nuevo usuario</h2>
         <h3>Asignar rama</h3>
@@ -23,7 +24,7 @@ export const AddRama= ()=>{
         
         <Button variant="contained" color="primary">Crear</Button>
         <Button variant="outlined" color="primary">Cancelar</Button>
-        
+        </div>
         </div>
         <Navbar/>
         </div>

@@ -13,6 +13,7 @@ export const AddUsuarioFicha= ()=>{
         <div className="contenido">
         <div className="conte-general">
         <Header/>
+        <div className="conte-imp">
         <h1>Añadir scout</h1>
         <h2>En este formulario puedes crear un nuevo usuario</h2>
         <h3>Nombre</h3>
@@ -31,7 +32,7 @@ export const AddUsuarioFicha= ()=>{
         <Input placeholder="Numero de celular" type="number" />
         <Button variant="contained" color="primary">Crear</Button>
         <Button variant="outlined" color="primary">Cancelar</Button>
-        
+        </div>
         </div>
         <Navbar/>
         </div>

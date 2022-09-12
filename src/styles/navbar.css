@@ -39,11 +39,17 @@ body{
 
 .conte-general {
     display: flex;
-    margin-bottom: 20%;
+    
     flex-direction: column;
     height: max-content;
 }
 button.btn-nav {
     background: transparent;
     border: 0;
+}
+.conte-imp{
+    height: max-content;
+    margin-bottom: 15%;
+    width: 100%;
+    
 }
