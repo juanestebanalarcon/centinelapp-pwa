@@ -1,4 +1,4 @@
-import { Input } from "../input"
+
 import { Navbar } from "../navbar"
 import Button from '@mui/material/Button'
 import "../../styles/boton.css"

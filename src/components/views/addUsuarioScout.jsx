@@ -6,7 +6,7 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 import { Select } from "../select"
-import { TextArea } from "../textArea"
+
 export const AddUsuarioFicha= ()=>{
 
     return(

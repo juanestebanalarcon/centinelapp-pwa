@@ -1,5 +1,5 @@
 
-import { Input } from "../input"
+
 import { Navbar } from "../navbar"
 import "../../styles/styles.css"
 import { Header } from "../header"
