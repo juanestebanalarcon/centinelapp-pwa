@@ -15,20 +15,20 @@ export function Navbar(){
         <div className='Iconos-Navbar'>
             <div className="home" href="/home">
                <button onClick={home} className="btn-nav"> 
-               <img src='./images/navbar/home.svg' alt='home'/>
+               <img src='./images/navbar/home.svg' onerror="this.onerror=null; this.src='home.png'"  alt='home'/>
                </button>
             </div>
             <div className="messages">
                 
-                <img src='./images/navbar/messages.svg' alt='mensaje'/>
+                <img src='./images/navbar/messages.svg' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje'/>
             </div>
             <div className="calendar">
                 
-                <img src='./images/navbar/calendar.svg' alt='calendario'/>
+                <img src='./images/navbar/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='calendario'/>
             </div>
             <div className="person">
                 
-                <img src='./images/navbar/person.svg' alt='persona'/>
+                <img src='./images/navbar/person.svg' onerror="this.onerror=null; this.src='person.png'" alt='persona'/>
             </div>
             </div>
             
