@@ -43,3 +43,7 @@ body{
     flex-direction: column;
     height: max-content;
 }
+button.btn-nav {
+    background: transparent;
+    border: 0;
+}

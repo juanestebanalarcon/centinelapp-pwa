@@ -14,7 +14,7 @@ export function Navbar(){
         <div className="Navbar">
         <div className='Iconos-Navbar'>
             <div className="home" href="/home">
-               <button onClick={home}> 
+               <button onClick={home} className="btn-nav"> 
                <img src='./images/navbar/home.png' alt='home'/>
                </button>
             </div>
