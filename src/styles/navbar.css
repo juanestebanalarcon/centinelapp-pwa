@@ -10,6 +10,7 @@
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     align-content: center;
+    height: 5%;
 }
 
 .Navbar {
@@ -27,7 +28,7 @@
     position: fixed;
     bottom: 0;
     box-sizing: content-box;
-    height: 5%;
+    height: 6%;
     align-content: stretch;
     justify-content: center;
 }

@@ -5,6 +5,7 @@ import { AddUsuarioFicha } from "../src/components/views/addUsuarioScout"
 import { AddRama } from "../src/components/views/addRama"
 import { Home } from "../src/components/views/home"
 import { Login } from "../src/components/views/login"
+import "../src/styles/app.css"
 function App() {
   // Botón de descarga en Layout
   return (
