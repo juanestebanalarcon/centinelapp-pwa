@@ -4,6 +4,7 @@ import { Navbar } from "../navbar"
 import "../../styles/styles.css"
 import { Header } from "../header"
 import Button from '@mui/material/Button'
+import { SelectCreacion } from "../selectCreacion"
 import { useNavigate } from 'react-router-dom';
 export const Home= ()=>{
     const navigate = useNavigate();
@@ -26,10 +27,12 @@ export const Home= ()=>{
      <div className="conte-general">
         <Navbar/>
         <Header/>
+
+        <SelectCreacion nombre="Crear nuevo scout" onClick={scout}/>
+        <SelectCreacion nombre="Crear nuevo aministrador" onClick={administrador}/>
+        <SelectCreacion nombre="Crear nueva rama" onClick={rama}/>
        
-        <Button variant="contained" color="primary" onClick={scout}>Crear nuevo scout</Button>
-        <Button variant="contained" color="primary" onClick={administrador}>Crear nuevo aministrador</Button>
-        <Button variant="contained" color="primary" onClick={rama}>Crear nueva rama</Button>
+        
         </div>
         </div>
     )
