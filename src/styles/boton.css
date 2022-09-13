@@ -31,3 +31,31 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPr
     margin-right: 4%;
     border: 1px solid #C1121F;
 }
+button.subir-imagen {
+    background: #eee;
+    border: 2px dashed #292929;
+    border-radius: 10px;
+    width: 94%;
+    display: flex;
+    box-shadow: 3px 3px 20px -5px rgba(27,27,27,.25);
+    align-items: center;
+    align-content: center;
+    margin: auto;
+
+    justify-content: center;
+}
+.subir-imagen h2{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Complementos/Negro/Negro1 */
+
+    color: #292929;
+
+}

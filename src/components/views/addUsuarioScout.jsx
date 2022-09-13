@@ -6,8 +6,16 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 import { Select } from "../select"
+import { useRef } from 'react'
+import { UploadOutlined } from '@mui/icons-material'
 
 export const AddUsuarioFicha= ()=>{
+    
+  
+    const fileInputRef = useRef()
+    
+    
+
 
     return(
         <div className="contenido">
@@ -23,7 +31,24 @@ export const AddUsuarioFicha= ()=>{
         <h3>Correo electronico</h3>
         <Input placeholder="Correo" type="email" />
         <h3>Ficha medica</h3>
-        <Input placeholder="Ajunte la ficha medica" type="file" />
+        
+        <div className='btn-file-30'>
+            
+            <input
+              type="file"
+              accept="image/*"
+              
+              ref = { fileInputRef }
+              style={{ display : 'none' }}
+            />
+
+            <button className='subir-imagen'
+              
+              onClick = { ()=> fileInputRef.current.click() }
+            >
+              <UploadOutlined/> <h2>Seleccione un archivo*</h2>
+            </button>
+            </div>
         <h3>Asignar rama</h3>
         <Select placeholder="Selecciona una opción" option="Numero 1"/>
         <h3>Fecha de nacimiento</h3>
