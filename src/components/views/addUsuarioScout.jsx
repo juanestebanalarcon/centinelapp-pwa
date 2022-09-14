@@ -46,7 +46,7 @@ export const AddUsuarioFicha= ()=>{
               
               onClick = { ()=> fileInputRef.current.click() }
             >
-              <img scr='./images/boton/Upload.svg'></img> <h2>Seleccione un archivo*</h2>
+              <img scr='./images/boton/Upload.svg' alt="*"></img> <h2>Seleccione un archivo*</h2>
             </button>
             </div>
         <h3>Asignar rama</h3>
