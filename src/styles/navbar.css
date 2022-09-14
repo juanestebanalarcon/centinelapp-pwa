@@ -39,7 +39,7 @@ body{
 
 .conte-general {
     display: flex;
-    
+    margin-bottom: 10%;
     flex-direction: column;
     height: max-content;
 }

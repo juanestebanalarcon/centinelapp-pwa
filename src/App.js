@@ -6,6 +6,8 @@ import { AddRama } from "../src/components/views/addRama"
 import { Home } from "../src/components/views/home"
 import { Login } from "../src/components/views/login"
 import "../src/styles/app.css"
+import { AddUsuarioIniSc } from "./components/views/addUsuarioSc";
+import { AddUsuarioIniAd } from "./components/views/addUsuarioAd";
 function App() {
   // Botón de descarga en Layout
   return (
@@ -17,6 +19,8 @@ function App() {
                 <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                 <Route path="/addRama" element={ <AddRama/> }/>
                 <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
+                <Route path="/addUserAd" element={ <AddUsuarioIniAd/>}/>
+                <Route path="/addUserSc" element={ <AddUsuarioIniSc/>}/>
       </Routes>
   
   );
