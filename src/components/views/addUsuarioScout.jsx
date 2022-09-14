@@ -7,7 +7,7 @@ import "../../styles/login.css"
 import { Header } from "../header"
 import { Select } from "../select"
 import { useRef } from 'react'
-import { UploadOutlined } from '@mui/icons-material'
+
 
 export const AddUsuarioFicha= ()=>{
     
@@ -46,7 +46,7 @@ export const AddUsuarioFicha= ()=>{
               
               onClick = { ()=> fileInputRef.current.click() }
             >
-              <UploadOutlined/> <h2>Seleccione un archivo*</h2>
+              <img scr='./images/boton/Upload.svg'></img> <h2>Seleccione un archivo*</h2>
             </button>
             </div>
         <h3>Asignar rama</h3>

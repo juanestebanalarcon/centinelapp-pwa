@@ -1,0 +1,121 @@
+.btn-public {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+button.btn-public {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: transparent;
+    border: 0px;
+    margin: 4%;
+}
+
+.btn-public-s1 {
+    align-content: center;
+    align-items: center;
+    background-color: #c1121f;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    height: 100%;
+    width: 90%;
+}
+
+.btn-public-s1 h2{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    /* Complementos/Blanco/Blanco3 */
+
+    color: #FAFAFA;
+}
+
+.conte-publicacion h3{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: left;
+
+
+    /* Complementos/Negro/Negro1 */
+
+    color: #292929;
+}
+
+.btn-public-s2 {
+    width: 90%;
+    background: #EEEEEE;
+    box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+img.imgbtn{
+    margin: auto;
+}
+.btn-select-s1 img {
+    margin: auto;
+    /* margin: 4%; */
+}
+.sub-conte-1 h3{
+    /* Texto/Pequeño1 */
+
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 300;
+font-size: 1em;
+line-height: 9px;
+display: flex;
+align-items: center;
+
+/* Complementos/Negro/Negro2 */
+
+color: #797979;
+
+}
+
+.sub-conte-2 h3{
+    /* Texto/Pequeño1 */
+
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 300;
+font-size: 1em;
+line-height: 9px;
+display: flex;
+align-items: center;
+
+/* Complementos/Negro/Negro2 */
+
+color: #797979;
+
+}
+img.imagensub{
+    width: 10%;
+    height: 10%;
+}
+
+.sub-conte-1 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 3EM;
+}
+.sub-conte-2 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 3EM;
+}

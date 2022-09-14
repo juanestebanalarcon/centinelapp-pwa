@@ -11,6 +11,33 @@ button.btn-select {
     border: 0px;
     margin: 4%;
 }
+.btn-select-s2 h3 {
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 300;
+font-size: 1em;
+line-height: 18px;
+display: flex;
+align-items: center;
+margin-top: 0px;
+/* Complementos/Negro/Negro1 */
+
+color: #292929;
+}
+
+.btn-select-s2 h4 {
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 2em;
+line-height: 35px;
+display: flex;
+align-items: center;
+margin-bottom: 0px;
+/* Complementos/Negro/Negro1 */
+
+color: #292929;
+}
 
 
 .btn-select-s1 {
