@@ -8,7 +8,8 @@ import { Login } from "../src/components/views/login"
 import "../src/styles/app.css"
 import { AddUsuarioIniSc } from "./components/views/addUsuarioSc";
 import { AddUsuarioIniAd } from "./components/views/addUsuarioAd";
-import { Publicacion } from "./components/publicacion";
+
+import { PublicacionGeneral } from "./components/views/publicacion";
 function App() {
   // Botón de descarga en Layout
   return (
@@ -22,7 +23,7 @@ function App() {
                 <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
                 <Route path="/addUserAd" element={ <AddUsuarioIniAd/>}/>
                 <Route path="/addUserSc" element={ <AddUsuarioIniSc/>}/>
-                <Route path="/publicaciones" element={<Publicacion/>}/>
+                <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
       </Routes>
   
   );

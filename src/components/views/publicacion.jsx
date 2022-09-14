@@ -1,12 +1,13 @@
-import { Input } from "../input"
+
 import { Navbar } from "../navbar"
-import Button from '@mui/material/Button'
+
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
+import { SelectCreacion } from "../selectCreacion"
 
-export const Publicacion= ()=>{
+export const PublicacionGeneral= ()=>{
 
     return(
         <div className="contenido">
