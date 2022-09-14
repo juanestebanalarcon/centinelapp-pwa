@@ -1,12 +1,13 @@
 .btn-public {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 98%;
 }
 button.btn-public {
     display: flex;
     flex-direction: column;
-    width: 100%;
+
+
     background-color: transparent;
     border: 0px;
     margin: 4%;
