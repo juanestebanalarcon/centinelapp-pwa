@@ -8,6 +8,11 @@ export function Navbar(){
         e.preventDefault();
         navigate(`/home`)
     }
+
+    function messages(e){ 
+        e.preventDefault();
+        navigate(`/publicaciones`)
+    }
     return(
         <div className='App'>
     
@@ -19,8 +24,11 @@ export function Navbar(){
                </button>
             </div>
             <div className="messages">
+            <button onClick={messages} className="btn-nav"> 
+            <img src='./images/navbar/messages.svg' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje'/>
+               </button>
                 
-                <img src='./images/navbar/messages.svg' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje'/>
+                
             </div>
             <div className="calendar">
                 

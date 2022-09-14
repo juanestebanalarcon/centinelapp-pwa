@@ -21,7 +21,7 @@ export const AddRama= ()=>{
         <Input placeholder="Nueva publicación" type="text"/>
         <h3>Edades</h3>
         <Input placeholder="Max" type="number"/>
-        
+        <Input placeholder="Min" type="number"/>
         <Button variant="contained" color="primary">Crear</Button>
         <Button variant="outlined" color="primary">Cancelar</Button>
         </div>
