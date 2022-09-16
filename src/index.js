@@ -2,19 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import CentinelApp from "./CentinelApp";
-import { BrowserRouter } from "react-router-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import { Provider } from "react-redux";
-import { store } from "./store";
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
     <React.StrictMode>
-      <BrowserRouter>
         <CentinelApp />
-      </BrowserRouter>
     </React.StrictMode>
-  </Provider>
+
 )
 
 serviceWorkerRegistration.register({
