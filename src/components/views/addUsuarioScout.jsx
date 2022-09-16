@@ -36,7 +36,7 @@ export const AddUsuarioFicha= ()=>{
             
             <input
               type="file"
-              accept="image/*"
+              
               
               ref = { fileInputRef }
               style={{ display : 'none' }}
