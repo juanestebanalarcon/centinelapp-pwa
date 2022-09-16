@@ -1,18 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
-import App from "./App";
+import CentinelApp from "./CentinelApp";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <CentinelApp />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>
+)
 
 serviceWorkerRegistration.register({
   onUpdate: async (registration) => {
