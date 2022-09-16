@@ -39,7 +39,7 @@ export const Home= ()=>{
         <h1>Siguiente evento</h1>
         <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima'/>
         <h1>Acciones</h1>
-        <h2>Estas son las acciones que puedes hacer como super-administrador</h2>
+        <h3>Estas son las acciones que puedes hacer como super-administrador</h3>
         <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo scout" onClick={scout}/>
         <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo administrador" onClick={administrador}/>
         <SelectCreacion nombre="Crear una nueva rama" desc="Crea una nueva rama" onClick={rama}/>
