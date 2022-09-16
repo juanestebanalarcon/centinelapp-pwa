@@ -114,10 +114,32 @@ img.imagensub{
 .sub-conte-1 {
     display: flex;
     flex-direction: row;
-    margin-left: 1em;
+    
 }
 .sub-conte-2 {
     display: flex;
     flex-direction: row;
-    margin-left: 1em;
+    
+    margin-top: 0.5em;
+}
+.sub-conte-1 h3 {
+    margin: auto;
+    margin-left: 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.sub-conte-2 h3 {
+    margin: auto;
+    margin-left: 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.sub-conte-gen{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
 }

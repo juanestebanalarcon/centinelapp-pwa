@@ -10,6 +10,7 @@ export function Publicacion(props){
             <div className='conte-publicacion'>
                 <h3>{props.conte}</h3>
             </div>
+            <div className='sub-conte-gen'>
             <div className='sub-conte-1'>
             <img classname="imgbtn" src='./images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'"  alt='home'/>
  
@@ -18,6 +19,7 @@ export function Publicacion(props){
             <div className='sub-conte-2'>
             <img classname="imgbtn" src='./images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'"  alt='home'/>
             <h3>{props.calendario}</h3>
+            </div>
             </div>
            
             </div> 
