@@ -22,7 +22,7 @@ button.btn-public {
     border-bottom-right-radius: 0;
     display: flex;
     height: 100%;
-    width: 90%;
+    width: 96%;
 }
 
 .btn-public-s1 h2{
@@ -49,7 +49,7 @@ button.btn-public {
     line-height: 18px;
     display: flex;
     align-items: left;
-
+    text-align: left;
 
     /* Complementos/Negro/Negro1 */
 
@@ -57,12 +57,13 @@ button.btn-public {
 }
 
 .btn-public-s2 {
-    width: 90%;
+    width: 92%;
+    padding: 2%;
     background: #EEEEEE;
     box-shadow: 3px 3px 20px -5px rgb(27 27 27 / 25%);
     border-radius: 10px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 img.imgbtn{
@@ -113,10 +114,10 @@ img.imagensub{
 .sub-conte-1 {
     display: flex;
     flex-direction: row;
-    margin-left: 3EM;
+    margin-left: 1em;
 }
 .sub-conte-2 {
     display: flex;
     flex-direction: row;
-    margin-left: 3EM;
+    margin-left: 1em;
 }

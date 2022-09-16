@@ -46,7 +46,8 @@ export const AddUsuarioFicha= ()=>{
               
               onClick = { ()=> fileInputRef.current.click() }
             >
-              <img scr='./images/boton/Upload.svg' alt="*"></img> <h2>Seleccione un archivo*</h2>
+               <img classname="imgbtn" src='./images/boton/upload.svg' onerror="this.onerror=null; this.src='upload.png'"  alt='*'/>
+               <h2>Seleccione un archivo*</h2>
             </button>
             </div>
         <h3>Asignar rama</h3>

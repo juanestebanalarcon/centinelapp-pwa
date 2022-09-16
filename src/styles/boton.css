@@ -59,3 +59,8 @@ button.subir-imagen {
     color: #292929;
 
 }
+
+.hori-edad{
+    display: flex;
+    flex-direction: row;
+}

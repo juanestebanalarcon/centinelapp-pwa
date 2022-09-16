@@ -54,7 +54,7 @@ export default function Layout(props) {
       <button onClick={inicio}> Inicio</button>
       </div>
 
-      {props.children}
+    
     </div>
   );
 }
