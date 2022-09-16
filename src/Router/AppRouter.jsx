@@ -1,23 +1,54 @@
-import { useSelector } from "react-redux"
-import { Route, Routes } from "react-router-dom"
+import { useEffect } from "react"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
 import { AddRama, AddUsuario, AddUsuarioFicha, AddUsuarioIniAd, AddUsuarioIniSc, Home, Login, PublicacionGeneral } from "../components/views"
+import { useAuthStore } from "../Hooks"
 
 export const AppRouter = () => {
 
-    const { status, errorMessage } = useSelector( state => state.auth )
+    const { status, checkAuthToken } = useAuthStore()
+    
+    useEffect(() => {
+        checkAuthToken();
+    },[]);
+
+    
+    if( status === "checking"){
+        return (
+            <>
+                <h1>Checking</h1>
+            </>
+        )
+    }
+
 
   return (
     <Routes>
-    <Route path="/" element={<Layout />} />
-    <Route path="/home" element={ <Home/> }/>
-            <Route path="/login" element={ <Login/> }/>
-            <Route path="/addAdministrador" element={ <AddUsuario/> }/>
-            <Route path="/addRama" element={ <AddRama/> }/>
-            <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
-            <Route path="/addUserAd" element={ <AddUsuarioIniAd/>}/>
-            <Route path="/addUserSc" element={ <AddUsuarioIniSc/>}/>
-            <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
-  </Routes>
+
+        {
+
+            (status === 'Not-Authenticated')
+                ?(
+                    <>
+                        <Route path="/login" element={ <Login/> }/>
+                        <Route path="/*" element={ <Navigate to="/login"/> }/> 
+                    </>
+                )
+                :(
+                    <>
+                        <Route path="/" element={ <Home/> }/>
+                        <Route path="/addAdministrador" element={ <AddUsuario/> }/>
+                        <Route path="/addRama" element={ <AddRama/> }/>
+                        <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
+                        <Route path="/addUserAd" element={ <AddUsuarioIniAd/>}/>
+                        <Route path="/addUserSc" element={ <AddUsuarioIniSc/>}/>
+                        <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
+                        <Route path="/*" element={ <Navigate to="/"/> }/> 
+                    </>
+                )
+
+        }
+
+    </Routes>
   )
 }

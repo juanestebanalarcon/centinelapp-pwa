@@ -17,7 +17,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
             console.log(data)
-            // dispatch( onLogin({ name: data.name, uid: data.uid }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email }) );
 
         } catch (error) {
            
@@ -55,24 +55,24 @@ export const useAuthStore = () => {
 
     // }
 
-    // const checkAuthToken = async() => {
-    //     const token = localStorage.getItem('token')
+    const checkAuthToken = async() => {
+        const token = localStorage.getItem('token')
         
-    //     if( !token ) return dispatch( onLogout() );
+        if( !token ) return dispatch( onLogout() );
 
-    //     try {
+        try {
             
-    //         const { data } = await calendarApi.get('/auth/renew');
-    //         localStorage.setItem('token', data.token);
-    //         localStorage.setItem('token-init-date', new Date().getTime() );
-    //         dispatch( onLogin({ name: data.name, uid: data.uid }) );
+            const { data } = await CentinelApi.get('admin/revalidateToken',{ token });
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('token-init-date', new Date().getTime() );
+            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email}) );
 
-    //     } catch (error) {
-    //         localStorage.clear();
-    //         dispatch( onLogout() );
-    //     }
+        } catch (error) {
+            localStorage.clear();
+            dispatch( onLogout() );
+        }
 
-    // }
+    }
 
     // const startLogout = () => {
 
@@ -91,7 +91,7 @@ export const useAuthStore = () => {
         startLogin,
         // startLogout,
         // startRegister,
-        // checkAuthToken,
+        checkAuthToken,
 
     }
 
