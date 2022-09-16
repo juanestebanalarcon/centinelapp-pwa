@@ -62,7 +62,7 @@ export const useAuthStore = () => {
 
         try {
             
-            const { data } = await CentinelApi.get('admin/revalidateToken',{ token });
+            const { data } = await CentinelApi.get('admin/',{ token });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email}) );
