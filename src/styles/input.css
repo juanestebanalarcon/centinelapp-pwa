@@ -18,6 +18,7 @@
   order: 0;
   padding: 10px 12px;
   width: 90%;
+  margin-bottom: 3%;
 }
 
 .cajon-input:focus{
@@ -45,6 +46,7 @@
   order: 0;
   padding: 10px 12px;
   width: 94%;
+  margin-bottom: 3%
 
 }
 .cajon-select:focus{
