@@ -8,7 +8,8 @@ export const Loading= ()=>{
 
     return(
         <div className="loading">
-                <LinearProgress />
+                <img classname="imgbtn" src='./images/inicio/logo.svg' onerror="this.onerror=null; this.src='logo.png'"  alt='home'/>
+                <CircularProgress />
                 </div>
         
  

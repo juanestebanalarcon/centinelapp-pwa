@@ -43,7 +43,7 @@ export const AppRouter = () => {
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
-                        
+                        <Route path="/load" element={ <Loading/>}/>
                       
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
