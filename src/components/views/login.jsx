@@ -1,7 +1,7 @@
 
 import { Input } from "../input"
 import { useNavigate } from 'react-router-dom';
-
+import swal from 'sweetalert';
 
 import Button from '@mui/material/Button'
 import "../../styles/styles.css"
