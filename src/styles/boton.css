@@ -64,15 +64,19 @@ button.subir-imagen {
     display: flex;
     flex-direction: row;
     width: 96%;
+    margin: auto;
 }
 
 #maxedad{
     width: 50%;
 }
+#minedad{
+    width: 50%;
+}
 .rama-in{
     display: flex;
     flex-direction: column;
-    margin: 2%;
+    margin: 4%;
 }
 .la-rama {
     display: flex;

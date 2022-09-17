@@ -26,7 +26,7 @@ export const Home= ()=>{
 
     return(
     <div className="contenido">
-     <div className="conte-general">
+     <div className="conte-general-home">
         <Navbar/>
         <Header/>
         <h1>Inicio</h1>
