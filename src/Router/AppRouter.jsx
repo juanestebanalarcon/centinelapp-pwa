@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
-import { AddRama, AddUsuario, AddUsuarioFicha, AddUsuarioIniAd, AddUsuarioIniSc, Home, Login, PublicacionGeneral } from "../components/views"
+import { AddRama, AddUsuario, AddUsuarioFicha,  Home, Login, PublicacionGeneral } from "../components/views"
+import { Loading } from "../components/views/loading"
 import { useAuthStore } from "../Hooks"
 
 export const AppRouter = () => {
@@ -16,7 +17,8 @@ export const AppRouter = () => {
     if( status === "checking"){
         return (
             <>
-                <h1>Checking</h1>
+            <Loading/>
+                
             </>
         )
     }
@@ -37,11 +39,12 @@ export const AppRouter = () => {
                 :(
                     <>
                         <Route path="/" element={ <Home/> }/>
+                        <Route path="/load" element={ <Loading/> }/>
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
-                        <Route path="/addUserAd" element={ <AddUsuarioIniAd/>}/>
-                        <Route path="/addUserSc" element={ <AddUsuarioIniSc/>}/>
+                        
+                      
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
                     </>

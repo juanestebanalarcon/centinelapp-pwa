@@ -1,7 +1,7 @@
 export * from "./addRama"
-export * from "./addUsuarioAd"
+
 export * from "./addUsuarioAdm"
-export * from "./addUsuarioSc"
+
 export * from "./addUsuarioScout"
 export * from "./home"
 export * from "./login"

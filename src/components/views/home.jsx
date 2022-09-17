@@ -13,11 +13,11 @@ export const Home= ()=>{
     
     function scout(e){ 
         e.preventDefault();
-        navigate(`/addUserSc`)
+        navigate(`/addScout`)
     }
     function administrador(e){ 
         e.preventDefault();
-        navigate(`/addUserAd`)
+        navigate(`/addAdministrador`)
     }
     function rama(e){ 
         e.preventDefault();

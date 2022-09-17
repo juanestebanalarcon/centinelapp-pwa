@@ -1,0 +1,11 @@
+.loading {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+svg.MuiCircularProgress-svg.css-1idz92c-MuiCircularProgress-svg {
+color: #C1121F;
+}
