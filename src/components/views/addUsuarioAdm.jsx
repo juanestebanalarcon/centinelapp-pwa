@@ -79,7 +79,7 @@ export const AddUsuario= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
-        <h1>Añadir usuario</h1>
+        <h1>Añadir un nuevo administrador</h1>
         <h2>En este formulario puedes crear un nuevo usuario</h2>
         <form onSubmit={ onSubmit }> 
         <h3>Nombre*</h3>
