@@ -63,4 +63,5 @@ button.subir-imagen {
 .hori-edad{
     display: flex;
     flex-direction: row;
+    width: 96%;
 }

@@ -4,10 +4,39 @@ import Button from '@mui/material/Button'
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
+import { useForm, useRamaStore} from "../../Hooks"
+
+import swal from 'sweetalert';
 import { Header } from "../header"
+
+const Rama={
+    nombre:'',
+    edadMax:'',
+    edadMin:''
+
+}
 
 export const AddRama= ()=>{
 
+    const { nombre, edadMax, edadMin, onInputChange } = useForm(Rama);
+    const { startCrearRama } = useRamaStore();
+
+    const onSubmit = (e)=>{
+        e.preventDefault();
+        if(nombre ==='' || edadMax===''|| edadMin===''){
+          swal({
+            title: "Ingrese los campos obligatorios",
+            icon: "warning"            
+          });  
+         return ;
+          
+        }
+  
+        
+        startCrearRama({nombre, edadMax, edadMin})
+      }
+  
+    
     return(
         <div className="contenido">
         <div className="conte-general">
@@ -15,17 +44,17 @@ export const AddRama= ()=>{
         <div className="conte-imp">
         <h1>Crear rama</h1>
         <h2>En este formulario puedes crear una nueva rama</h2>
+        <form onSubmit={ onSubmit }> 
         <h3>Nombre</h3>
-        <Input placeholder="Nueva publicación" type="text"/>
-        <h3>Nombre participantes</h3>
-        <Input placeholder="Nueva publicación" type="text"/>
+        <Input name='nombre' value={ nombre } onChange={ onInputChange } placeholder="Nombre del scout" type="text" />
         <h3>Edades</h3>
         <div className="hori-edad">
-        <Input placeholder="Max" type="number"/>
-        <Input placeholder="Min" type="number"/>
+        <Input name='edadMax' value={ edadMax } onChange={ onInputChange } placeholder="Max" type="number" />
+        <Input name='edadMin' value={ edadMin } onChange={ onInputChange } placeholder="Min" type="number" />
         </div>
-        <Button variant="contained" color="primary">Crear</Button>
+        <Button type="submit" variant="contained" color="primary">Crear</Button>
         <Button variant="outlined" color="primary">Cancelar</Button>
+        </form>
         </div>
         </div>
         <Navbar/>

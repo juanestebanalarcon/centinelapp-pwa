@@ -1,16 +1,13 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
 
-export const useScoutStore = () => {
+export const useRamaStore = () => {
   
-    const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
-        console.log({ nombre, apellido, email, fecha_nacimiento, celular, rama})
+    const startCrearRama = async ({ nombre, edadMax, edadMin}) => {
+        console.log({ nombre, edadMax, edadMin})
 
-        let link_ficha_medica='no tiene'
-        
-        
         try {
-            const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, rama, link_ficha_medica})
+            const { data } = await CentinelApi.post('rama/create-Rama',{ nombre, edadMax, edadMin})
             console.log(data)
             
                 swal({
@@ -24,20 +21,19 @@ export const useScoutStore = () => {
             //Alertas con el ok que viene en la data if(data.ok === true )
 
         } catch (error) {
-            console.log(error.request.status)
             if(error.request.status === 400){
                 swal({
                     title: "Error",
-                    text: "El correo ya se encuentra registrado!",
+                    text: "Esta rama ya esta creada!",
                     icon: "error",
                   });
             }
-            
+           
             
             console.log(error)
         }
 
     }
 
-    return { startCrearScout }
+    return { startCrearRama }
 }

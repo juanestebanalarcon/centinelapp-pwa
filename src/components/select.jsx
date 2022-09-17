@@ -7,7 +7,7 @@ export function Select(props){
     return(
         <div className='input'>
             <select id={props.id} className='cajon-select' placeholder={props.placeholder}>
-                <option value="ninguna">Seleccione una rama</option>
+                <option value="">Seleccione una rama</option>
                 {
                     ramas.map(rama => {
                         return(

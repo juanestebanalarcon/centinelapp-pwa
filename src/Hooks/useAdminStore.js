@@ -1,16 +1,13 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
 
-export const useScoutStore = () => {
+export const useAdminStore = () => {
   
-    const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
-        console.log({ nombre, apellido, email, fecha_nacimiento, celular, rama})
-
-        let link_ficha_medica='no tiene'
-        
-        
+    const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas}) => {
+        console.log({ nombre, apellido, email, ramasAsignadas})
+        let rama=['Rama009']
         try {
-            const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, rama, link_ficha_medica})
+            const { data } = await CentinelApi.post('admin/create-admin',{ nombre, apellido, email, ramasAsignadas})
             console.log(data)
             
                 swal({
@@ -27,8 +24,8 @@ export const useScoutStore = () => {
             console.log(error.request.status)
             if(error.request.status === 400){
                 swal({
-                    title: "Error",
-                    text: "El correo ya se encuentra registrado!",
+                    title: "Good job!",
+                    text: "error 400",
                     icon: "error",
                   });
             }
@@ -39,5 +36,5 @@ export const useScoutStore = () => {
 
     }
 
-    return { startCrearScout }
+    return { startCrearAdmin }
 }
