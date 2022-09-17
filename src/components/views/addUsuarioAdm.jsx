@@ -7,15 +7,12 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import swal from 'sweetalert';
 import { Header } from "../header"
-import { Select } from "../select"
-import { TextArea } from "../textArea"
+
 import { useForm, useRamasStore, useAdminStore } from "../../Hooks"
 import { useEffect, useRef } from 'react'
-import { Checkboxs } from "../checkbox"
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Admin={
     nombre:'',
@@ -33,6 +30,12 @@ export const AddUsuario= ()=>{
     const { startListarRamas } = useRamasStore();
     const { ramas } = useSelector( state => state.rama );
     
+    const navigate = useNavigate();
+    
+    function redirect(e){ 
+        e.preventDefault();
+        navigate(`/home`)
+    }
     // const verificarcheck =(e)=>{
     //     e.preventDefault();
     //     ramas.map(rama => {
@@ -87,12 +90,12 @@ export const AddUsuario= ()=>{
           <Input name='email' value={ email } onChange={ onInputChange } placeholder="Correo" type="email" />
           <h3>Asignar rama*</h3>
           
-    
+        <div className="rama-in">
         {
                     ramas.map(rama => {
                             return(
                        
-                            <label><input  type='checkbox' id={rama._id} value={rama._id} />{rama.nombre}</label>
+                            <label className="la-rama"><input  className="rama" type='checkbox' id={rama._id} value={rama._id} /><h3>{rama.nombre}</h3></label>
                             //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
                            
                            )
@@ -102,10 +105,10 @@ export const AddUsuario= ()=>{
                 }
       
     
-   
+                </div>
         
         <Button type="submit" variant="contained" color="primary">Crear</Button>
-        <Button variant="outlined" color="primary">Cancelar</Button>
+        <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
         </form>
         </div>
         </div>

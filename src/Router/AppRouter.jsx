@@ -33,13 +33,13 @@ export const AppRouter = () => {
                 ?(
                     <>
                         <Route path="/login" element={ <Login/> }/>
-                        <Route path="/*" element={ <Navigate to="/login"/> }/> 
+                        <Route path="/*" element={ <Layout/> }/> 
                     </>
                 )
                 :(
                     <>
                         <Route path="/" element={ <Home/> }/>
-                        <Route path="/load" element={ <Loading/> }/>
+                        
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>

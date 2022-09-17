@@ -9,6 +9,7 @@ import { Select } from "../select"
 import { useEffect, useRef } from 'react'
 import { useForm, useRamasStore, useScoutStore } from "../../Hooks"
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 const Scout = {
   nombre: '', 
@@ -25,6 +26,12 @@ export const AddUsuarioFicha= ()=>{
 
     const { startCrearScout } = useScoutStore();
     const { startListarRamas } = useRamasStore();
+    const navigate = useNavigate();
+    
+    function redirect(e){ 
+        e.preventDefault();
+        navigate(`/home`)
+    }
 
     const onSubmit = (e)=>{
       e.preventDefault();
@@ -73,7 +80,7 @@ export const AddUsuarioFicha= ()=>{
           <h3>Numero celular*</h3>
           <Input name='celular' value={ celular } onChange={ onInputChange } placeholder="Numero de celular" type="number" />
           <Button type="submit" variant="contained" color="primary">Crear</Button>
-          <Button variant="outlined" color="primary">Cancelar</Button>
+          <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
         </form>
         </div>
         </div>

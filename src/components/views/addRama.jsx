@@ -5,7 +5,7 @@ import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
 import { useForm, useRamaStore} from "../../Hooks"
-
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"
 
@@ -20,7 +20,12 @@ export const AddRama= ()=>{
 
     const { nombre, edadMax, edadMin, onInputChange } = useForm(Rama);
     const { startCrearRama } = useRamaStore();
-
+    const navigate = useNavigate();
+    
+    function redirect(e){ 
+        e.preventDefault();
+        navigate(`/home`)
+    }
     const onSubmit = (e)=>{
         e.preventDefault();
         if(nombre ==='' || edadMax===''|| edadMin===''){
@@ -53,7 +58,7 @@ export const AddRama= ()=>{
         <Input name='edadMin' value={ edadMin } onChange={ onInputChange } placeholder="Min" type="number" />
         </div>
         <Button type="submit" variant="contained" color="primary">Crear</Button>
-        <Button variant="outlined" color="primary">Cancelar</Button>
+        <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
         </form>
         </div>
         </div>

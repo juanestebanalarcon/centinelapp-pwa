@@ -27,6 +27,16 @@ export const Login= ()=>{
 
     const onSubmit = (e)=>{
         e.preventDefault();
+        if(email==='' || password==''){
+            swal({
+                title: "Ingrese los campos obligatorios",
+                icon: "warning"
+                
+              });
+      
+             return ;
+              
+        }
         startLogin({ email, password });
     }
 

@@ -65,3 +65,22 @@ button.subir-imagen {
     flex-direction: row;
     width: 96%;
 }
+.rama-in{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+.la-rama {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.la-rama h3 {
+    text-align: center;
+    display: flex;
+    margin: auto;
+    margin-left: 1%;
+    font-size: 1em;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-
+import Button from '@mui/material/Button';
+import "../styles/inicio.css"
 import { useNavigate } from 'react-router-dom';
 export default function Layout(props) {
   const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
@@ -43,18 +44,19 @@ export default function Layout(props) {
 
   return (
     <div className="App">
-      <header>
-        <h1> PWA</h1>
+      <div className="inicio">
+      <img classname="imgbtn" src='./images/inicio/logo.svg' onerror="this.onerror=null; this.src='logo.png'"  alt='home'/>
+        <h1> CENTINELAPP</h1>
         {isReadyForInstall && (
-          <button onClick={downloadApp}> Descargar </button>
+          <Button type="submit" onClick={downloadApp} variant="contained" color="primary">Descargar</Button>
         )}
-      </header>
+      
 
       <div>
-      <button onClick={inicio}> Inicio</button>
+      <Button type="submit" onClick={inicio} variant="contained" color="primary">Inicio</Button>
       </div>
 
-    
+    </div>
     </div>
   );
 }

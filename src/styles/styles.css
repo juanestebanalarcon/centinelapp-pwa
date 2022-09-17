@@ -55,3 +55,17 @@ h4{
     margin: 3%;
 
 }
+.swal-title {
+    color: rgba(0,0,0,.65);
+    font-weight: 600;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    text-transform: none;
+    position: relative;
+    display: block;
+    padding: 13px 16px;
+    font-size: 27px;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
