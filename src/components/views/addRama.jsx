@@ -54,7 +54,7 @@ export const AddRama= ()=>{
         <Input name='nombre' value={ nombre } onChange={ onInputChange } placeholder="Nombre del scout" type="text" />
         <h3>Edades</h3>
         <div className="hori-edad">
-        <Input name='edadMax' value={ edadMax } onChange={ onInputChange } placeholder="Max" type="number" />
+        <Input name='edadMax' id='maxedad' value={ edadMax } onChange={ onInputChange } placeholder="Max" type="number" />
         <Input name='edadMin' value={ edadMin } onChange={ onInputChange } placeholder="Min" type="number" />
         </div>
         <Button type="submit" variant="contained" color="primary">Crear</Button>

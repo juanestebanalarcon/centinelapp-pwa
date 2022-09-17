@@ -65,6 +65,10 @@ button.subir-imagen {
     flex-direction: row;
     width: 96%;
 }
+
+#maxedad{
+    width: 50%;
+}
 .rama-in{
     display: flex;
     flex-direction: column;
