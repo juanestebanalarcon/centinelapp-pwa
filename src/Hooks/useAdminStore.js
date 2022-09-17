@@ -23,8 +23,8 @@ export const useAdminStore = () => {
             console.log(error.request.status)
             if(error.request.status === 400){
                 swal({
-                    title: "El usuario no ha sido creado",
-                    text: "Recuerde ingresar todos los campos obligatorios",
+                    title: "Error",
+                    text: "El correo ya se encuentra registrado!",
                     icon: "error",
                   });
             }

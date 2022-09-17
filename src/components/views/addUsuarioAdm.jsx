@@ -54,7 +54,7 @@ export const AddUsuario= ()=>{
                 
                 ramasAsignadas.push(rama._id)
             }})
-        if(nombre ==='' || apellido===''|| email==='' ){
+        if(nombre ==='' || apellido===''|| email==='' || ramasAsignadas.length ===0 ){
           swal({
             title: "Ingrese los campos obligatorios",
             icon: "warning"
