@@ -13,11 +13,10 @@ export const useScoutStore = () => {
             const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, rama, link_ficha_medica})
             console.log(data)
             
-                swal({
-                    title: "Good job!",
-                    text: "You clicked the button!",
-                    icon: "success",
-                  });
+            swal({
+                title: "El usuario ha sido creado con exito!",
+                icon: "success",
+              });
             
            
             

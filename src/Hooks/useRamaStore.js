@@ -11,8 +11,7 @@ export const useRamaStore = () => {
             console.log(data)
             
                 swal({
-                    title: "Good job!",
-                    text: "You clicked the button!",
+                    title: "La rama ha sido creada con exito!",
                     icon: "success",
                   });
             
@@ -24,7 +23,7 @@ export const useRamaStore = () => {
             if(error.request.status === 400){
                 swal({
                     title: "Error",
-                    text: "Esta rama ya esta creada!",
+                    text: "Esta rama ya ha sido creada anteriormente!",
                     icon: "error",
                   });
             }

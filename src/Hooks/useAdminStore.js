@@ -5,14 +5,13 @@ export const useAdminStore = () => {
   
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas}) => {
         console.log({ nombre, apellido, email, ramasAsignadas})
-        let rama=['Rama009']
+      
         try {
             const { data } = await CentinelApi.post('admin/create-admin',{ nombre, apellido, email, ramasAsignadas})
             console.log(data)
             
                 swal({
-                    title: "Good job!",
-                    text: "You clicked the button!",
+                    title: "El usuario ha sido creado con exito!",
                     icon: "success",
                   });
             
@@ -24,8 +23,8 @@ export const useAdminStore = () => {
             console.log(error.request.status)
             if(error.request.status === 400){
                 swal({
-                    title: "Good job!",
-                    text: "error 400",
+                    title: "El usuario no ha sido creado",
+                    text: "Recuerde ingresar todos los campos obligatorios",
                     icon: "error",
                   });
             }
