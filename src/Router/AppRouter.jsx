@@ -7,7 +7,7 @@ import { useAuthStore } from "../Hooks"
 
 export const AppRouter = () => {
 
-    const { status, checkAuthToken } = useAuthStore()
+    const { status, checkAuthToken, user } = useAuthStore()
     
     useEffect(() => {
         checkAuthToken();
@@ -23,21 +23,19 @@ export const AppRouter = () => {
         )
     }
 
+    if ( status === "Not-Authenticated" ){
+        return(
+            <Routes>
+                <Route path="/login" element={ <Login/> }/>
+                <Route path="/*" element={ <Layout/> }/> 
+            </Routes>
+        )
+    }else{
 
-  return (
-    <Routes>
+        if ( user.tipo === "1" ){
+            return(
 
-        {
-
-            (status === 'Not-Authenticated')
-                ?(
-                    <>
-                        <Route path="/login" element={ <Login/> }/>
-                        <Route path="/*" element={ <Layout/> }/> 
-                    </>
-                )
-                :(
-                    <>
+                <Routes>
                         <Route path="/" element={ <Home/> }/>
                         
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
@@ -47,11 +45,61 @@ export const AppRouter = () => {
                       
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
-                    </>
-                )
+                </Routes>
 
+            )
+        }else if( user.tipo === "2"){
+    
+        }else if( user.tiipo === "3" ){
+            return(
+
+                <Routes>
+            <Route path="/" element={ <Home/> }/>
+            </Routes>
+            )
+            
+    
+        }else if( user.tipo === "4" ){
+    
         }
 
-    </Routes>
-  )
-}
+    }
+
+//   return (
+//     <Routes>
+
+//         {
+
+//             (status === 'Not-Authenticated')
+//                 ?(
+//                     <>
+//                         <Route path="/login" element={ <Login/> }/>
+//                         <Route path="/*" element={ <Layout/> }/> 
+//                     </>
+//                 )
+//                 :(
+//                     ( user.tipo === "1" )
+//                         ?(
+//                     <>
+//                         <Route path="/" element={ <Home/> }/>
+                        
+//                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
+//                         <Route path="/addRama" element={ <AddRama/> }/>
+//                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
+//                         <Route path="/load" element={ <Loading/>}/>
+                      
+//                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
+//                         <Route path="/*" element={ <Navigate to="/"/> }/> 
+//                     </>
+//                     ):(null
+
+//                     )
+//           )
+          
+
+//         }
+
+//     </Routes>
+//         )
+
+    }

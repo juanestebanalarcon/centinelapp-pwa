@@ -8,8 +8,10 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import "../../styles/boton.css"
 import { useAuthStore, useForm } from "../../Hooks";
+import { Select } from "../select-tipo";
 
 const login = {
+    tipo:'',
     email: '',
     password: '',
 }
@@ -27,6 +29,7 @@ export const Login= ()=>{
 
     const onSubmit = (e)=>{
         e.preventDefault();
+        const tipo = document.getElementById('tipo').value;
         if(email==='' || password==''){
             swal({
                 title: "Ingrese los campos obligatorios",
@@ -37,7 +40,7 @@ export const Login= ()=>{
              return ;
               
         }
-        startLogin({ email, password });
+        startLogin({ email, password,tipo});
     }
 
     return(
@@ -46,6 +49,8 @@ export const Login= ()=>{
         <h1>Bienvenido de nuevo</h1>
         <h2>Ingresa a tu cuenta</h2>
         <form onSubmit={ onSubmit }>
+            <h3>Tipo de usuario</h3>
+            <Select id="tipo"/>
             <h3>Correo electronico</h3>
                 <Input name="email" value={ email } onChange={ onInputChange } placeholder="example@mail.com" type="email"/>
             <h3>Contraseña</h3>

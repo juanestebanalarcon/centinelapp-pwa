@@ -7,17 +7,45 @@ export const useAuthStore = () => {
     const { status, user, errorMessage } = useSelector( state => state.auth);
     const dispatch = useDispatch();
 
-    const startLogin = async({ email, password }) => {
+    const startLogin = async({ email, password, tipo }) => {
 
         dispatch( onChecking() );
 
         try {
+            console.log(tipo)
+            if(tipo==='1'){
+                
+            const { data } = await CentinelApi.post('superAdmin/log-in-superAdmin',{ email, password });
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('token-init-date', new Date().getTime() );
+            console.log(data)
+            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: tipo }) );
+            }
 
-            const { data } = await CentinelApi.post('admin/log-in-admin',{ email, password });
+            else if(tipo==='2'){
+                
+                const { data } = await CentinelApi.post('admin/log-in-admin',{ email, password });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
             console.log(data)
             dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email }) );
+            }else if(tipo==='3'){
+                const { data } = await CentinelApi.post('scouts/log-in-scout',{ email, password });
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('token-init-date', new Date().getTime() );
+                console.log(data)
+                dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email }) );
+
+            }else if(tipo==='4'){
+                const { data } = await CentinelApi.post('acudientes/log-in-acudiente',{ email, password });
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('token-init-date', new Date().getTime() );
+                console.log(data)
+                dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email }) );
+
+            }
+            
+            
 
         } catch (error) {
            
