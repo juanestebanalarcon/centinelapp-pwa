@@ -29,7 +29,7 @@ export const Login= ()=>{
 
     const onSubmit = (e)=>{
         e.preventDefault();
-        const tipo = document.getElementById('tipo').value;
+        const tipo = parseInt(document.getElementById('tipo').value);
         if(email==='' || password==''){
             swal({
                 title: "Ingrese los campos obligatorios",
@@ -40,6 +40,7 @@ export const Login= ()=>{
              return ;
               
         }
+        console.log(email, password, tipo);
         startLogin({ email, password,tipo});
     }
 

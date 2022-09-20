@@ -32,7 +32,7 @@ export const AppRouter = () => {
         )
     }else{
 
-        if ( user.tipo === "1" ){
+        if ( user.rol === 1 ){
             return(
 
                 <Routes>
@@ -48,9 +48,9 @@ export const AppRouter = () => {
                 </Routes>
 
             )
-        }else if( user.tipo === "2"){
+        }else if( user.rol === 2 ){
     
-        }else if( user.tiipo === "3" ){
+        }else if( user.rol === 3 ){
             return(
 
                 <Routes>
@@ -59,7 +59,7 @@ export const AppRouter = () => {
             )
             
     
-        }else if( user.tipo === "4" ){
+        }else if( user.rol === 4 ){
     
         }
 
