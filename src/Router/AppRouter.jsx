@@ -2,7 +2,11 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
 import { AddRama, AddUsuario, AddUsuarioFicha,  Home, Login, PublicacionGeneral } from "../components/views"
+import { ActPerfil } from "../components/views/act-perfil"
+import { CamContrasena } from "../components/views/cambiarContrasena"
+import { HomeScout } from "../components/views/homeScout"
 import { Loading } from "../components/views/loading"
+import { Perfil } from "../components/views/perfil"
 import { useAuthStore } from "../Hooks"
 
 export const AppRouter = () => {
@@ -42,7 +46,9 @@ export const AppRouter = () => {
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
                         <Route path="/load" element={ <Loading/>}/>
-                      
+                        <Route path="/perfil" element={<Perfil/>}/>
+                        <Route path="/act-perfil" element={<ActPerfil/>}/>
+                        <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
                 </Routes>
@@ -53,8 +59,8 @@ export const AppRouter = () => {
         }else if( user.rol === 3 ){
             return(
 
-                <Routes>
-            <Route path="/" element={ <Home/> }/>
+            <Routes>
+            <Route path="/" element={ <HomeScout/> }/>
             </Routes>
             )
             

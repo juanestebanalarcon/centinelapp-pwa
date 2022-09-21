@@ -13,6 +13,10 @@ export function Navbar(){
         e.preventDefault();
         navigate(`/publicaciones`)
     }
+    function perfil(e){ 
+        e.preventDefault();
+        navigate(`/perfil`)
+    }
     return(
         <div className='App'>
     
@@ -35,8 +39,9 @@ export function Navbar(){
                 <img src='./images/navbar/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='calendario'/>
             </div>
             <div className="person">
-                
+            <button onClick={perfil} className="btn-nav"> 
                 <img src='./images/navbar/person.svg' onerror="this.onerror=null; this.src='person.png'" alt='persona'/>
+            </button>
             </div>
             </div>
             

@@ -20,8 +20,8 @@ h2{
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 23px;
     display: flex;
     align-items: center;
 
@@ -29,6 +29,7 @@ h2{
 
     color: #292929;
     margin-left: 3%;
+    margin-bottom: 3%;
 }
 h3{
     font-family: 'Ubuntu';
@@ -53,6 +54,18 @@ h4{
     margin-left: 3%;
     margin: 1%;
     margin: 3%;
+
+}
+h5{
+    color: #292929;
+    font-family: 'Jost';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 52px;
+    margin-left: 3%;
+    margin-top: 0.1%;
+    
 
 }
 .swal-title {
