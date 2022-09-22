@@ -1,8 +1,9 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-
+import { onListScouts } from "../store";
+import { useDispatch } from "react-redux"
 export const useScoutStore = () => {
-  
+    const dispatch = useDispatch()
     const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
         console.log({ nombre, apellido, email, fecha_nacimiento, celular, rama})
 
@@ -38,5 +39,20 @@ export const useScoutStore = () => {
 
     }
 
-    return { startCrearScout }
+    const startListScouts= async() => {
+
+        try {
+          
+          const { data } = await CentinelApi.get('scouts/allScouts');
+          console.log(data)
+          dispatch( onListScouts( data.scouts_) )
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    
+
+    return { startCrearScout, startListScouts }
 }

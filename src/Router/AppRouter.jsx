@@ -46,7 +46,7 @@ export const AppRouter = () => {
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
                         <Route path="/load" element={ <Loading/>}/>
-                        <Route path="/perfil" element={<Perfil/>}/>
+                        
                         <Route path="/act-perfil" element={<ActPerfil/>}/>
                         <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
@@ -62,6 +62,8 @@ export const AppRouter = () => {
             <Routes>
                 <Route path="/" element={ <HomeScout/> }/>
                 <Route path="/*" element={ <Navigate to="/"/> }/> 
+                <Route path="/perfil" element={<Perfil/>}/>
+                <Route path="/act-perfil" element={<ActPerfil/>}/>
             </Routes>
             )
             
