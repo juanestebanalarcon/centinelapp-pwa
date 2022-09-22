@@ -41,23 +41,23 @@ export const Perfil= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
-        <h1>Hola, {scoutActual.nombre}</h1>
+        <h1>Hola, {scoutActual?.nombre}</h1>
         <h2>Aqui estan tus datos personales</h2>
  
         <h3>Nombre</h3>
-        <h5>{scoutActual.nombre}</h5>
+        <h5>{scoutActual?.nombre}</h5>
 
         <h3>Apellido</h3>
-        <h5>{scoutActual.apellido}</h5>
+        <h5>{scoutActual?.apellido}</h5>
 
         <h3>Email</h3>
-        <h5>{scoutActual.email}</h5>
+        <h5>{scoutActual?.email}</h5>
 
         <h3>Fecha de nacimiento</h3>
-        <h5>{scoutActual.fecha_nacimiento}</h5>
+        <h5>{scoutActual?.fecha_nacimiento}</h5>
 
         <h3>Numero de celular</h3>
-        <h5>{scoutActual.celular}</h5>
+        <h5>{scoutActual?.celular}</h5>
 
         <h3>Rama actual</h3>
         <h5>Cachorros</h5>
