@@ -60,7 +60,8 @@ export const AppRouter = () => {
             return(
 
             <Routes>
-            <Route path="/" element={ <HomeScout/> }/>
+                <Route path="/" element={ <HomeScout/> }/>
+                <Route path="/*" element={ <Navigate to="/"/> }/> 
             </Routes>
             )
             
