@@ -41,6 +41,7 @@ export const AppRouter = () => {
             <Routes>
                 <Route path="/login" element={ <Login/> }/>
                 <Route path="/*" element={ <Layout/> }/> 
+                <Route path="/load" element={ <Loading/>}/>
             </Routes>
         )
     }else{
@@ -54,7 +55,7 @@ export const AppRouter = () => {
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
-                        <Route path="/load" element={ <Loading/>}/>
+                        
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
                         <Route path="/act-perfil" element={<ActPerfil/>}/>
                         <Route path="/cambio-contrasena" element={<CamContrasena/>}/>

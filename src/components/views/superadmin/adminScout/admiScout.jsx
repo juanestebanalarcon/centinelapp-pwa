@@ -1,5 +1,6 @@
 import { Navbar } from "../../../navbar"
 import "../../../../styles/styles.css"
+import "../../../../styles/admiscout.css"
 import { Header } from "../../../header"
 import { useAuthStore} from "../../../../Hooks/useAuthStore"
 import { useSelector } from 'react-redux'
@@ -21,7 +22,11 @@ export const AdminScouts= ()=>{
         <Header/>
         <h1>Administrar scouts</h1>
         <h3>Hola Usuario, usando esta tabla podras administrar los scouts creados en el sistema</h3>
-        <div>
+        <div className="cab-tabla-scout">
+            <h3 className="cabtabla">Nombre</h3>
+
+        </div>
+        <div className="tabla-scout">
         {
             
             scouts.map((scout) => (

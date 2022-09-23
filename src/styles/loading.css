@@ -7,6 +7,10 @@
     height: 100vh;
     flex-direction: column;
 }
-svg.MuiCircularProgress-svg.css-1idz92c-MuiCircularProgress-svg {
-color: #C1121F;
+
+
+span.MuiLinearProgress-root.MuiLinearProgress-colorPrimary.MuiLinearProgress-indeterminate.css-eglki6-MuiLinearProgress-root {
+    width: 80%;
+    margin-top: 10%;
+    color: #C1121F;
 }
