@@ -52,7 +52,22 @@ export const useScoutStore = () => {
         }
     
       }
+
+      const startupdateScout= async() => {
+
+        try {
+          
+          const { data } = await CentinelApi.get('scouts/allScouts');
+          console.log(data)
+          dispatch( onListScouts( data.scouts_) )
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    
     
 
-    return { startCrearScout, startListScouts }
+    return { startCrearScout, startListScouts,startupdateScout }
 }
