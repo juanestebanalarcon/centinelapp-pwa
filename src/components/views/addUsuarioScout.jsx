@@ -35,8 +35,8 @@ export const AddUsuarioFicha= ()=>{
 
     const onSubmit = (e)=>{
       e.preventDefault();
-      const rama = document.getElementById('rama').value;
-      if(nombre ==='' || apellido===''|| email==='' || fecha_nacimiento==='' || celular===''|| rama===''){
+      const idRama = document.getElementById('rama').value;
+      if(nombre ==='' || apellido===''|| email==='' || fecha_nacimiento==='' || celular===''|| idRama===''){
         swal({
           title: "Ingrese los campos obligatorios",
           icon: "warning"
@@ -50,7 +50,7 @@ export const AddUsuarioFicha= ()=>{
       
       //console.log({nombre, apellido, correo, fechaNacimiento, celular})
       
-      startCrearScout({nombre, apellido, email, fecha_nacimiento, celular, rama})
+      startCrearScout({nombre, apellido, email, fecha_nacimiento, celular, idRama})
     }
 
     

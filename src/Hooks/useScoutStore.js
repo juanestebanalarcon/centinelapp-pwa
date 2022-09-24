@@ -4,14 +4,14 @@ import { onListScouts } from "../store";
 import { useDispatch } from "react-redux"
 export const useScoutStore = () => {
     const dispatch = useDispatch()
-    const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
-        console.log({ nombre, apellido, email, fecha_nacimiento, celular, rama})
+    const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, idRama }) => {
+        console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
 
         let link_ficha_medica='no tiene'
         
         
         try {
-            const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, rama, link_ficha_medica})
+            const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica})
             console.log(data)
             
             swal({
