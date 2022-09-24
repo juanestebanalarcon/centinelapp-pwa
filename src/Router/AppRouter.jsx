@@ -17,6 +17,7 @@ import { HomeAcudiente } from "../components/views/acudiente/home"
 import { AdminScouts } from "../components/views/superadmin/adminScout/admiScout"
 import { MostrarScout } from "../components/views/superadmin/mostrarScout"
 import { ActPerfilScout } from "../components/views/superadmin/act-perfil"
+import { AddUsuarioAcudiente } from "../components/views/addUsuarioAcudiente"
 
 export const AppRouter = () => {
 
@@ -55,7 +56,7 @@ export const AppRouter = () => {
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
-                        
+                        <Route path="/addAcudiente" element={<AddUsuarioAcudiente/>}/>
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
                         <Route path="/act-perfil" element={<ActPerfil/>}/>
                         

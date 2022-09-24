@@ -14,6 +14,10 @@ export const HomeSuperAd= ()=>{
         e.preventDefault();
         navigate(`/adminscouts`)
     }
+    function acudiente(e){ 
+        e.preventDefault();
+        navigate(`/addAcudiente`)
+    }
     
     function scout(e){ 
         e.preventDefault();
@@ -47,6 +51,7 @@ export const HomeSuperAd= ()=>{
         <SelectCreacion nombre="Administrar scouts" desc="Consulta y edita los datos" onClick={admiScout}/>
         <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo scout" onClick={scout}/>
         <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo administrador" onClick={administrador}/>
+        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo acudiente" onClick={acudiente}/>
         <SelectCreacion nombre="Crear una nueva rama" desc="Crea una nueva rama" onClick={rama}/>
        
         
