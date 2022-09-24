@@ -55,7 +55,7 @@ export const MostrarScout= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
-        <h1>Datos personales</h1>
+        <h1>Usuario:{`${scoutActual?.nombre} ${scoutActual?.apellido}`}</h1>
         
  
         <h3>Nombre</h3>
@@ -76,8 +76,8 @@ export const MostrarScout= ()=>{
         <h3>Rama actual</h3>
         <h5>Cachorros</h5>
 
-        <h3>Estado</h3>
-        <h5>{activos()}</h5>        
+        <h3>Ficha Medica</h3>
+        <h5>Descargar</h5>        
         <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
 
       

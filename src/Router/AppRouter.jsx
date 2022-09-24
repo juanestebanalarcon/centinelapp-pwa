@@ -58,7 +58,7 @@ export const AppRouter = () => {
                         
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
                         <Route path="/act-perfil" element={<ActPerfil/>}/>
-                        <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
+                        
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
                         <Route path="/adminscouts" element={<AdminScouts/>}/>
@@ -84,6 +84,7 @@ export const AppRouter = () => {
                 <Route path="/*" element={ <Navigate to="/"/> }/> 
                 <Route path="/perfil" element={<PerfilScout/>}/>
                 <Route path="/act-perfil" element={<ActPerfil/>}/>
+                <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
             </Routes>
             )
             

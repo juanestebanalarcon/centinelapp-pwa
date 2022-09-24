@@ -1,12 +1,13 @@
-.tabla-scout{
+.tabla-scout {
     background: #EEEEEE;
-border-radius: 15px;
-display: flex;
-flex-direction: column;
-margin: 3%;
-margin-top:0;
-border-top-left-radius:0 ;
-border-top-right-radius: 0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 2%;
 }
 .cab-tabla-scout{
     background: #C1121F;
@@ -18,18 +19,49 @@ border-top-right-radius: 0;
     display: flex;
     padding: auto;
 }
-h3.cabtabla{
-    /* Titulos/Titulo2 */
+h3.cabtabla {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    color: #FAFAFA;
+    margin: 2%;
+    padding: 2%;
+    width: 60%;
+}
 
-font-family: 'Jost';
+h4.cabtabla{
+    font-family: 'Ubuntu';
 font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 35px;
+font-weight: 400;
+font-size: 1em;
+line-height: 18px;
 display: flex;
 align-items: center;
 
 /* Complementos/Blanco/Blanco3 */
 
 color: #FAFAFA;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.conten-linea{
+    display: flex;
+    flex-direction: row;
+}
+.conten-linea h3 {
+    width: 70%;
+    margin: 2%;
+}
+.conten-linea img{
+    width: 70%;
+}
+.conten-linea h3{
+    width: 70%;
+}
+.conten-linea button{
+    border: 0;
 }

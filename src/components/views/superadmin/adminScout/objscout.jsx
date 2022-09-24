@@ -16,9 +16,8 @@ export const ObjScout= ({scout})=>{
     return(
     <div className="conten-linea">
         <h3>{`${scout.nombre} ${scout.apellido}` }</h3>
-        <button onClick={redireccion}>vermas</button>
-                        
-                   
+        <button onClick={redireccion}><img src="https://i.ibb.co/pQPsNw6/akar-icons-more-horizontal.png" alt="akar-icons-more-horizontal" border="0"/></button>
+        
     </div>
             
     )

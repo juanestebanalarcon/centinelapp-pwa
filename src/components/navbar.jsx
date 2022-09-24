@@ -24,23 +24,26 @@ export function Navbar(){
         <div className='Iconos-Navbar'>
             <div className="home" href="/home">
                <button onClick={home} className="btn-nav"> 
-               <img src='./images/navbar/home.svg' onerror="this.onerror=null; this.src='home.png'"  alt='home'/>
+               <img src='https://i.ibb.co/Lry8W0s/ci-home-alt-fill-1.png' alt='home'/>
+               
                </button>
             </div>
             <div className="messages">
             <button onClick={messages} className="btn-nav"> 
-            <img src='./images/navbar/messages.svg' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje'/>
+            <img src='https://i.ibb.co/8mmRVPn/jam-messages-f-1.png' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje'/>
+            
                </button>
                 
                 
             </div>
             <div className="calendar">
-                
-                <img src='./images/navbar/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='calendario'/>
+            
+                <img src='https://i.ibb.co/Q8CvB2v/calendar.png' alt='calendario'/>
             </div>
             <div className="person">
             <button onClick={perfil} className="btn-nav"> 
-                <img src='./images/navbar/person.svg' onerror="this.onerror=null; this.src='person.png'" alt='persona'/>
+                <img src='https://i.ibb.co/6wW5Q1m/bi-person-fill-2.png' alt='persona'/>
+                
             </button>
             </div>
             </div>

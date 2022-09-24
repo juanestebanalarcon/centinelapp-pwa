@@ -4,25 +4,11 @@ import { Navbar } from "../../navbar"
 import "../../../styles/styles.css"
 import { Header } from "../../header"
 
-import { SelectCreacion } from "../../selectCreacion"
-import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 export const HomeScout= ()=>{
-    const navigate = useNavigate();
     
-    function scout(e){ 
-        e.preventDefault();
-        navigate(`/addScout`)
-    }
-    function administrador(e){ 
-        e.preventDefault();
-        navigate(`/addAdministrador`)
-    }
-    function rama(e){ 
-        e.preventDefault();
-        navigate(`/addRama`)
-    }
+   
 
     return(
     <div className="contenido">
@@ -38,11 +24,6 @@ export const HomeScout= ()=>{
                     calendario='09-09-2022'/>
         <h1>Siguiente evento</h1>
         <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima'/>
-        <h1>Acciones</h1>
-        <h3>Estas son las acciones que puedes hacer como super-administrador</h3>
-        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo scout" onClick={scout}/>
-        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo administrador" onClick={administrador}/>
-        <SelectCreacion nombre="Crear una nueva rama" desc="Crea una nueva rama" onClick={rama}/>
        
         
         </div>

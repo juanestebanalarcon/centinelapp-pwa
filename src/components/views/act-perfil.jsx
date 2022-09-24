@@ -42,17 +42,17 @@ export const ActPerfil= ()=>{
         <h2>Aqui estan tus datos personales</h2>
  
         <h3>Nombre</h3>
-        <InputD name='nombre' value="nombre" type="text" ></InputD>
+        <Input name='nombre' value="nombre" type="text" ></Input>
         
 
         <h3>Apellido</h3>
-        <InputD name='apellido' value="apellido" type="text" ></InputD>
+        <Input name='apellido' value="apellido" type="text" ></Input>
 
         <h3>Email</h3>
-        <InputD name='correo' value="holi@gmail.com" type="text" ></InputD>
+        <Input name='correo' value="holi@gmail.com" type="text" ></Input>
 
         <h3>Fecha de nacimiento</h3>
-        <InputD name='nacimiento' value="Nov 28 2003" type="text" ></InputD>
+        <Input name='nacimiento' value="Nov 28 2003" type="text" ></Input>
 
         <h3>Numero de celular</h3>
         <h5>3330000000</h5>
@@ -62,8 +62,7 @@ export const ActPerfil= ()=>{
         
         <Button type="submit" variant="contained" color="primary">Guardar</Button>
         <Button type="submit" variant="contained" color="primary" onClick={cambiocontra}>Cambiar Contraseña</Button>
-        <Button variant="outlined" color="primary" >Cerrar sesión</Button>
-      
+       
         </div>
         </div>
         <Navbar/>
