@@ -95,6 +95,7 @@ export const AppRouter = () => {
             <Routes>
             <Route path="/perfil" element={ <PerfilAcudiente/>}/>
             <Route path="/" element={ <HomeAcudiente/> }/>
+            <Route path="/*" element={ <Navigate to="/"/> }/> 
 
             </Routes>
             )
