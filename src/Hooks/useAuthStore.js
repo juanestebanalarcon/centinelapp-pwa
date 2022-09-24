@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { CentinelApi } from "../Api"
 import { clearErrorMessage, onChecking, onLogin, onLogout} from "../store";
-
+import swal from 'sweetalert';
 export const useAuthStore = () => {
 
     const { status, user, errorMessage } = useSelector( state => state.auth);
@@ -50,7 +50,11 @@ export const useAuthStore = () => {
             
 
         } catch (error) {
-           
+            swal({
+                title: "Error",
+                text: "Credenciales incorrectas",
+                icon: "error",
+              });
             dispatch( onLogout('Credenciales incorrectas') );
 
             setTimeout(() =>{
