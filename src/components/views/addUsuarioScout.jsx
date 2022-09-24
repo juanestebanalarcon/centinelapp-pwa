@@ -6,7 +6,7 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 import { Select } from "../select"
-import { useEffect, useRef } from 'react'
+import { useEffect} from 'react'
 import { useForm, useRamasStore, useScoutStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';

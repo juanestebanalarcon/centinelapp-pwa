@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+
 import '../styles/input.css'
 export function Select(props){
 

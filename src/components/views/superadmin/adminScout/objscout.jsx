@@ -1,7 +1,4 @@
-import { Navbar } from "../../../navbar"
 import "../../../../styles/styles.css"
-import { Header } from "../../../header"
-
 import { useNavigate } from 'react-router-dom';
 
 export const ObjScout= ({scout})=>{

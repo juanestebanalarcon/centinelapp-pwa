@@ -1,5 +1,4 @@
 
-import CircularProgress from '@mui/material/CircularProgress';
 import '../../styles/loading.css'
 import LinearProgress from '@mui/material/LinearProgress';
 

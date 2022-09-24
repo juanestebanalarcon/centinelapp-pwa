@@ -2,9 +2,9 @@ import { Navbar } from "../../../navbar"
 import "../../../../styles/styles.css"
 import "../../../../styles/admiscout.css"
 import { Header } from "../../../header"
-import { useAuthStore} from "../../../../Hooks/useAuthStore"
+
 import { useSelector } from 'react-redux'
-import { seForm, useRamasStore, useScoutStore } from '../../../../Hooks';
+import { useRamasStore, useScoutStore } from '../../../../Hooks';
 import React, { useEffect } from 'react'
 import { ObjScout } from "./objscout"
 import { Select } from "../../../select"

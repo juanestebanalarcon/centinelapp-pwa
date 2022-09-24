@@ -1,18 +1,14 @@
-import { Input } from "../../input"
 import { Navbar } from "../../navbar"
 import Button from '@mui/material/Button'
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
-import { useForm, useRamaStore} from "../../../Hooks"
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import { Header } from "../../header"
-import { useAuthStore} from "../../../Hooks/useAuthStore"
 import { useSelector } from 'react-redux'
 import { useScoutStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect} from 'react'
 
 
 export const MostrarScout= ()=>{
@@ -28,15 +24,7 @@ export const MostrarScout= ()=>{
    
     
     const { startListScouts } = useScoutStore();
-    function activos(){
-        let estado= scoutActual?.esActivo
-        if(estado){
-            return "valido";
-        }else{
-            return "no valido"
-        }
-    }
-
+ 
   
     const navigate = useNavigate();
     

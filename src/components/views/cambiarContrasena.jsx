@@ -4,32 +4,20 @@ import Button from '@mui/material/Button'
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
-import { useForm, useRamaStore} from "../../Hooks"
-import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
+
+
 import { Header } from "../header"
-import { useAuthStore} from "../../Hooks/useAuthStore"
-import { InputD } from "../input-d"
+
 
 
 
 export const CamContrasena= ()=>{
     
   
-    const navigate = useNavigate();
-    
-    function redirect(e){ 
-        e.preventDefault();
-        navigate(`/home`)
-    }
 
-    function cambiocontra(e){ 
-        e.preventDefault();
-        navigate(`/cambio-contrasena`)
-    }
-    const onSubmit = (e)=>{
-       
-      }
+    
+    
+   
   
     
     return(

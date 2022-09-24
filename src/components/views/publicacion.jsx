@@ -8,7 +8,7 @@ import { Header } from "../header"
 import { SelectCreacion } from "../selectCreacion"
 import { useRamasStore } from "../../Hooks"
 import { useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react'
+import { useEffect} from 'react'
 
 export const PublicacionGeneral= ()=>{
 

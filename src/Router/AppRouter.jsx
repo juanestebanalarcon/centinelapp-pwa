@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
-import { AddRama, AddUsuario, AddUsuarioFicha,  Home, Login, PublicacionGeneral } from "../components/views"
+import { AddRama, AddUsuario, AddUsuarioFicha, Login, PublicacionGeneral } from "../components/views"
 import { ActPerfil } from "../components/views/act-perfil"
 import { PerfilAcudiente } from "../components/views/acudiente/perfil"
 import { PerfilAdmin } from "../components/views/admin/perfil"
@@ -74,6 +74,7 @@ export const AppRouter = () => {
             <Route path="/perfil" element={ <PerfilAdmin/>}/>
             <Route path="/" element={ <HomeAdmin/> }/>
             <Route path="/*" element={ <Navigate to="/"/> }/> 
+            <Route path="/adminscouts" element={<AdminScouts/>}/>
             </Routes>
             )
     

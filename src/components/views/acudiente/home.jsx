@@ -4,15 +4,10 @@ import { Navbar } from "../../navbar"
 import "../../../styles/styles.css"
 import { Header } from "../../header"
 
-import { SelectCreacion } from "../../selectCreacion"
-import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 export const HomeAcudiente= ()=>{
     
-
-   
-   
 
     return(
         <div className="contenido">

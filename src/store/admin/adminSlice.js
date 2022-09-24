@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const scoutSlice = createSlice({
-      name: 'Scout',
+export const adminSlice = createSlice({
+      name: 'Admin',
       initialState:{
-         scouts: [],
+         admins: [],
          errorMessage: null,
       },
       reducers:{
-           onListScouts:(state, {payload=[]})=>{
-            state.scouts=payload;
+            onListAdmin:(state, {payload=[]})=>{
+            state.admins=payload;
            }
        }
 })
 
-export const { onListScouts } = scoutSlice.actions
+export const { onListAdmin } = adminSlice.actions

@@ -1,6 +1,6 @@
 
 import { Input } from "../input"
-import { useNavigate } from 'react-router-dom';
+
 import swal from 'sweetalert';
 
 import Button from '@mui/material/Button'
@@ -17,7 +17,6 @@ const login = {
 }
 
 export const Login= ()=>{
-    const navigate = useNavigate();
     
     // function ingreso(e){ 
     //     e.preventDefault();
@@ -30,7 +29,7 @@ export const Login= ()=>{
     const onSubmit = (e)=>{
         e.preventDefault();
         const tipo = parseInt(document.getElementById('tipo').value);
-        if(email==='' || password==''){
+        if(email==='' || password===''){
             swal({
                 title: "Ingrese los campos obligatorios",
                 icon: "warning"
