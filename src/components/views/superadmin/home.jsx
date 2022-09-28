@@ -8,8 +8,18 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
+import { useSelector } from 'react-redux';
+import { useSuperAdminStore } from '../../../Hooks';
+import React, { useEffect } from "react";
 export const HomeSuperAd= ()=>{
     const navigate = useNavigate();
+    const {user} = useSelector(state=>state.auth);
+    //const { superadmins } = useSelector(state => state.superAdmin);
+   // const scoutActual = superadmins.find(superAd => superAd._id === user.uid);
+    const { startListSuperAdmin } = useSuperAdminStore();
+    
+    //console.log(scoutActual)
+
     function admiScout(e){ 
         e.preventDefault();
         navigate(`/adminscouts`)
@@ -31,6 +41,9 @@ export const HomeSuperAd= ()=>{
         e.preventDefault();
         navigate(`/addRama`)
     }
+    useEffect(()=>{
+        startListSuperAdmin()
+    },[])
 
     return(
     <div className="contenido">

@@ -12,12 +12,16 @@ export const useRamasStore = () => {
             
             const { data } = await CentinelApi.get('rama/AllRamas');
             dispatch(ListarRamas(data.ramas_));
+            
+            
 
         } catch (error) {
           console.log(error);  
         }
 
     }
+
+    
 
     return{ startListarRamas }
 }

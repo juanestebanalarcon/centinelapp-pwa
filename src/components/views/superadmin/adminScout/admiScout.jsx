@@ -8,12 +8,33 @@ import { useRamasStore, useScoutStore } from '../../../../Hooks';
 import React, { useEffect } from 'react'
 import { ObjScout } from "./objscout"
 import { Select } from "../../../select"
+import { SelectRama } from "../../../selectRama"
+import { Button } from "@mui/material"
 
 export const AdminScouts= ()=>{
     const { scouts } = useSelector(state => state.scout);
     const { startListScouts } = useScoutStore();
     const { startListarRamas } = useRamasStore();
+    const { startListarRamasSelect } = useScoutStore();
     console.log(scouts)
+
+    const buscar = (e)=>{
+        e.preventDefault();
+       
+        const id=document.getElementById("rama").value
+  
+        console.log(id)
+        if(id==''){
+            startListScouts()
+
+        }else{
+        startListarRamasSelect({id})
+    }
+       
+     
+        
+
+      }
     useEffect(() => {
         startListScouts()
         startListarRamas()
@@ -25,13 +46,17 @@ export const AdminScouts= ()=>{
         <Header/>
         <h1>Administrar scouts</h1>
         <h3>Hola Usuario, usando esta tabla podras administrar los scouts creados en el sistema</h3>
-        <Select id='rama' placeholder="Selecciona una opción" />
+        <div className="filtro-rama">
+        <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
+        <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa"/></Button>
+        </div>
+        
         <div className="cab-tabla-scout">
             <h3 className="cabtabla">Nombre</h3>
             <h4 className="cabtabla">Ver mas</h4>
 
         </div>
-        <div className="tabla-scout">
+        <div id="tabla-scouts" className="tabla-scout">
         {
             
             scouts.map((scout) => (
@@ -45,6 +70,7 @@ export const AdminScouts= ()=>{
             ))
                 }
                 </div>
+            <div id="holi"></div>
        
         
         </div>

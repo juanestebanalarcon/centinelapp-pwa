@@ -3,17 +3,17 @@ import swal from 'sweetalert';
 import { onListSuperAdmin } from "../store";
 import { useDispatch } from "react-redux"
 
-export const useAcudienteStore = () => {
+export const useSuperAdminStore = () => {
     const dispatch = useDispatch()
   
     
-    const startListSperAdmin= async() => {
+    const startListSuperAdmin= async() => {
 
         try {
           
-          const { data } = await CentinelApi.get('acudientes/allAcudientes');
+          const { data } = await CentinelApi.get('superAdmin/allSuperAdmins');
           console.log(data)
-          dispatch( onListSuperAdmin( data.acudiente_) )
+          dispatch( onListSuperAdmin( data.SuperAdministradors_) )
     
         } catch (error) {
           console.log(error)
@@ -24,5 +24,5 @@ export const useAcudienteStore = () => {
 
 
 
-    return { startListSperAdmin}
+    return { startListSuperAdmin}
 }

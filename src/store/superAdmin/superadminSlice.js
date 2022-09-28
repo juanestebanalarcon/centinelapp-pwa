@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const superadminSlice = createSlice({
-      name: 'superAdmin',
+      name: 'SuperAdmin',
       initialState:{
          superadmins: [],
          errorMessage: null,
