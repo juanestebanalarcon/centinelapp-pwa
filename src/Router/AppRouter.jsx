@@ -18,6 +18,7 @@ import { AdminScouts } from "../components/views/superadmin/adminScout/admiScout
 import { MostrarScout } from "../components/views/superadmin/mostrarScout"
 import { ActPerfilScout } from "../components/views/superadmin/act-perfil"
 import { AddUsuarioAcudiente } from "../components/views/addUsuarioAcudiente"
+import { AddUser } from "../components/views/superadmin/addUser"
 
 export const AppRouter = () => {
 
@@ -52,7 +53,7 @@ export const AppRouter = () => {
 
                 <Routes>
                         <Route path="/" element={ <HomeSuperAd/> }/>
-                        
+                        <Route path="/addUser" element={<AddUser/>}/>
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>

@@ -68,10 +68,11 @@ button.subir-imagen {
 }
 
 #maxedad{
-    width: 50%;
+    width: 45%;
+    margin-right: 6%;
 }
 #minedad{
-    width: 50%;
+    width: 45%;
 }
 .rama-in{
     display: flex;

@@ -14,11 +14,7 @@ import React, { useEffect } from "react";
 export const HomeSuperAd= ()=>{
     const navigate = useNavigate();
     const {user} = useSelector(state=>state.auth);
-    //const { superadmins } = useSelector(state => state.superAdmin);
-   // const scoutActual = superadmins.find(superAd => superAd._id === user.uid);
-    const { startListSuperAdmin } = useSuperAdminStore();
     
-    //console.log(scoutActual)
 
     function admiScout(e){ 
         e.preventDefault();
@@ -41,9 +37,11 @@ export const HomeSuperAd= ()=>{
         e.preventDefault();
         navigate(`/addRama`)
     }
-    useEffect(()=>{
-        startListSuperAdmin()
-    },[])
+    function registrar(e){
+        e.preventDefault();
+        navigate(`/addUser`)
+    }
+  
 
     return(
     <div className="contenido">
@@ -51,7 +49,7 @@ export const HomeSuperAd= ()=>{
         <Navbar/>
         <Header/>
         <h1>Inicio</h1>
-        <h3>Hola Usuario, en este menu podras ver lo ultimo en tu feed</h3>
+        <h3>Hola {user?.nombre}, en este menu podras ver lo ultimo en tu feed</h3>
         <h1>Ultimas publicaciones</h1>
         <Publicacion titulo="Crear nuevo scout" 
                     conte='Corrupti iste quo quod sapiente quaerat ullam iure voluptate. Consequuntur perspiciatis sit ut amet nihil adipisci. Tempore beatae facere perferendis sapiente possimus itaque sapiente tempora repellat...'
@@ -61,10 +59,9 @@ export const HomeSuperAd= ()=>{
         <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima'/>
         <h1>Acciones</h1>
         <h3>Estas son las acciones que puedes hacer como super-administrador</h3>
-        <SelectCreacion nombre="Administrar scouts" desc="Consulta y edita los datos" onClick={admiScout}/>
-        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo scout" onClick={scout}/>
-        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo administrador" onClick={administrador}/>
-        <SelectCreacion nombre="Registrar usuario" desc="Registra un nuevo acudiente" onClick={acudiente}/>
+        <SelectCreacion nombre="Gestionar scouts" desc="Consulta y edita los datos" onClick={admiScout}/>
+        <SelectCreacion nombre="Registrar usuario" desc="Registrar un nuevo usuario" onClick={registrar}/>
+        
         <SelectCreacion nombre="Crear una nueva rama" desc="Crea una nueva rama" onClick={rama}/>
        
         

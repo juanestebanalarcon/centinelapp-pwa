@@ -26,8 +26,15 @@ export const AddUsuarioFicha= ()=>{
 
     const { startCrearScout } = useScoutStore();
     const { startListarRamas } = useRamasStore();
+    // const [ link_ficha_medica, setlink_ficha_medica ] = useState('');
     const navigate = useNavigate();
-    
+
+
+
+    // const onFileInputChange  = async({ target }) =>{
+    //   if( target.files === 0 ) return;
+    //   setlink_ficha_medica( await startUploadingImages( target.files ));
+    // }
     function redirect(e){ 
         e.preventDefault();
         navigate(`/home`)
@@ -45,6 +52,15 @@ export const AddUsuarioFicha= ()=>{
 
        return ;
         
+      }else{
+        if(celular <= 0){
+          swal({
+            title: "Ingrese un numero de celular valido",
+            icon: "warning"
+            
+          });
+
+        }
       }
 
       
@@ -79,6 +95,15 @@ export const AddUsuarioFicha= ()=>{
           <Input name='fecha_nacimiento' value={ fecha_nacimiento } onChange={ onInputChange } placeholder="Fecha de nacimiento" type="date" />
           <h3>Numero celular*</h3>
           <Input name='celular' value={ celular } onChange={ onInputChange } placeholder="Numero de celular" type="number" />
+          {/* <h3>Ficha medica*</h3> */}
+          {/* <input
+              type="file"
+              accept=".pdf, .doc"
+              onChange={  onFileInputChange }
+              value={ link_ficha_medica}
+              ref = { fileInputRef }
+              style={{ display : 'none' }}
+            /> */}
           <Button type="submit" variant="contained" color="primary">Crear</Button>
           <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
         </form>

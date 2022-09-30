@@ -13,10 +13,12 @@ import { Button } from "@mui/material"
 
 export const AdminScouts= ()=>{
     const { scouts } = useSelector(state => state.scout);
+    const {user} = useSelector(state=>state.auth);
     const { startListScouts } = useScoutStore();
     const { startListarRamas } = useRamasStore();
     const { startListarRamasSelect } = useScoutStore();
-    console.log(scouts)
+    
+    console.log(scouts.length)
 
     const buscar = (e)=>{
         e.preventDefault();
@@ -29,6 +31,9 @@ export const AdminScouts= ()=>{
 
         }else{
         startListarRamasSelect({id})
+        if(scouts.length===0){
+            console.log('no tiene ejdjd')
+        }
     }
        
      
@@ -44,8 +49,8 @@ export const AdminScouts= ()=>{
      <div className="conte-general-home">
         <Navbar/>
         <Header/>
-        <h1>Administrar scouts</h1>
-        <h3>Hola Usuario, usando esta tabla podras administrar los scouts creados en el sistema</h3>
+        <h1>Gestionar scouts</h1>
+        <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
         <div className="filtro-rama">
         <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
         <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa"/></Button>
@@ -70,7 +75,7 @@ export const AdminScouts= ()=>{
             ))
                 }
                 </div>
-            <div id="holi"></div>
+         
        
         
         </div>

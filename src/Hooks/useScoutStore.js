@@ -74,8 +74,11 @@ export const useScoutStore = () => {
             
             const { data } = await CentinelApi.get(`rama/getScoutsAsignados/${id}`);
             console.log(data)
+            if(data.rama.Scout.length===0){
+              document.getElementById('tabla-scouts').innerHTML='No existen scouts registrados en esta rama'
+            }else{
             dispatch(onListScouts( data.rama.Scout))
-           
+          }
           } catch (error) {
           console.log(error);  
         }

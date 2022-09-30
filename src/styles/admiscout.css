@@ -8,6 +8,13 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding: 2%;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #292929;
+    
 }
 .cab-tabla-scout{
     background: #C1121F;

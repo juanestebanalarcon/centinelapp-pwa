@@ -19,7 +19,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
             console.log(data)
-            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: tipo }) );
+            dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo }) );
             }
 
             else if(tipo=== 1 ){
@@ -99,7 +99,7 @@ export const useAuthStore = () => {
             const { data } = await CentinelApi.get('admin/',{ token });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: data.rol}) );
+            dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: data.rol}) );
 
         } catch (error) {
             localStorage.clear();
