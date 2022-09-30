@@ -1,5 +1,4 @@
 import { CentinelApi } from "../Api"
-import swal from 'sweetalert';
 import { onListSuperAdmin } from "../store";
 import { useDispatch } from "react-redux"
 

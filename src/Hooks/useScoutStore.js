@@ -2,7 +2,7 @@ import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
 import { onListScouts } from "../store";
 import { useDispatch } from "react-redux"
-import { ContactsOutlined } from "@mui/icons-material";
+
 export const useScoutStore = () => {
     const dispatch = useDispatch()
     const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, idRama }) => {

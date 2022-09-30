@@ -3,15 +3,15 @@ import Button from '@mui/material/Button'
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
-
 import { Header } from "../../header"
 import { useAuthStore} from "../../../Hooks/useAuthStore"
 
 import React from 'react'
+import { useSelector } from "react-redux"
 
 export const PerfilSuperAdmin= ()=>{
     const { startLogout } = useAuthStore();
-    // const {user} = useSelector(state=>state.auth);
+    const {user} = useSelector(state=>state.auth);
     // const { scouts } = useSelector(state => state.scout);
     // const scoutActual = scouts.find(scout => scout._id === user.uid);
     // console.log(scoutActual)
@@ -37,8 +37,8 @@ export const PerfilSuperAdmin= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
-        {/* <h1>Hola, {scoutActual?.nombre}</h1>
-        <h2>Aqui estan tus datos personales</h2>
+        <h1>Hola, {user?.nombre}</h1>
+        {/* <h2>Aqui estan tus datos personales</h2>
  
         <h3>Nombre</h3>
         <h5>{scoutActual?.nombre}</h5>

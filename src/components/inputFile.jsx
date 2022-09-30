@@ -1,11 +1,11 @@
 import '../styles/inputFile.css'
-export function InputFile(){
+export function InputFile() {
 
-    
-    return(
+
+    return (
         <div className='ff'>
-        <input type="file" name="file" id="file" class="inputfile" />
-        <label for="file">Choose a file</label>
+            <input type="file" name="file" id="file" class="inputfile" />
+            <label for="file">Choose a file</label>
         </div>
     )
 }

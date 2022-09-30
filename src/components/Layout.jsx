@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 export default function Layout(props) {
   const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
   const navigate = useNavigate();
-    
-    function inicio(e){ 
-        e.preventDefault();
-        navigate(`/login`)
-    }
+
+  function inicio(e) {
+    e.preventDefault();
+    navigate(`/login`)
+  }
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (event) => {
       // Prevent the mini-infobar from appearing on mobile.
@@ -45,18 +45,18 @@ export default function Layout(props) {
   return (
     <div className="App">
       <div className="inicio">
-      <img classname="imgbtn" src='./images/inicio/logo.svg' onerror="this.onerror=null; this.src='logo.png'"  alt='home'/>
+        <img classname="imgbtn" src='./images/inicio/logo.svg' onerror="this.onerror=null; this.src='logo.png'" alt='home' />
         <h1> CENTINELAPP</h1>
         {isReadyForInstall && (
           <Button type="submit" onClick={downloadApp} variant="contained" color="primary">Descargar</Button>
         )}
-      
 
-      <div>
-      <Button type="submit" onClick={inicio} variant="contained" color="primary">Inicio</Button>
+
+        <div>
+          <Button type="submit" onClick={inicio} variant="contained" color="primary">Inicio</Button>
+        </div>
+
       </div>
-
-    </div>
     </div>
   );
 }
