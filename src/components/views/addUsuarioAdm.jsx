@@ -88,7 +88,7 @@ export const AddUsuario = () => {
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del scout" type="text" />
             <h3>Apellido*</h3>
             <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del scout" type="text" />
-            <h3>Correo electronico*</h3>
+            <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Asignar rama*</h3>
 

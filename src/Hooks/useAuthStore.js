@@ -12,7 +12,7 @@ export const useAuthStore = () => {
         dispatch( onChecking() );
 
         try {
-            console.log(tipo)
+            // console.log(tipo)
             if(tipo=== 0 ){
                 
             const { data } = await CentinelApi.post('superAdmin/log-in-superAdmin',{ email, password });
@@ -28,20 +28,20 @@ export const useAuthStore = () => {
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
             console.log(data)
-            dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: tipo }) );
+            dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo }) );
             }else if(tipo=== 2 ){
                 const { data } = await CentinelApi.post('scouts/log-in-scout',{ email, password });
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('token-init-date', new Date().getTime() );
                 console.log(data)
-                dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: tipo }) );
+                dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo }) );
 
             }else if(tipo=== 3 ){
                 const { data } = await CentinelApi.post('acudientes/log-in-acudiente',{ email, password });
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('token-init-date', new Date().getTime() );
                 console.log(data)
-                dispatch( onLogin({ name: data.name, uid: data.uid, email: data.email, rol: tipo}) );
+                dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo}) );
 
             }else{
                 dispatch( onLogout() ) 

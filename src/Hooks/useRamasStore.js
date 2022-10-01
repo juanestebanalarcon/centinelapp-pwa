@@ -35,11 +35,7 @@ export const useRamasStore = () => {
   
     }
 
-
-
-
-
     
 
-    return{ startListarRamas, startListarRamaID}
+    return{ startListarRamas, startListarRamaID }
 }

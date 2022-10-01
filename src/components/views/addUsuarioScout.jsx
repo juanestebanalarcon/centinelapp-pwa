@@ -55,18 +55,21 @@ export const AddUsuarioFicha = () => {
     } else {
       if (celular <= 0) {
         swal({
-          title: "Ingrese un numero de celular valido",
+          title: "Ingrese un número de celular válido",
           icon: "warning"
 
         });
 
+      }else{
+        startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, idRama })
+        
       }
     }
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
 
-    startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, idRama })
+    
   }
 
 
@@ -88,14 +91,14 @@ export const AddUsuarioFicha = () => {
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del scout" type="text" />
             <h3>Apellido*</h3>
             <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del scout" type="text" />
-            <h3>Correo electronico*</h3>
+            <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Asignar rama*</h3>
             <Select id='rama' placeholder="Selecciona una opción" />
             <h3>Fecha de nacimiento*</h3>
             <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
-            <h3>Numero celular*</h3>
-            <Input name='celular' value={celular} onChange={onInputChange} placeholder="Numero de celular" type="number" />
+            <h3>Número celular*</h3>
+            <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
             {/* <h3>Ficha medica*</h3> */}
             {/* <input
               type="file"

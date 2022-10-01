@@ -26,7 +26,7 @@ export const CamContrasena = () => {
                 <Header />
                 <div className="conte-imp">
                     <h1>Cambiar contraseña</h1>
-                    <h2>Aqui puedes cambiar la contraseña, la contraseña original se encuentra en tu correo correo@correo.com, tiene que contener mayusculas, minusculas, simbolo y minimo 8 caracteres de longitud</h2>
+                    <h2>Aquí puedes cambiar la contraseña, la contraseña original se encuentra en tu correo correo@correo.com, tiene que contener mayúsculas, minúsculas, símbolo y mínimo 8 caracteres de longitud </h2>
                     <br />
                     <h3>Contraseña antigua</h3>
                     <Input name='nombre' value="contrasenaA" placeholder="Nombre del scout" type="text" />

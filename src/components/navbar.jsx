@@ -14,17 +14,16 @@ export function Navbar() {
         e.preventDefault();
         navigate(`/publicaciones`)
     }
+    function perfil(e) {
+        e.preventDefault();
+        navigate(`/perfil`)
+    }
     function calendar(e) {
         e.preventDefault();
         swal({
             title: "Actualmente esta funcion se encuentra en desarrollo",
             icon: "warning",
           });
-    }
-
-    function perfil(e) {
-        e.preventDefault();
-        navigate(`/perfil`)
     }
     return (
         <div className='App'>

@@ -4,14 +4,14 @@ import swal from 'sweetalert';
 export const useRamaStore = () => {
   
     const startCrearRama = async ({ nombre, edadMax, edadMin}) => {
-        console.log({ nombre, edadMax, edadMin})
+        // console.log({ nombre, edadMax, edadMin})
 
         try {
-            const { data } = await CentinelApi.post('rama/create-Rama',{ nombre, edadMax, edadMin})
-            console.log(data)
+            await CentinelApi.post('rama/create-Rama',{ nombre, edadMax, edadMin})
+            // console.log(data)
             
                 swal({
-                    title: "La rama ha sido creada con exito!",
+                    title: "La rama ha sido creada con éxito!",
                     icon: "success",
                   });
             

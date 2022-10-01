@@ -7,14 +7,14 @@ export const useAcudienteStore = () => {
     const dispatch = useDispatch()
   
     const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, idScout}) => {
-        console.log({ nombre, apellido, email, fecha_nacimiento, celular, idScout})
+    
       
         try {
-            const { data } = await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, idScout})
-            console.log(data)
-            
+            await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, idScout})
+           
+         
                 swal({
-                    title: "El usuario ha sido creado con exito!",
+                    title: "El usuario ha sido creado con éxito!",
                     icon: "success",
                   });
             
@@ -23,7 +23,7 @@ export const useAcudienteStore = () => {
             //Alertas con el ok que viene en la data if(data.ok === true )
 
         } catch (error) {
-            console.log(error.request.status)
+            
             if(error.request.status === 400){
                 swal({
                     title: "Error",
@@ -33,7 +33,7 @@ export const useAcudienteStore = () => {
             }
             
             
-            console.log(error)
+            
         }
 
     }
@@ -42,11 +42,11 @@ export const useAcudienteStore = () => {
         try {
           
           const { data } = await CentinelApi.get('acudientes/allAcudientes');
-          console.log(data)
+         
           dispatch( onListScouts( data.acudiente_) )
     
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
     
       }

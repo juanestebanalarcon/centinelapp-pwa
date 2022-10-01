@@ -11,7 +11,7 @@ export const useSuperAdminStore = () => {
         try {
           
           const { data } = await CentinelApi.get('superAdmin/allSuperAdmins');
-          console.log(data)
+          // console.log(data)
           dispatch( onListSuperAdmin( data.SuperAdministradors_) )
     
         } catch (error) {

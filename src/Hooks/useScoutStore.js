@@ -6,17 +6,17 @@ import { useDispatch } from "react-redux"
 export const useScoutStore = () => {
     const dispatch = useDispatch()
     const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, idRama }) => {
-        console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
+        // console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
 
         let link_ficha_medica='no tiene'
         
         
         try {
-            const { data } = await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica})
-            console.log(data)
+            await CentinelApi.post('scouts/create-scout',{ nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica})
+            // console.log(data)
             
             swal({
-                title: "El usuario ha sido creado con exito!",
+                title: "El usuario ha sido creado con éxito!",
                 icon: "success",
               });
             
@@ -25,7 +25,7 @@ export const useScoutStore = () => {
             //Alertas con el ok que viene en la data if(data.ok === true )
 
         } catch (error) {
-            console.log(error.request.status)
+            // console.log(error.request.status)
             if(error.request.status === 400){
                 swal({
                     title: "Error",
@@ -45,7 +45,7 @@ export const useScoutStore = () => {
         try {
           
           const { data } = await CentinelApi.get('scouts/allScouts');
-          console.log(data)
+          // console.log(data)
           dispatch( onListScouts( data.scouts_) )
     
         } catch (error) {
@@ -59,7 +59,7 @@ export const useScoutStore = () => {
         try {
           
           const { data } = await CentinelApi.get('scouts/allScouts');
-          console.log(data)
+          // console.log(data)
           dispatch( onListScouts( data.scouts_) )
     
         } catch (error) {
@@ -73,7 +73,7 @@ export const useScoutStore = () => {
         try {
             
             const { data } = await CentinelApi.get(`rama/getScoutsAsignados/${id}`);
-            console.log(data)
+            // console.log(data)
             if(data.rama.Scout.length===0){
               document.getElementById('tabla-scouts').innerHTML='No existen scouts registrados en esta rama'
             }else{

@@ -47,7 +47,7 @@ export const ActPerfil = () => {
                     <h3>Fecha de nacimiento</h3>
                     <Input name='nacimiento' value="Nov 28 2003" type="text" ></Input>
 
-                    <h3>Numero de celular</h3>
+                    <h3>Número de celular</h3>
                     <h5>3330000000</h5>
 
                     <h3>Rama actual</h3>

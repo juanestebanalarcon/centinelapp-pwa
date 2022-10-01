@@ -37,7 +37,7 @@ h3.cabtabla {
     color: #FAFAFA;
     margin: 2%;
     padding: 2%;
-    width: 60%;
+    width: 65%;
 }
 
 h4.cabtabla{
@@ -60,15 +60,13 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: row;
 }
 .conten-linea h3 {
-    width: 70%;
+    width: 75%;
     margin: 2%;
 }
 .conten-linea img{
     width: 70%;
 }
-.conten-linea h3{
-    width: 75%;
-}
+
 .conten-linea button{
     border: 0;
 }
@@ -81,7 +79,7 @@ button#busq-filtro {
     width: 2%;
     margin-left: 1%;
     height: 100%;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 div#idclass {
     width: 100%;

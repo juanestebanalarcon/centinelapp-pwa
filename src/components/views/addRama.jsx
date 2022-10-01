@@ -51,7 +51,7 @@ export const AddRama = () => {
           <h2>En este formulario puedes crear una nueva rama</h2>
           <form onSubmit={onSubmit}>
             <h3>Nombre*</h3>
-            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del scout" type="text" />
+            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre de la rama" type="text" />
             <h3>Edades*</h3>
             <div className="hori-edad">
               <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" />

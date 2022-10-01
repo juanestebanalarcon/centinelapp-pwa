@@ -8,13 +8,14 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
+import { useSelector } from 'react-redux';
 export const HomeAdmin= ()=>{
     const navigate = useNavigate();
     function admiScout(e){ 
         e.preventDefault();
         navigate(`/adminscouts`)
     }
-    
+    const {user} = useSelector(state=>state.auth);
     
 
     return(
@@ -23,9 +24,9 @@ export const HomeAdmin= ()=>{
         <Navbar/>
         <Header/>
         <h1>Inicio</h1>
-        <h3>Hola Usuario, en este menu podras ver lo ultimo en tu feed</h3>
-        <h1>Ultimas publicaciones</h1>
-        <Publicacion titulo="Crear nuevo scout" 
+        <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
+        <h1>Últimas publicaciones</h1>
+        <Publicacion titulo="Bienvenido Scout" 
                     conte='Corrupti iste quo quod sapiente quaerat ullam iure voluptate. Consequuntur perspiciatis sit ut amet nihil adipisci. Tempore beatae facere perferendis sapiente possimus itaque sapiente tempora repellat...'
                     persona='Tracey Armstrong'
                     calendario='09-09-2022'/>

@@ -40,3 +40,6 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
+.ini-h1{
+  margin:0
+}

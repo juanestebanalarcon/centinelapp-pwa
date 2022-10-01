@@ -15,14 +15,14 @@ import React, { useEffect } from 'react'
 
 export const PerfilScout= ()=>{
     const { startLogout } = useAuthStore();
-    const {startListarRamaID}= useRamasStore();
     const {user} = useSelector(state=>state.auth);
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === user.uid);
     const { ramaScout } = useSelector(state => state.rama);
-    
+    console.log(scoutActual)
     
     const { startListScouts } = useScoutStore();
+    const {startListarRamaID}= useRamasStore();
     
 
   
@@ -34,6 +34,7 @@ export const PerfilScout= ()=>{
     }
     useEffect(() => {
         startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamaID(user.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -46,7 +47,7 @@ export const PerfilScout= ()=>{
         <Header/>
         <div className="conte-imp">
         <h1>Hola, {scoutActual?.nombre}</h1>
-        <h2>Aqui estan tus datos personales</h2>
+        <h2>Aquí están tus datos personales</h2>
  
         <h3>Nombre</h3>
         <h5>{scoutActual?.nombre}</h5>
@@ -60,7 +61,7 @@ export const PerfilScout= ()=>{
         <h3>Fecha de nacimiento</h3>
         <h5>{scoutActual?.fecha_nacimiento}</h5>
 
-        <h3>Numero de celular</h3>
+        <h3>Número de celular</h3>
         <h5>{scoutActual?.celular}</h5>
 
         <h3>Rama actual</h3>
