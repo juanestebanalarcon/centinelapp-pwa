@@ -40,8 +40,10 @@ export const AdminScouts = () => {
     }
     useEffect(() => {
         startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamas()
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [])
     return (
         <div className="contenido">
             <div className="conte-general-home">

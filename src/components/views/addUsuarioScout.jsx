@@ -73,6 +73,7 @@ export const AddUsuarioFicha = () => {
 
   useEffect(() => {
     startListarRamas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

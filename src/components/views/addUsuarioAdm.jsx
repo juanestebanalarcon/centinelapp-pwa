@@ -49,7 +49,7 @@ export const AddUsuario = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     //verificarcheck();
-    ramas.map(rama => {
+    ramas.forEach(rama => {
       if (document.getElementById(rama._id).checked) {
 
         ramasAsignadas.push(rama._id)
@@ -74,6 +74,7 @@ export const AddUsuario = () => {
   }
   useEffect(() => {
     startListarRamas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className="contenido">

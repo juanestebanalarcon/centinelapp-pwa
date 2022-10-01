@@ -16,6 +16,7 @@ export const PublicacionGeneral = () => {
     const { ramas } = useSelector(state => state.rama);
     useEffect(() => {
         startListarRamas();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

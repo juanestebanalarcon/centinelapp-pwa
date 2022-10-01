@@ -28,6 +28,7 @@ export const MostrarScout = () => {
     }
     useEffect(() => {
         startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

@@ -32,6 +32,7 @@ export const PerfilScout= ()=>{
     }
     useEffect(() => {
         startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
    
   
