@@ -1,6 +1,7 @@
 
 import '../styles/navbar.css'
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 export function Navbar() {
     const navigate = useNavigate();
 
@@ -13,6 +14,14 @@ export function Navbar() {
         e.preventDefault();
         navigate(`/publicaciones`)
     }
+    function calendar(e) {
+        e.preventDefault();
+        swal({
+            title: "Actualmente esta funcion se encuentra en desarrollo",
+            icon: "warning",
+          });
+    }
+
     function perfil(e) {
         e.preventDefault();
         navigate(`/perfil`)
@@ -37,8 +46,9 @@ export function Navbar() {
 
                     </div>
                     <div className="calendar">
-
+                    <button onClick={calendar} className="btn-nav">
                         <img src='https://i.ibb.co/Q8CvB2v/calendar.png' alt='calendario' />
+                    </button>
                     </div>
                     <div className="person">
                         <button onClick={perfil} className="btn-nav">

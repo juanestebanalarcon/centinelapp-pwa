@@ -6,7 +6,7 @@ import "../../../styles/login.css"
 import { useNavigate } from 'react-router-dom';
 import { Header } from "../../header"
 import { useSelector } from 'react-redux'
-import { useScoutStore } from '../../../Hooks';
+import { useRamasStore, useScoutStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 
@@ -15,10 +15,17 @@ export const MostrarScout = () => {
     const params = useParams();
 
 
+   
+    const { startListScouts } = useScoutStore();
+    const {startListarRamaID}= useRamasStore();
+    
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (params._id));
-    const { startListScouts } = useScoutStore();
-
+    const { ramaScout } = useSelector(state => state.rama);
+    console.log(ramaScout)
+    
+    
+    
 
     const navigate = useNavigate();
 
@@ -29,6 +36,7 @@ export const MostrarScout = () => {
     useEffect(() => {
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListarRamaID(params._id)
     }, [])
 
 
@@ -57,7 +65,7 @@ export const MostrarScout = () => {
                     <h5>{scoutActual?.celular}</h5>
 
                     <h3>Rama actual</h3>
-                    <h5>Cachorros</h5>
+                    <h5>{ramaScout}</h5>
 
                     <h3>Ficha Medica</h3>
                     <h5>Descargar</h5>
