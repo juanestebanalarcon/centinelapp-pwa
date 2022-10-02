@@ -3,5 +3,5 @@ export * from './rama/ramaSlice'
 export * from './scout/scoutSlice'
 export * from './acudiente/acudienteSlice'
 export * from './superAdmin/superadminSlice'
-
+export * from './admin/adminSlice'
 export * from './store'

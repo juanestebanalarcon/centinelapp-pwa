@@ -1,8 +1,10 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
+import { onListAdmin, onListAdminRamas } from "../store";
+import { useDispatch } from "react-redux"
 
 export const useAdminStore = () => {
-  
+    const dispatch = useDispatch()
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas}) => {
         // console.log({ nombre, apellido, email, ramasAsignadas})
       
@@ -35,5 +37,32 @@ export const useAdminStore = () => {
 
     }
 
-    return { startCrearAdmin }
+    const startListAdmin= async() => {
+
+        try {
+          
+          const { data } = await CentinelApi.get('admin/AllAdmins');
+          console.log(data)
+          dispatch( onListAdmin( data.admin_) )
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+
+      const startBusqRamaAdm= async(id) => {
+
+        try {
+          
+          const { data } = await CentinelApi.get(`rama/${id}`);
+          console.log(data)
+          dispatch( onListAdminRamas( data.admin_) )
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm}
 }

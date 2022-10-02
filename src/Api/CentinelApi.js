@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CentinelApi = axios.create({
-    baseURL: 'https://scout-centinelas113-prueba1.herokuapp.com/api',
+    baseURL: 'http://localhost:9000/api',
 });
 
 CentinelApi.interceptors.request.use( config => {

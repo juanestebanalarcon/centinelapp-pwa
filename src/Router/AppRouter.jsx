@@ -19,6 +19,10 @@ import { MostrarScout } from "../components/views/superadmin/mostrarScout"
 import { ActPerfilScout } from "../components/views/superadmin/act-perfil"
 import { AddUsuarioAcudiente } from "../components/views/addUsuarioAcudiente"
 import { AddUser } from "../components/views/superadmin/addUser"
+import { AdminAdmins } from "../components/views/superadmin/adminScout/admiAdmin"
+import { MostrarAdmin } from "../components/views/superadmin/mostrarAdmin"
+import { GestionUser } from "../components/views/superadmin/gestionUser"
+import { AdminAcudiente } from "../components/views/superadmin/adminScout/admiAcudiente"
 
 export const AppRouter = () => {
 
@@ -64,8 +68,14 @@ export const AppRouter = () => {
                         
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/*" element={ <Navigate to="/"/> }/> 
+
+                        <Route path="/adminUser" element={<GestionUser/>}/>
                         <Route path="/adminscouts" element={<AdminScouts/>}/>
                         <Route path='/scout/:_id' element={<MostrarScout/>}/>
+                        <Route path="/adminadmin" element={<AdminAdmins/>}/>
+                        <Route path='/admin/:_id' element={<MostrarAdmin/>}/>
+                        <Route path="/adminacudiente" element={<AdminAcudiente/>}/>
+                        
                         <Route path='/act-scout/:_id' element={<ActPerfilScout/>}/>
                 </Routes>
 

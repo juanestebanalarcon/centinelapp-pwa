@@ -4,55 +4,37 @@ import "../../../../styles/admiscout.css"
 import { Header } from "../../../header"
 
 import { useSelector } from 'react-redux'
-import { useRamasStore, useScoutStore } from '../../../../Hooks';
+import { useAcudienteStore} from '../../../../Hooks';
 import React, { useEffect } from 'react'
-import { ObjScout } from "./objscout"
+
 
 import { SelectRama } from "../../../selectRama"
 import { Button } from "@mui/material"
+import { ObjAdmin } from "./objAdmin"
 
-export const AdminScouts = () => {
-    const { scouts } = useSelector(state => state.scout);
+export const AdminAcudiente = () => {
+    const { acudientes } = useSelector(state => state.acudiente);
     const { user } = useSelector(state => state.auth);
-    const { startListScouts } = useScoutStore();
-    const { startListarRamas } = useRamasStore();
-    const { startListarRamasSelect } = useScoutStore();
-
-    const buscar = (e) => {
-        e.preventDefault();
-
-        const id = document.getElementById("rama").value
-
-        console.log(id)
-        if (id === '') {
-            startListScouts()
-
-        } else {
-            startListarRamasSelect({ id })
-            
-        }
-
-
-
-
-    }
+    
+    const { startListAcudientes } = useAcudienteStore();
+    
+    
     useEffect(() => {
-        startListScouts()
+        startListAcudientes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListarRamas()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
      }, [])
     return (
         <div className="contenido">
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
-                <h1>Gestionar scouts</h1>
+                <h1>Gestionar Acudientes</h1>
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
-                <div className="filtro-rama">
+                {/* <div className="filtro-rama">
                     <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
                     <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa" /></Button>
-                </div>
+                </div> */}
 
                 <div className="cab-tabla-scout">
                     <h3 className="cabtabla">Nombre</h3>
@@ -62,11 +44,11 @@ export const AdminScouts = () => {
                 <div id="tabla-scouts" className="tabla-scout">
                     {
 
-                        scouts.map((scout) => (
+                        acudientes.map((acudientes) => (
 
-                            <ObjScout
-                                key={scout._id}
-                                scout={scout}
+                            <ObjAdmin
+                                key={acudientes._id}
+                                admin={acudientes}
                             />
 
 

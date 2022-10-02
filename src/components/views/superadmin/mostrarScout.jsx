@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux'
 import { useRamasStore, useScoutStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
-import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
+//import swal from 'sweetalert';
 
 
 export const MostrarScout = () => {
@@ -23,12 +24,12 @@ export const MostrarScout = () => {
     
 
 
-   // const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    // function actualizar(e) {
-    //     e.preventDefault();
-    //     navigate(`/act-scout/${scoutActual._id}`)
-    // }
+    function actualizar(e) {
+        e.preventDefault();
+        navigate(`/act-scout/${scoutActual._id}`)
+    }
     useEffect(() => {
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,14 +37,7 @@ export const MostrarScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function actualizar(e) {
-        e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
-    }
-
+    
 
     return (
         <div className="contenido">

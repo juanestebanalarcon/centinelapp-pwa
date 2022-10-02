@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { CentinelApi } from "../Api"
-import { ListarRamas, ListarRamaScout } from "../store";
+import { ListarRamas, ListarRamaScout, ListarIDRamaScout} from "../store";
 
 export const useRamasStore = () => {
   
@@ -34,8 +34,22 @@ export const useRamasStore = () => {
         }
   
     }
+    const startListarRamaIDValue= async(id) => {
+
+        try {
+            
+            const { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
+            //console.log(data.branch.nombre)
+            dispatch(ListarIDRamaScout(data.branch._id));
+                      
+  
+        } catch (error) {
+          console.log(error);  
+        }
+  
+    }
 
     
 
-    return{ startListarRamas, startListarRamaID }
+    return{ startListarRamas, startListarRamaID, startListarRamaIDValue}
 }

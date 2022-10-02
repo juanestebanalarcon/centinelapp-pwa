@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const ramaSlice = createSlice({
       name: 'rama',
       ramaScout: "",
+      ramaIdScout:"",
       initialState:{
          ramas: [],
       },
@@ -12,8 +13,11 @@ export const ramaSlice = createSlice({
          },
          ListarRamaScout: (state, { payload}) => {
            state.ramaScout = payload; 
-         }
+         },
+         ListarIDRamaScout: (state, { payload}) => {
+          state.ramaIdScout = payload; 
+        }
        }
 })
 
-export const { ListarRamas, ListarRamaScout } = ramaSlice.actions
+export const { ListarRamas, ListarRamaScout,ListarIDRamaScout } = ramaSlice.actions

@@ -4,19 +4,20 @@ import "../../../../styles/admiscout.css"
 import { Header } from "../../../header"
 
 import { useSelector } from 'react-redux'
-import { useRamasStore, useScoutStore } from '../../../../Hooks';
+import { useRamasStore, useAdminStore } from '../../../../Hooks';
 import React, { useEffect } from 'react'
-import { ObjScout } from "./objscout"
+
 
 import { SelectRama } from "../../../selectRama"
 import { Button } from "@mui/material"
+import { ObjAdmin } from "./objAdmin"
 
-export const AdminScouts = () => {
-    const { scouts } = useSelector(state => state.scout);
+export const AdminAdmins = () => {
+    const { admins } = useSelector(state => state.admin);
     const { user } = useSelector(state => state.auth);
-    const { startListScouts } = useScoutStore();
+    const { startListAdmin } = useAdminStore();
     const { startListarRamas } = useRamasStore();
-    const { startListarRamasSelect } = useScoutStore();
+    
 
     const buscar = (e) => {
         e.preventDefault();
@@ -24,20 +25,14 @@ export const AdminScouts = () => {
         const id = document.getElementById("rama").value
 
         console.log(id)
-        if (id === '') {
-            startListScouts()
-
-        } else {
-            startListarRamasSelect({ id })
-            
-        }
+       
 
 
 
 
     }
     useEffect(() => {
-        startListScouts()
+        startListAdmin()
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamas()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +42,7 @@ export const AdminScouts = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
-                <h1>Gestionar scouts</h1>
+                <h1>Gestionar Administradores</h1>
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
                 <div className="filtro-rama">
                     <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
@@ -62,11 +57,11 @@ export const AdminScouts = () => {
                 <div id="tabla-scouts" className="tabla-scout">
                     {
 
-                        scouts.map((scout) => (
+                        admins.map((admin) => (
 
-                            <ObjScout
-                                key={scout._id}
-                                scout={scout}
+                            <ObjAdmin
+                                key={admin._id}
+                                admin={admin}
                             />
 
 
