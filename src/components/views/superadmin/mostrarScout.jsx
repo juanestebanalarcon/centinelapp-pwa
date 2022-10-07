@@ -9,12 +9,12 @@ import { useRamasStore, useScoutStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-//import Swal from 'sweetalert2'
+import swal from 'sweetalert';
 
 
 export const MostrarScout = () => {
     const params = useParams();
-
+    
     const { startListScouts } = useScoutStore();
     const { startDeleteScout } = useScoutStore();
     const {startListarRamaID}= useRamasStore();
@@ -34,22 +34,23 @@ export const MostrarScout = () => {
     function eliminar(e) {
         e.preventDefault();
         console.log(params._id)
-        startDeleteScout();
-        // Swal.fire({
-        //     title: 'Are you sure?',
-        //     text: "You won't be able to revert this!",
-        //     icon: 'warning',
-        // //     showCancelButton: true,
-        // //     confirmButtonColor: '#3085d6',
-        // //     cancelButtonColor: '#d33',
-        // //     confirmButtonText: 'Yes, delete it!'
-        // //   }).then((result) => {
-        // //     if (result.isConfirmed) {
-
-        //         startDeleteScout(params._id) 
-        //     // }
-        //   })
-        //navigate(`/`)
+        
+        swal({
+            title: "Borrar scout",
+            text: "Si acepta borrar el scout se eliminaran todos los registros del usuario",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                startDeleteScout();
+                //falta hacer que se vea el cambio
+              navigate(`/adminscouts`)
+            } else {
+              
+            }
+          });
     }
     useEffect(() => {
         startListScouts()

@@ -25,7 +25,7 @@ export const AdminScouts = () => {
 
         console.log(id)
         if (id === '') {
-            document.getElementById("Noe").innerHTML=""
+            
             startListScouts()
             console.log('todos')
 

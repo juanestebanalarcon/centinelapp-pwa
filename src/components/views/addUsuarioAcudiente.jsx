@@ -94,9 +94,10 @@ export const AddUsuarioAcudiente = () => {
 
 
   useEffect(() => {
+    
     startListScouts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    document.getElementById('scout2').style.display="none"
+    
   }, [])
 
   return (

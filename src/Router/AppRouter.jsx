@@ -25,6 +25,7 @@ import { GestionUser } from "../components/views/superadmin/gestionUser"
 import { AdminAcudiente } from "../components/views/superadmin/adminScout/admiAcudiente"
 import { MostrarAcudiente } from "../components/views/superadmin/mostrarAcudiente"
 import { ActPerfilAcudiente } from "../components/views/superadmin/act-perfil-acudiente"
+import { ActPerfilAdmin } from "../components/views/superadmin/act-perfil-admin"
 
 export const AppRouter = () => {
 
@@ -82,6 +83,7 @@ export const AppRouter = () => {
                         
                         <Route path='/act-scout/:_id' element={<ActPerfilScout/>}/>
                         <Route path="/act-acud/:_id" element={<ActPerfilAcudiente/>}/>
+                        <Route path="/act-admin/:_id" element={<ActPerfilAdmin/>}/>
                 </Routes>
 
             )

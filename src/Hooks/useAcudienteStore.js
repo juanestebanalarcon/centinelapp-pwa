@@ -55,8 +55,8 @@ export const useAcudienteStore = () => {
         try {
           
           const { data } = await CentinelApi.get(`acudientes/getScouts/${params._id}`);
-         console.log(data.scouts_)
-         dispatch( onListAcudienteScout( data.acudientes_) )
+         console.log(data.scouts_.Scout)
+         dispatch( onListAcudienteScout( data.scouts_.Scout) )
     
         } catch (error) {
           console.log(error);

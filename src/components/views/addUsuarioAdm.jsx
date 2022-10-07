@@ -64,13 +64,16 @@ export const AddUsuario = () => {
 
       return;
 
+    }else{
+      startCrearAdmin({ nombre, apellido, email, ramasAsignadas })
+
     }
 
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
 
-    startCrearAdmin({ nombre, apellido, email, ramasAsignadas })
+    
   }
   useEffect(() => {
     startListarRamas();

@@ -9,7 +9,7 @@ import { useAdminStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import swal from 'sweetalert';
-
+import { useNavigate } from 'react-router-dom';
 
 export const MostrarAdmin = () => {
     const params = useParams();
@@ -26,31 +26,33 @@ export const MostrarAdmin = () => {
    
 
 
-   // const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    // function actualizar(e) {
-    //     e.preventDefault();
-    //     navigate(`/act-scout/${scoutActual._id}`)
-    // }
+    function actualizar(e) {
+        e.preventDefault();
+        navigate(`/act-admin/${params._id}`)
+    }
     function eliminar(e) {
+        
         e.preventDefault();
         console.log(params._id)
-        startDeleteAdmin();
-        // Swal.fire({
-        //     title: 'Are you sure?',
-        //     text: "You won't be able to revert this!",
-        //     icon: 'warning',
-        // //     showCancelButton: true,
-        // //     confirmButtonColor: '#3085d6',
-        // //     cancelButtonColor: '#d33',
-        // //     confirmButtonText: 'Yes, delete it!'
-        // //   }).then((result) => {
-        // //     if (result.isConfirmed) {
-
-        //         startDeleteScout(params._id) 
-        //     // }
-        //   })
-        //navigate(`/`)
+        
+        swal({
+            title: "Borrar administrador",
+            text: "Si acepta borrar el administrador se eliminaran todos los registros del usuario",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                startDeleteAdmin();
+                //falta hacer que se vea el cambio
+              navigate(`/adminadmin`)
+            } else {
+              
+            }
+          });
     }
      useEffect(() => {
         startListAdmin()
@@ -62,14 +64,7 @@ export const MostrarAdmin = () => {
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 
-    function actualizar(e) {
-        e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
-    }
-
+    
 
     return (
         <div className="contenido">

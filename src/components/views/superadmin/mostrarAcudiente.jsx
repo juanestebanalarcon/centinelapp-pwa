@@ -20,6 +20,8 @@ export const MostrarAcudiente = () => {
     const { acudientes } = useSelector(state => state.acudiente);
     
     const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
+    const { acudienteScout } = useSelector(state => state.acudiente);
+    console.log(acudienteScout)
    
     function eliminar(e) {
         e.preventDefault();
@@ -43,7 +45,7 @@ export const MostrarAcudiente = () => {
           });
     }
 
-
+    
    
 
     function actualizar(e) {
@@ -86,13 +88,14 @@ export const MostrarAcudiente = () => {
 
                     <h3>Scout asociado</h3>
                  
-                    {/* {(acudienteActual?.Scout).map(acu =>{
+                    {acudienteScout.map(acu =>{
+                       
                         return(
-                            <h5>{acu}</h5>
+                            <h5 id="scou">{`${acu.nombre} ${acu.apellido} `}</h5>
                         )
                     })
 
-                    } */}
+                    } 
 
                     
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>

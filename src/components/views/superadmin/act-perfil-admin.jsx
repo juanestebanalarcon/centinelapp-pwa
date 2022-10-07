@@ -7,9 +7,8 @@ import "../../../styles/login.css"
 import swal from 'sweetalert';
 
 import { Header } from "../../header"
-import {useForm,useRamasStore,useScoutStore } from '../../../Hooks';
+import {useForm,useAdminStore } from '../../../Hooks';
 
-import { Select } from "../../select"
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -17,36 +16,47 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export const ActPerfilScout = () => {
+export const ActPerfilAdmin = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const { startListarRamas } = useRamasStore();
-    const {startListarRamaIDValue}= useRamasStore();
-    const { startListScouts } = useScoutStore();
-    const { startUpdateScout } = useScoutStore();
-    const { scouts } = useSelector(state => state.scout);
-    const scoutActual = scouts.find(scout => scout._id === (params._id));
-    const { ramaIdScout } = useSelector(state => state.rama);
     
-    const { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
+    const { startListAdmin, startAdminRama, startUpdateAdmin} = useAdminStore();
+   
+    const { ramas } = useSelector(state => state.rama);
+    
+    const { admins } = useSelector(state => state.admin);
+    const {ramasAdmin}=useSelector(state => state.admin)
+    const adminActual = admins.find(admin => admin._id === (params._id));
+    console.log(ramasAdmin)
+    
+    
+    const { nombre='', apellido='', email='', ramasAsignadas='', onInputChange } = useForm(adminActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
-    console.log(ramaIdScout)
-    
+   
+  
       const onSubmit = (e) => {
         e.preventDefault();
-        const id=params._id
-        const rama = document.getElementById("rama").value
-        console.log(rama)
-        if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| rama.trim()==='' ){
-          swal(
-            'Error',
-            'No puede enviar el contenido o el titulo en blanco',
-            'error'
-          )
+        let id= params._id
+        ramas.forEach(rama => {
+          if (document.getElementById(rama._id).checked) {
+            
+            ramasAsignadas.push(rama._id)
+          }
+        })
+        if (nombre === '' || apellido === '' || email === '' || ramasAsignadas.length === 0) {
+          swal({
+            title: "Ingrese los campos obligatorios",
+            icon: "warning"
+    
+          });
+    
+          return;
+    
         }else{
-            startUpdateScout({ id,nombre,apellido,email,fecha_nacimiento,celular,rama })
+            console.log(ramasAsignadas)
+            startUpdateAdmin({ id,nombre,apellido,email,ramasAsignadas })
             navigate(`/scout/${params._id}`)
         }
       }
@@ -72,12 +82,12 @@ export const ActPerfilScout = () => {
 
       
     useEffect(() => {
-        startListarRamas();
+        startListAdmin();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListScouts()
+        startAdminRama(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListarRamaIDValue(params._id)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
+        
         
         
     }, [])
@@ -99,14 +109,26 @@ export const ActPerfilScout = () => {
                     <h3>Email</h3>
                     <Input name='email' value={email} type="email" onChange={onInputChange} />
 
-                    <h3>Fecha de nacimiento</h3>
-                    <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  />
+                   
+                    <h3>Asignar rama*</h3>
 
-                    <h3>Numero de celular</h3>
-                    <Input name='celular' value={celular} type="text" onChange={onInputChange}  />
+            <div className="rama-in">
+              {
+                ramas.map(rama => {
+                  return (
 
-                    <h3>Rama actual</h3>
-                    <Select id='rama' placeholder="Selecciona una opción" />
+                    <label className="la-rama"><input className="rama" type='checkbox' id={rama._id} value={rama._id} /><h3>{rama.nombre}</h3></label>
+                    //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
+
+                  )
+
+
+                })
+              }
+
+
+            </div>
+
 
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
                     

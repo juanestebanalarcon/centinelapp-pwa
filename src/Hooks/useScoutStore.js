@@ -55,19 +55,7 @@ export const useScoutStore = () => {
 
   }
 
-  const startupdateScout = async () => {
-
-    try {
-
-      const { data } = await CentinelApi.get('scouts/allScouts');
-      // console.log(data)
-      dispatch(onListScouts(data.scouts_))
-
-    } catch (error) {
-      console.log(error)
-    }
-
-  }
+  
 
   const startListarRamasSelect = async ({ id }) => {
 

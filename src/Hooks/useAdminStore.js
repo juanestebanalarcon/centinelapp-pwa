@@ -97,5 +97,21 @@ export const useAdminStore = () => {
         }
     
       }
-    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin}
+      const startUpdateAdmin = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
+        console.log(rama)
+        try {
+    
+          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, rama });
+          console.log(data)
+          swal({
+            title: "El usuario ha sido actualizado con éxito!",
+            icon: "success",
+          });
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin}
 }
