@@ -20,12 +20,10 @@ export const MostrarAdmin = () => {
     const { admins } = useSelector(state => state.admin);
     const {ramasAdmin}=useSelector(state => state.admin)
     const adminActual = admins.find(admin => admin._id === (params._id));
-    const { startListAdmin } = useAdminStore();
+    const { startListAdmin, startDeleteAdmin } = useAdminStore();
+    const {startAdminRama}=useAdminStore();
     console.log(ramasAdmin)
-    let ramasadmin=[]
-    ramasadmin=adminActual?.ramasAsignadas
-    //const { ramaScout } = useSelector(state => state.rama);
-    console.log(adminActual)
+   
 
 
    // const navigate = useNavigate();
@@ -34,8 +32,29 @@ export const MostrarAdmin = () => {
     //     e.preventDefault();
     //     navigate(`/act-scout/${scoutActual._id}`)
     // }
+    function eliminar(e) {
+        e.preventDefault();
+        console.log(params._id)
+        startDeleteAdmin();
+        // Swal.fire({
+        //     title: 'Are you sure?',
+        //     text: "You won't be able to revert this!",
+        //     icon: 'warning',
+        // //     showCancelButton: true,
+        // //     confirmButtonColor: '#3085d6',
+        // //     cancelButtonColor: '#d33',
+        // //     confirmButtonText: 'Yes, delete it!'
+        // //   }).then((result) => {
+        // //     if (result.isConfirmed) {
+
+        //         startDeleteScout(params._id) 
+        //     // }
+        //   })
+        //navigate(`/`)
+    }
      useEffect(() => {
         startListAdmin()
+        startAdminRama(params._id)
         
     //     ramasadmin.map(ramaA =>{
     //         startBusqRamaAdm(ramaA)})
@@ -73,9 +92,9 @@ export const MostrarAdmin = () => {
                     <h5>{adminActual?.celular}</h5> */}
 
                     <h3>Ramas administradas</h3>
-                    {ramasadmin.map(ramaA =>{
+                    {ramasAdmin.map(ramaA =>{
                         return(
-                            <h5>{ramaA}</h5>
+                            <h5>{ramaA.nombre}</h5>
                         )
                     })
 
@@ -83,7 +102,7 @@ export const MostrarAdmin = () => {
 
                     
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
-
+                    <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 
                 </div>
             </div>

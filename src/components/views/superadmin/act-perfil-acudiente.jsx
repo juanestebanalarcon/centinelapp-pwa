@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export const ActPerfilScout = () => {
+export const ActPerfilAcudiente = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { startListarRamas } = useRamasStore();

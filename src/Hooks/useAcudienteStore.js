@@ -1,11 +1,11 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListScouts } from "../store";
+import { onListAcudiente, onListAcudienteScout } from "../store";
 import { useDispatch } from "react-redux"
-
+import { useParams } from 'react-router-dom';
 export const useAcudienteStore = () => {
     const dispatch = useDispatch()
-  
+    const params = useParams();
     const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, idScout}) => {
     
       
@@ -43,16 +43,43 @@ export const useAcudienteStore = () => {
           
           const { data } = await CentinelApi.get('acudientes/allAcudientes');
          
-          dispatch( onListScouts( data.acudiente_) )
+          dispatch( onListAcudiente( data.acudientes_) )
     
         } catch (error) {
           console.log(error);
         }
     
       }
+      const startListScoutsAcudiente= async() => {
+
+        try {
+          
+          const { data } = await CentinelApi.get(`acudientes/getScouts/${params._id}`);
+         console.log(data.scouts_)
+         dispatch( onListAcudienteScout( data.acudientes_) )
+    
+        } catch (error) {
+          console.log(error);
+        }
+    
+      }
+      const startDeleteAcudiente = async() => {
+
+        try {
+          const id= params._id
+          console.log(id)
+          const { data } = await CentinelApi.delete(`acudientes/${params._id}`);
+          console.log(data)
+          
+          
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+      
 
 
 
-
-    return { startListAcudientes, startCrearAcudiente}
+    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente}
 }

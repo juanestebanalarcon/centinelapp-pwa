@@ -25,7 +25,9 @@ export const AdminScouts = () => {
 
         console.log(id)
         if (id === '') {
+            
             startListScouts()
+            console.log('todos')
 
         } else {
             startListarRamasSelect({ id })

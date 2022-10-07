@@ -36,7 +36,9 @@ export const AdminAdmins = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamas()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [])
+     
+    
+    }, [])
     return (
         <div className="contenido">
             <div className="conte-general-home">
@@ -44,10 +46,10 @@ export const AdminAdmins = () => {
                 <Header />
                 <h1>Gestionar Administradores</h1>
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
-                <div className="filtro-rama">
+                {/* <div className="filtro-rama">
                     <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
                     <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa" /></Button>
-                </div>
+                </div> */}
 
                 <div className="cab-tabla-scout">
                     <h3 className="cabtabla">Nombre</h3>

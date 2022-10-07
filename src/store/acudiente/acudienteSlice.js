@@ -4,13 +4,17 @@ export const acudienteSlice = createSlice({
       name: 'Acudiente',
       initialState:{
          acudientes: [],
+         acudienteScout:[],
          errorMessage: null,
       },
       reducers:{
            onListAcudiente:(state, {payload=[]})=>{
             state.acudientes=payload;
+           },
+           onListAcudienteScout:(state, {payload=[]})=>{
+            state.acudienteScout=payload;
            }
        }
 })
 
-export const { onListAcudiente } = acudienteSlice.actions
+export const { onListAcudiente, onListAcudienteScout } = acudienteSlice.actions

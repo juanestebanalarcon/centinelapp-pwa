@@ -11,13 +11,14 @@ import React, { useEffect } from 'react'
 import { SelectRama } from "../../../selectRama"
 import { Button } from "@mui/material"
 import { ObjAdmin } from "./objAdmin"
+import { ObjAcudiente } from "./objAcudiente"
 
 export const AdminAcudiente = () => {
     const { acudientes } = useSelector(state => state.acudiente);
     const { user } = useSelector(state => state.auth);
     
     const { startListAcudientes } = useAcudienteStore();
-    
+    console.log(acudientes)
     
     useEffect(() => {
         startListAcudientes()
@@ -46,9 +47,9 @@ export const AdminAcudiente = () => {
 
                         acudientes.map((acudientes) => (
 
-                            <ObjAdmin
+                            <ObjAcudiente
                                 key={acudientes._id}
-                                admin={acudientes}
+                                acudientes={acudientes}
                             />
 
 

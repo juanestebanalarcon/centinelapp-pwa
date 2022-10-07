@@ -2,9 +2,10 @@ import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
 import { onListAdmin, onListAdminRamas } from "../store";
 import { useDispatch } from "react-redux"
-
+import { useParams } from 'react-router-dom';
 export const useAdminStore = () => {
     const dispatch = useDispatch()
+    const params = useParams();
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas}) => {
         // console.log({ nombre, apellido, email, ramasAsignadas})
       
@@ -43,7 +44,7 @@ export const useAdminStore = () => {
           
           const { data } = await CentinelApi.get('admin/AllAdmins');
           console.log(data)
-          dispatch( onListAdmin( data.admin_) )
+          dispatch( onListAdmin( data.admins_) )
     
         } catch (error) {
           console.log(error)
@@ -64,5 +65,37 @@ export const useAdminStore = () => {
         }
     
       }
-    return { startCrearAdmin, startListAdmin, startBusqRamaAdm}
+
+      const startAdminRama= async(id) => {
+
+        try {
+          
+          const { data } = await CentinelApi.get(`admin/getAdminBranch/${id}`);
+          console.log(data)
+          dispatch( onListAdminRamas( data.admon.ramasAsignadas) )
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+      const startDeleteAdmin = async() => {
+
+        try {
+          const id= params._id
+          console.log(id)
+          const { data } = await CentinelApi.delete(`admin/${params._id}`);
+          console.log(data)
+          swal(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin}
 }

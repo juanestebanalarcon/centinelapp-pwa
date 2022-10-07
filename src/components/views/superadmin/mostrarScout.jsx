@@ -9,13 +9,14 @@ import { useRamasStore, useScoutStore } from '../../../Hooks';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-//import swal from 'sweetalert';
+//import Swal from 'sweetalert2'
 
 
 export const MostrarScout = () => {
     const params = useParams();
 
     const { startListScouts } = useScoutStore();
+    const { startDeleteScout } = useScoutStore();
     const {startListarRamaID}= useRamasStore();
 
     const { scouts } = useSelector(state => state.scout);
@@ -28,7 +29,27 @@ export const MostrarScout = () => {
 
     function actualizar(e) {
         e.preventDefault();
-        navigate(`/act-scout/${scoutActual._id}`)
+        navigate(`/act-scout/${params._id}`)
+    }
+    function eliminar(e) {
+        e.preventDefault();
+        console.log(params._id)
+        startDeleteScout();
+        // Swal.fire({
+        //     title: 'Are you sure?',
+        //     text: "You won't be able to revert this!",
+        //     icon: 'warning',
+        // //     showCancelButton: true,
+        // //     confirmButtonColor: '#3085d6',
+        // //     cancelButtonColor: '#d33',
+        // //     confirmButtonText: 'Yes, delete it!'
+        // //   }).then((result) => {
+        // //     if (result.isConfirmed) {
+
+        //         startDeleteScout(params._id) 
+        //     // }
+        //   })
+        //navigate(`/`)
     }
     useEffect(() => {
         startListScouts()
@@ -65,9 +86,9 @@ export const MostrarScout = () => {
                     <h3>Rama actual</h3>
                     <h5>{ramaScout}</h5>
 
-                    <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Descargar Ficha Medica</Button>
+                    <Button  variant="contained" color="primary" onClick={actualizar}>Descargar Ficha Medica</Button>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
-
+                    <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 
                 </div>
             </div>
