@@ -6,11 +6,11 @@ import { useParams } from 'react-router-dom';
 export const useAcudienteStore = () => {
     const dispatch = useDispatch()
     const params = useParams();
-    const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, idScout}) => {
+    const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, Scouts}) => {
     
       
         try {
-            await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, idScout})
+            await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, Scouts})
            
          
                 swal({
@@ -78,8 +78,23 @@ export const useAcudienteStore = () => {
     
       }
       
+      const startUpdateAcudiente = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, scouts }) => {
+        
+        try {
+    
+          const { data } = await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, scouts });
+          console.log(data)
+          swal({
+            title: "El usuario ha sido actualizado con éxito!",
+            icon: "success",
+          });
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
 
 
-
-    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente}
+    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente}
 }

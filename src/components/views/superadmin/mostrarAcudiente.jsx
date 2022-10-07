@@ -18,8 +18,9 @@ export const MostrarAcudiente = () => {
     const { startListScoutsAcudiente } = useAcudienteStore();
     const { startDeleteAcudiente } = useAcudienteStore();
     const { acudientes } = useSelector(state => state.acudiente);
-    const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
     
+    const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
+   
     function eliminar(e) {
         e.preventDefault();
         console.log(params._id)
@@ -43,27 +44,21 @@ export const MostrarAcudiente = () => {
     }
 
 
-   // const navigate = useNavigate();
+   
 
-    // function actualizar(e) {
-    //     e.preventDefault();
-    //     navigate(`/act-scout/${scoutActual._id}`)
-    // }
+    function actualizar(e) {
+        e.preventDefault();
+        navigate(`/act-acud/${params._id}`)
+    }
     useEffect(() => {
        
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListAcudientes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        //startListScoutsAcudiente()
+        startListScoutsAcudiente()
     }, [])
 
-    function actualizar(e) {
-        e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
-    }
+    
 
 
     return (

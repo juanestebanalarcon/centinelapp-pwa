@@ -11,6 +11,7 @@ import { useForm, useScoutStore, useAcudienteStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { SelectScout } from "../select-scout"
+import AddIcon from '@mui/icons-material/Add';
 
 const Acudiente = {
   nombre: '',
@@ -37,8 +38,10 @@ export const AddUsuarioAcudiente = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const idScout = document.getElementById('scout').value;
-    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout === '') {
+    const idScout1 = document.getElementById('scouts1').value;
+    const idScout2 = document.getElementById('scouts2').value;
+
+    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '') {
       swal({
         title: "Ingrese los campos obligatorios",
         icon: "warning"
@@ -56,12 +59,25 @@ export const AddUsuarioAcudiente = () => {
         });
 
       }else{
-        startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, idScout })
+        if(idScout1===idScout2){
+          alert('Agregue difernte')
+        }else{
+          let Scouts=[]
+          Scouts.push(idScout1)
+          if(idScout2.length > 0 ){
+            Scouts.push(idScout2)
+          }
+          startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts })
+          navigate(`/home`)
+        }
+        
 
       }
 
       
     }
+
+    
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
@@ -69,11 +85,18 @@ export const AddUsuarioAcudiente = () => {
     
   }
 
+  const mostrar1= (e) =>{
+    e.preventDefault();
+    document.getElementById('scout2').style.display="flex"
+      
+  }
+
 
 
   useEffect(() => {
     startListScouts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    document.getElementById('scout2').style.display="none"
   }, [])
 
   return (
@@ -94,8 +117,16 @@ export const AddUsuarioAcudiente = () => {
             <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
-            <h3>Asignar rama*</h3>
-            <SelectScout id='scout' placeholder="Selecciona una opción" />
+            <h3>Asignar scouts*</h3>
+            <div className="asigScout">
+            <SelectScout id='scouts1' placeholder="Selecciona una opción" />
+            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
+            </div>
+            <div className="asigScout" id="scout2">
+            <SelectScout id='scouts2' placeholder="Selecciona una opción" />
+            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
+            </div>
+            
 
 
             <Button type="submit" variant="contained" color="primary">Crear</Button>

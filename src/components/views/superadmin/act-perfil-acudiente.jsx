@@ -7,28 +7,28 @@ import "../../../styles/login.css"
 import swal from 'sweetalert';
 
 import { Header } from "../../header"
-import {useForm,useRamasStore,useScoutStore } from '../../../Hooks';
+import {useForm,useAcudienteStore,useScoutStore } from '../../../Hooks';
 import { InputD } from "../../input-d"
 import { Select } from "../../select"
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { SelectScout } from "../../select-scout"
 
 
 
 export const ActPerfilAcudiente = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const { startListarRamas } = useRamasStore();
-    const {startListarRamaIDValue}= useRamasStore();
-    const { startListScouts } = useScoutStore();
-    const { startUpdateScout } = useScoutStore();
-    const { scouts } = useSelector(state => state.scout);
-    const scoutActual = scouts.find(scout => scout._id === (params._id));
-    const { ramaIdScout } = useSelector(state => state.rama);
+
+    const { startListAcudientes, startUpdateAcudiente } = useAcudienteStore();
+    const { acudientes } = useSelector(state => state.acudiente);
+    const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
     
-    const { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
+    
+    
+    const { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(acudienteActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
@@ -40,16 +40,16 @@ export const ActPerfilAcudiente = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         const id=params._id
-        const rama = document.getElementById("rama").value
-        console.log(rama)
-        if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| rama.trim()==='' ){
+        const scouts = document.getElementById("scout").value
+        console.log(scouts)
+        if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''){
           swal(
             'Error',
             'No puede enviar el contenido o el titulo en blanco',
             'error'
           )
         }else{
-            startUpdateScout({ id,nombre,apellido,email,fecha_nacimiento,celular,rama })
+          startUpdateAcudiente({ id,nombre,apellido,email,fecha_nacimiento,celular,scouts })
             navigate(`/scout/${params._id}`)
         }
       }
@@ -75,11 +75,11 @@ export const ActPerfilAcudiente = () => {
 
       
     useEffect(() => {
-        startListarRamas();
+  
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListScouts()
+        startListAcudientes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListarRamaIDValue(params._id)
+   
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         
@@ -108,8 +108,8 @@ export const ActPerfilAcudiente = () => {
                     <h3>Numero de celular</h3>
                     <Input name='celular' value={celular} type="text" onChange={onInputChange}  />
 
-                    <h3>Rama actual</h3>
-                    <Select id='rama' placeholder="Selecciona una opción" />
+                    <h3>Scouts asociados </h3>
+                    <SelectScout id='scout' placeholder="Selecciona una opción" />
 
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
                     

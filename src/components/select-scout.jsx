@@ -5,7 +5,7 @@ export function SelectScout(props) {
     const { scouts } = useSelector(state => state.scout);
 
     return (
-        <div className='input'>
+        <div className='input-scouts'>
             <select id={props.id} className='cajon-select' placeholder={props.placeholder} name={props.nombre}>
                 <option value="">Seleccione un scout</option>
                 {

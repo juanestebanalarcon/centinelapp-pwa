@@ -74,16 +74,17 @@ export const useScoutStore = () => {
     try {
 
       const { data } = await CentinelApi.get(`rama/getScoutsAsignados/${id}`);
-      // console.log(data)
-      // if (data.rama.Scout.length === 0) {
-      //   console.log('No hat scouts')
-
-      //   //document.getElementById('tabla-scouts').innerHTML='No existen scouts registrados en esta rama'
-      // }
-      // else {
-        
+      console.log(data)
+      if (data.rama.Scout.length === 0) {
+        console.log('No hat scouts')
+        document.getElementById("Noe").innerHTML="No existen scouts registrados en esta rama"
         dispatch(onListScouts(data.rama.Scout))
-      // }
+      }
+      else {
+        document.getElementById("Noe").innerHTML=""
+        dispatch(onListScouts(data.rama.Scout))
+      
+    }
     } catch (error) {
       console.log(error);
     }

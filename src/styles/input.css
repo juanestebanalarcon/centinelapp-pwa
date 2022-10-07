@@ -101,5 +101,22 @@ resize: none;
     outline: none;
   }
 
+  .input-scouts {
+    width: 95%;
+    
+}
+button#mas-scout {
+  width: 2%;
+  /* margin-left: 1%; */
+  height: 100%;
+}
+.asigScout{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
   

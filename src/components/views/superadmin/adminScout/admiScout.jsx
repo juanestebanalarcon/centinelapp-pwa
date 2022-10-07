@@ -25,7 +25,7 @@ export const AdminScouts = () => {
 
         console.log(id)
         if (id === '') {
-            
+            document.getElementById("Noe").innerHTML=""
             startListScouts()
             console.log('todos')
 
@@ -62,6 +62,7 @@ export const AdminScouts = () => {
 
                 </div>
                 <div id="tabla-scouts" className="tabla-scout">
+                    <div id="Noe"></div>
                     {
 
                         scouts.map((scout) => (
