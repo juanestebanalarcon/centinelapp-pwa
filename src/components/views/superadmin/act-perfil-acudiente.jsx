@@ -13,8 +13,8 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { SelectScout } from "../../select-scout";
-import AddIcon from '@mui/icons-material/Add';
+// import { SelectScout } from "../../select-scout";
+// import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -78,14 +78,8 @@ export const ActPerfilAcudiente = () => {
   // }
 
   useEffect(() => {
-
-    
     startListAcudientes()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-
-    
-
-
   }, [])
   return (
     <div className="contenido">

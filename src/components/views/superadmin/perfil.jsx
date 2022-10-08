@@ -29,6 +29,7 @@ export const PerfilSuperAdmin= ()=>{
     // }
     useEffect(() => {
         startListSuperAdmin()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
    
   

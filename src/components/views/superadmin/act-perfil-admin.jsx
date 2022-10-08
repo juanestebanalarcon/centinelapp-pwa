@@ -90,11 +90,7 @@ export const ActPerfilAdmin = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startAdminRama(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
-        
-        
-        
-    }, [])
+      }, [])
     return (
         <div className="contenido">
             <div className="conte-general">

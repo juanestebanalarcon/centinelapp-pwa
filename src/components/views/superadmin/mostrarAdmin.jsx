@@ -56,12 +56,9 @@ export const MostrarAdmin = () => {
     }
      useEffect(() => {
         startListAdmin()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
         startAdminRama(params._id)
-        
-    //     ramasadmin.map(ramaA =>{
-    //         startBusqRamaAdm(ramaA)})
-        
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 
     

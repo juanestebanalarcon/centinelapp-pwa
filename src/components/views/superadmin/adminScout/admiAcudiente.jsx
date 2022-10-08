@@ -8,9 +8,9 @@ import { useAcudienteStore} from '../../../../Hooks';
 import React, { useEffect } from 'react'
 
 
-import { SelectRama } from "../../../selectRama"
-import { Button } from "@mui/material"
-import { ObjAdmin } from "./objAdmin"
+// import { SelectRama } from "../../../selectRama"
+// import { Button } from "@mui/material"
+// import { ObjAdmin } from "./objAdmin"
 import { ObjAcudiente } from "./objAcudiente"
 
 export const AdminAcudiente = () => {
@@ -23,8 +23,7 @@ export const AdminAcudiente = () => {
     useEffect(() => {
         startListAcudientes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
-     }, [])
+    }, [])
     return (
         <div className="contenido">
             <div className="conte-general-home">

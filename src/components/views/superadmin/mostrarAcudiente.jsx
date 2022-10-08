@@ -53,11 +53,10 @@ export const MostrarAcudiente = () => {
         navigate(`/act-acud/${params._id}`)
     }
     useEffect(() => {
-       
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListAcudientes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListScoutsAcudiente()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     

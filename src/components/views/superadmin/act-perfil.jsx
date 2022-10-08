@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 import { Header } from "../../header"
 import {useForm,useRamasStore,useScoutStore } from '../../../Hooks';
 
-import { Select } from "../../select"
+//import { Select } from "../../select"
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -84,9 +84,7 @@ export const ActPerfilScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamaIDValue(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
-        
-    }, [])
+      }, [])
     return (
         <div className="contenido">
             <div className="conte-general">
