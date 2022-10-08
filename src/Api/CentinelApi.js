@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CentinelApi = axios.create({
-    baseURL: 'http://192.99.247.71:9000/api',
+    baseURL: 'http://192.99.247.71:9000/api/',
 });
 
 CentinelApi.interceptors.request.use( config => {
