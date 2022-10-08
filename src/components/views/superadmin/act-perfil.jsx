@@ -27,12 +27,14 @@ export const ActPerfilScout = () => {
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaIdScout } = useSelector(state => state.rama);
+    const { ramas } = useSelector(state => state.rama);
     
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
     console.log(ramaIdScout)
+    
     
       const onSubmit = (e) => {
         e.preventDefault();
@@ -110,7 +112,30 @@ export const ActPerfilScout = () => {
                     <Input name='celular' value={celular} type="text" onChange={onInputChange}  />
 
                     <h3>Rama actual</h3>
-                    <Select id='rama' placeholder="Selecciona una opción" />
+                    
+                    <div className='input'>
+
+                      <select id='rama'  className='cajon-select'  >
+                          <option value="">Seleccione una rama</option>
+                          {
+                            
+                  
+
+                              ramas.map(rama => {
+                                let ramaes= false
+                                
+                                if(ramaIdScout===rama._id){
+                                    ramaes=true
+                              
+                                }
+                                  return (
+                                      <option value={rama._id} selected={ramaes}>{rama.nombre} </option>
+                                  )
+                              })
+                          }
+                      </select>
+
+                  </div>
 
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
                     

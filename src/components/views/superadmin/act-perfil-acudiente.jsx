@@ -71,11 +71,11 @@ export const ActPerfilAcudiente = () => {
         }
       });
   }
-  const mostrar1= (e) =>{
-    e.preventDefault();
-    document.getElementById('scout2').style.display="flex"
+  // const mostrar1= (e) =>{
+  //   e.preventDefault();
+  //   document.getElementById('scout2').style.display="flex"
       
-  }
+  // }
 
   useEffect(() => {
 
@@ -111,7 +111,7 @@ export const ActPerfilAcudiente = () => {
             <h3>Numero de celular</h3>
             <Input name='celular' value={celular} type="text" onChange={onInputChange} />
 
-            <h3>Asignar scouts*</h3>
+            {/* <h3>Asignar scouts*</h3>
             <div className="asigScout">
               <SelectScout id='scouts1' placeholder="Selecciona una opción" />
               <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
@@ -119,7 +119,7 @@ export const ActPerfilAcudiente = () => {
             <div className="asigScout" id="scout2">
               <SelectScout id='scouts2' placeholder="Selecciona una opción" />
               <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
-            </div>
+            </div> */}
 
             <Button type="submit" variant="contained" color="primary">Guardar</Button>
 

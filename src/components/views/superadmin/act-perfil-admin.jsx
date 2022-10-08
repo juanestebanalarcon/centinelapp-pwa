@@ -118,9 +118,19 @@ export const ActPerfilAdmin = () => {
             <div className="rama-in">
               {
                 ramas.map(rama => {
+                  let asignada= false
+                  ramasAdmin.forEach((ramaA)=>{
+                    if(rama._id=== ramaA._id){
+                    
+                    asignada=true
+
+                  }
+
+                  })
+                  
                   return (
 
-                    <label className="la-rama"><input className="rama" type='checkbox' id={rama._id} value={rama._id} /><h3>{rama.nombre}</h3></label>
+                    <label className="la-rama"><input className="rama" type='checkbox' id={rama._id} value={rama._id} checked={asignada}/><h3>{rama.nombre}</h3></label>
                     //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
 
                   )
