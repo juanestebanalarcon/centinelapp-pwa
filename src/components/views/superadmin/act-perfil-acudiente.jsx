@@ -39,8 +39,8 @@ export const ActPerfilAcudiente = () => {
     const id = params._id
     nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
     apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-    const scouts = document.getElementById("scouts1").value
-    console.log(scouts)
+    
+    
     if (nombre.trim() === '' || apellido.trim() === '' || email.trim() === '' || fecha_nacimiento.trim() === '' || celular.trim() === '') {
       swal(
         'Error',
@@ -48,7 +48,7 @@ export const ActPerfilAcudiente = () => {
         'error'
       )
     } else {
-      startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, scouts })
+      startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular })
       navigate(`/scout/${params._id}`)
     }
   }

@@ -30,7 +30,7 @@ export const ActPerfilAdmin = () => {
     console.log(ramasAdmin)
     
     
-    let { nombre='', apellido='', email='', ramasAsignadas='', onInputChange } = useForm(adminActual);
+    let { nombre='', apellido='', email='', onInputChange } = useForm(adminActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
@@ -41,13 +41,14 @@ export const ActPerfilAdmin = () => {
         let id= params._id
         nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
         apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        let ramamas=[]
         ramas.forEach(rama => {
           if (document.getElementById(rama._id).checked) {
             
-            ramasAsignadas.push(rama._id)
+            ramamas.push(rama._id)
           }
         })
-        let RamasNuevas=ramasAsignadas
+        let RamasNuevas=ramamas
         if (nombre === '' || apellido === '' || email === '' || RamasNuevas.length === 0) {
           swal({
             title: "Ingrese los campos obligatorios",
@@ -117,10 +118,10 @@ export const ActPerfilAdmin = () => {
 
             <div className="rama-in">
               {
-                ramas.map(rama => {
+                ramas.map(ramaSE => {
                   let asignada= false
                   ramasAdmin.forEach((ramaA)=>{
-                    if(rama._id=== ramaA._id){
+                    if(ramaSE._id=== ramaA._id){
                     
                     asignada=true
 
@@ -130,7 +131,7 @@ export const ActPerfilAdmin = () => {
                   
                   return (
 
-                    <label className="la-rama"><input className="rama" type='checkbox' id={rama._id} value={rama._id} checked={asignada}/><h3>{rama.nombre}</h3></label>
+                    <label className="la-rama"><input className="rama" type='checkbox' id={ramaSE._id} value={ramaSE._id} checked={asignada} /><h3>{ramaSE.nombre}</h3></label>
                     //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
 
                   )
