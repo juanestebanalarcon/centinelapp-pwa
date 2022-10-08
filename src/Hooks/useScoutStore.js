@@ -3,9 +3,11 @@ import swal from 'sweetalert';
 import { onListScouts } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export const useScoutStore = () => {
   const dispatch = useDispatch()
   const params = useParams();
+  const navigate = useNavigate();
   const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, idRama }) => {
     // console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
 
@@ -78,16 +80,23 @@ export const useScoutStore = () => {
     }
 
   }
-  const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
-    console.log(rama)
+  const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
+    console.log(idRama)
+    console.log(idScout)
+    console.log(idRamaNueva)
+    
     try {
 
-      const { data } = await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, rama });
+      const { data } = await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
+      const { datar } = await CentinelApi.put(`rama/changeScoutBranch/${idRama}`, { idScout, idRamaNueva });
       console.log(data)
+      console.log(datar)
       swal({
         title: "El usuario ha sido actualizado con éxito!",
         icon: "success",
       });
+      navigate(`/scout/${params._id}`)
+
 
     } catch (error) {
       console.log(error)

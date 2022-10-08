@@ -28,7 +28,7 @@ export const ActPerfilAcudiente = () => {
 
 
 
-  const { nombre = '', apellido = '', email = '', fecha_nacimiento = '', celular = '', onInputChange } = useForm(acudienteActual);
+  let { nombre = '', apellido = '', email = '', fecha_nacimiento = '', celular = '', onInputChange } = useForm(acudienteActual);
   //fecha_nacimiento=reformatDateString(fecha_nacimiento);
   //console.log(ramaIdScout)
   //document.querySelector('#rama').value=ramaIdScout
@@ -37,7 +37,9 @@ export const ActPerfilAcudiente = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const id = params._id
-    const scouts = document.getElementById("scout").value
+    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    const scouts = document.getElementById("scouts1").value
     console.log(scouts)
     if (nombre.trim() === '' || apellido.trim() === '' || email.trim() === '' || fecha_nacimiento.trim() === '' || celular.trim() === '') {
       swal(

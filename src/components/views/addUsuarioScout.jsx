@@ -21,7 +21,7 @@ const Scout = {
 
 export const AddUsuarioFicha = () => {
 
-  const { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Scout);
+  let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Scout);
 
 
   const { startCrearScout } = useScoutStore();
@@ -42,6 +42,8 @@ export const AddUsuarioFicha = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
     const idRama = document.getElementById('rama').value;
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === '') {
       swal({

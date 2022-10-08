@@ -24,7 +24,7 @@ const Acudiente = {
 
 export const AddUsuarioAcudiente = () => {
 
-  const { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
+  let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
 
 
   const { startCrearAcudiente } = useAcudienteStore();
@@ -40,6 +40,8 @@ export const AddUsuarioAcudiente = () => {
     e.preventDefault();
     const idScout1 = document.getElementById('scouts1').value;
     const idScout2 = document.getElementById('scouts2').value;
+    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
 
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '') {
       swal({

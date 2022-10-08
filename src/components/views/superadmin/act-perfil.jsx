@@ -28,7 +28,7 @@ export const ActPerfilScout = () => {
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaIdScout } = useSelector(state => state.rama);
     
-    const { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
+    let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
@@ -37,17 +37,21 @@ export const ActPerfilScout = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         const id=params._id
-        const rama = document.getElementById("rama").value
-        console.log(rama)
-        if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| rama.trim()==='' ){
+        const idScout=params._id
+        const idRama=ramaIdScout;
+        nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        const idRamaNueva = document.getElementById("rama").value
+        console.log(idRamaNueva)
+        if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| idRamaNueva.trim()==='' ){
           swal(
             'Error',
             'No puede enviar el contenido o el titulo en blanco',
             'error'
           )
         }else{
-            startUpdateScout({ id,nombre,apellido,email,fecha_nacimiento,celular,rama })
-            navigate(`/scout/${params._id}`)
+            startUpdateScout({ id,nombre,apellido,email,fecha_nacimiento,celular,idRama, idScout,idRamaNueva })
+            
         }
       }
 

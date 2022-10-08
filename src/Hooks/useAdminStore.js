@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 import { onListAdmin, onListAdminRamas } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 export const useAdminStore = () => {
     const dispatch = useDispatch()
     const params = useParams();
@@ -97,16 +98,19 @@ export const useAdminStore = () => {
         }
     
       }
-      const startUpdateAdmin = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, rama }) => {
-        console.log(rama)
+      const startUpdateAdmin = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, RamasNuevas }) => {
+        
         try {
     
-          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, rama });
+          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
           console.log(data)
+          const { datat } =await CentinelApi.put(`admin/changeAdminBranch/${params._id}`, {RamasNuevas});
+          console.log(datat)
           swal({
             title: "El usuario ha sido actualizado con éxito!",
             icon: "success",
           });
+
     
         } catch (error) {
           console.log(error)

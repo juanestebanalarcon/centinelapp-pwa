@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
-import { useForm, useRamaStore } from "../../Hooks"
+import { useForm, useRamasStore } from "../../Hooks"
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"
@@ -19,7 +19,7 @@ const Rama = {
 export const AddRama = () => {
 
   const { nombre, edadMax, edadMin, onInputChange } = useForm(Rama);
-  const { startCrearRama } = useRamaStore();
+  const { startCrearRama } = useRamasStore();
   const navigate = useNavigate();
 
   function redirect(e) {

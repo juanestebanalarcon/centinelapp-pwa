@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { AuthSlice, ramaSlice, scoutSlice, adminSlice, acudienteSlice  } from './';
+import { AuthSlice, ramaSlice, scoutSlice, adminSlice, acudienteSlice, superadminSlice } from './';
 
 export const store = configureStore({
     reducer:{
@@ -8,5 +8,6 @@ export const store = configureStore({
         scout: scoutSlice.reducer,
         admin: adminSlice.reducer,
         acudiente: acudienteSlice.reducer,
+        superadmin: superadminSlice.reducer,
     },
 })

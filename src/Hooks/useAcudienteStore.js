@@ -2,9 +2,11 @@ import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
 import { onListAcudiente, onListAcudienteScout } from "../store";
 import { useDispatch } from "react-redux"
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export const useAcudienteStore = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const params = useParams();
     const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, Scouts}) => {
     
@@ -55,6 +57,7 @@ export const useAcudienteStore = () => {
         try {
           
           const { data } = await CentinelApi.get(`acudientes/getScouts/${params._id}`);
+          
          console.log(data.scouts_.Scout)
          dispatch( onListAcudienteScout( data.scouts_.Scout) )
     
@@ -83,12 +86,14 @@ export const useAcudienteStore = () => {
         try {
     
           const { data } = await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, scouts });
+          
           console.log(data)
           swal({
             title: "El usuario ha sido actualizado con éxito!",
             icon: "success",
           });
-    
+          navigate(`/acudientes/${params._id}`)
+          
         } catch (error) {
           console.log(error)
         }

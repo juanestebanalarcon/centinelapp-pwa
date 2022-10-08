@@ -24,7 +24,7 @@ const Admin = {
 export const AddUsuario = () => {
 
 
-  const { nombre, apellido, email, ramasAsignadas, onInputChange } = useForm(Admin);
+  let { nombre, apellido, email, ramasAsignadas, onInputChange } = useForm(Admin);
 
   const { startCrearAdmin } = useAdminStore();
   const { startListarRamas } = useRamasStore();
@@ -49,6 +49,8 @@ export const AddUsuario = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     //verificarcheck();
+    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
     ramas.forEach(rama => {
       if (document.getElementById(rama._id).checked) {
 

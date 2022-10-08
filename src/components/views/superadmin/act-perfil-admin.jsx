@@ -30,7 +30,7 @@ export const ActPerfilAdmin = () => {
     console.log(ramasAdmin)
     
     
-    const { nombre='', apellido='', email='', ramasAsignadas='', onInputChange } = useForm(adminActual);
+    let { nombre='', apellido='', email='', ramasAsignadas='', onInputChange } = useForm(adminActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
@@ -39,13 +39,16 @@ export const ActPerfilAdmin = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let id= params._id
+        nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
         ramas.forEach(rama => {
           if (document.getElementById(rama._id).checked) {
             
             ramasAsignadas.push(rama._id)
           }
         })
-        if (nombre === '' || apellido === '' || email === '' || ramasAsignadas.length === 0) {
+        let RamasNuevas=ramasAsignadas
+        if (nombre === '' || apellido === '' || email === '' || RamasNuevas.length === 0) {
           swal({
             title: "Ingrese los campos obligatorios",
             icon: "warning"
@@ -55,9 +58,9 @@ export const ActPerfilAdmin = () => {
           return;
     
         }else{
-            console.log(ramasAsignadas)
-            startUpdateAdmin({ id,nombre,apellido,email,ramasAsignadas })
-            navigate(`/scout/${params._id}`)
+            console.log(RamasNuevas)
+            startUpdateAdmin({ id,nombre,apellido,email,RamasNuevas })
+            navigate(`/admin/${params._id}`)
         }
       }
 
