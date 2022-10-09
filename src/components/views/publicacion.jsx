@@ -10,6 +10,8 @@ import { useRamasStore } from "../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 import swal from 'sweetalert';
+import { BotonFlotante } from "../btn-flotante"
+import { useNavigate } from 'react-router-dom';
 
 export const PublicacionGeneral = () => {
 
@@ -22,6 +24,15 @@ export const PublicacionGeneral = () => {
             icon: "warning",
           });
     }
+    const navigate = useNavigate();
+
+    function redireccion(e) {
+        e.preventDefault();
+        navigate(`/add-publicacion`)
+    }
+
+
+    
     useEffect(() => {
         startListarRamas();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,7 +40,7 @@ export const PublicacionGeneral = () => {
 
     return (
         <div className="contenido">
-            <div className="conte-general">
+            <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
                     <h1>Publicaciones</h1>
@@ -49,6 +60,7 @@ export const PublicacionGeneral = () => {
 
                         })
                     }
+                    <BotonFlotante onClick={redireccion}/>
 
                     
                 </div>

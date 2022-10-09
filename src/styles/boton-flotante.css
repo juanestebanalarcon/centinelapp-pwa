@@ -1,0 +1,13 @@
+.cont-redondo{
+    position: absolute;
+    background-color: #C1121F;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+}
+button.MuiButtonBase-root.MuiFab-root.MuiFab-circular.MuiFab-sizeMedium.MuiFab-secondary.css-dyo9ni-MuiButtonBase-root-MuiFab-root{
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+    background-color: #C1121F;
+}

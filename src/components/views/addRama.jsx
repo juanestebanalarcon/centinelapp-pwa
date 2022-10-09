@@ -57,6 +57,7 @@ export const AddRama = () => {
               <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" />
               <Input name='edadMin' iddiv='minedad' value={edadMin} onChange={onInputChange} placeholder="Min" type="number" />
             </div>
+            <br/>
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>

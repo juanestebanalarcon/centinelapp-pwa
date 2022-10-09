@@ -60,3 +60,9 @@ button.btn-nav {
     height: max-content;
     margin-bottom: 20%;
 }
+.conte-general-rela {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    position: relative;
+}
