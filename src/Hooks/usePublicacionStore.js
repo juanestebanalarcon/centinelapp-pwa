@@ -9,7 +9,7 @@ export const usePublicacionStore = () => {
   // const dispatch = useDispatch()
   // const params = useParams();
   // const navigate = useNavigate();
-const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada  }) => {
+const startCrearPublicacion = async ({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada  }) => {
     
     console.log({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada})
 
@@ -44,5 +44,5 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     }
 
   }
-  return { startCrearEvento }
+  return { startCrearPublicacion }
 }

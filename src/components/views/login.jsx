@@ -24,12 +24,16 @@ export const Login = () => {
     //     navigate(`/home`)
     // }
 
-    const { email, password, onInputChange } = useForm(login);
+    
+    let { email, password, onInputChange } = useForm(login);
     const { startLogin } = useAuthStore();
 
     const onSubmit = (e) => {
         e.preventDefault();
+        let emailx = email.toLowerCase()
         const tipo = parseInt(document.getElementById('tipo').value);
+        email= emailx
+        console.log(email)
         if (email === '' || password === ''|| tipo.length===0) {
             swal({
                 title: "Ingrese los campos obligatorios",
