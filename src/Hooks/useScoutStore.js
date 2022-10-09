@@ -111,11 +111,8 @@ export const useScoutStore = () => {
       console.log(id)
       const { data } = await CentinelApi.delete(`scouts/${params._id}`);
       console.log(data)
-      swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
+      
+      navigate(`/adminscouts`)
 
     } catch (error) {
       console.log(error)

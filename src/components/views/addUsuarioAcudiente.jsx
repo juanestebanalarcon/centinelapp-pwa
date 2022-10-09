@@ -23,6 +23,12 @@ const Acudiente = {
 }
 
 export const AddUsuarioAcudiente = () => {
+  
+  function capitalizar(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
 
@@ -40,8 +46,11 @@ export const AddUsuarioAcudiente = () => {
     e.preventDefault();
     const idScout1 = document.getElementById('scouts1').value;
     const idScout2 = document.getElementById('scouts2').value;
-    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    let nombrex = capitalizar(nombre)
+    let apellidox = capitalizar(apellido)
+    
+    nombre=nombrex
+    apellido=apellidox
 
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '') {
       swal({

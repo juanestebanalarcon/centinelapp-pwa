@@ -22,6 +22,7 @@ export const MostrarAcudiente = () => {
     const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
     const { acudienteScout } = useSelector(state => state.acudiente);
     console.log(acudienteScout)
+    
    
     function eliminar(e) {
         e.preventDefault();
@@ -37,8 +38,8 @@ export const MostrarAcudiente = () => {
           .then((willDelete) => {
             if (willDelete) {
                 startDeleteAcudiente();
-                //falta hacer que se vea el cambio
-              navigate(`/adminacudiente`)
+                
+              
             } else {
               swal("El usuario no ha sido eliminado");
             }
@@ -57,6 +58,7 @@ export const MostrarAcudiente = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListScoutsAcudiente()
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [])
 
     
@@ -87,12 +89,18 @@ export const MostrarAcudiente = () => {
 
                     <h3>Scout asociado</h3>
                  
-                    {acudienteScout.map(acu =>{
+                    {
+                        
+                        acudienteScout.map(acu =>{
                        
+                        
+                      
                         return(
                             <h5 id="scou">{`${acu.nombre} ${acu.apellido} `}</h5>
                         )
+                       
                     })
+                    
 
                     } 
 

@@ -3,10 +3,11 @@ import swal from 'sweetalert';
 import { onListAdmin, onListAdminRamas } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export const useAdminStore = () => {
     const dispatch = useDispatch()
     const params = useParams();
+    const navigate = useNavigate();
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas}) => {
         // console.log({ nombre, apellido, email, ramasAsignadas})
       
@@ -87,11 +88,7 @@ export const useAdminStore = () => {
           console.log(id)
           const { data } = await CentinelApi.delete(`admin/${params._id}`);
           console.log(data)
-          swal(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+          navigate(`/adminadmin`)
           
         } catch (error) {
           console.log(error)

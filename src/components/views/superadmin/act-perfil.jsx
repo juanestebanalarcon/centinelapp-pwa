@@ -28,7 +28,11 @@ export const ActPerfilScout = () => {
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaIdScout } = useSelector(state => state.rama);
     const { ramas } = useSelector(state => state.rama);
-    
+    function capitalizar(str) {
+      return str.replace(/\w\S*/g, function(txt){
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+    }
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
@@ -41,8 +45,11 @@ export const ActPerfilScout = () => {
         const id=params._id
         const idScout=params._id
         const idRama=ramaIdScout;
-        nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-        apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        let nombrex = capitalizar(nombre)
+        let apellidox = capitalizar(apellido)
+        
+        nombre=nombrex
+        apellido=apellidox
         const idRamaNueva = document.getElementById("rama").value
         console.log(idRamaNueva)
         if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| idRamaNueva.trim()==='' ){

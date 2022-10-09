@@ -48,7 +48,7 @@ export const MostrarAdmin = () => {
             if (willDelete) {
                 startDeleteAdmin();
                 //falta hacer que se vea el cambio
-              navigate(`/adminadmin`)
+              
             } else {
               
             }

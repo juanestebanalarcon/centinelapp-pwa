@@ -74,7 +74,7 @@ export const useAcudienteStore = () => {
           const { data } = await CentinelApi.delete(`acudientes/${params._id}`);
           console.log(data)
           
-          
+          navigate(`/adminacudiente`)
         } catch (error) {
           console.log(error)
         }

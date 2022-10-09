@@ -28,19 +28,28 @@ export const ActPerfilAdmin = () => {
     const {ramasAdmin}=useSelector(state => state.admin)
     const adminActual = admins.find(admin => admin._id === (params._id));
     console.log(ramasAdmin)
+    function capitalizar(str) {
+      return str.replace(/\w\S*/g, function(txt){
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+  }
     
     
     let { nombre='', apellido='', email='', onInputChange } = useForm(adminActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
     //console.log(ramaIdScout)
     //document.querySelector('#rama').value=ramaIdScout
-   
+     
   
       const onSubmit = (e) => {
         e.preventDefault();
         let id= params._id
-        nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-        apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+        let nombrex = capitalizar(nombre)
+        let apellidox = capitalizar(apellido)
+        
+        nombre=nombrex
+        apellido=apellidox
+        console.log(nombre, apellido)
         let ramamas=[]
         ramas.forEach(rama => {
           if (document.getElementById(rama._id).checked) {

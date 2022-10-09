@@ -23,6 +23,11 @@ const Admin = {
 }
 export const AddUsuario = () => {
 
+  function capitalizar(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
   let { nombre, apellido, email, ramasAsignadas, onInputChange } = useForm(Admin);
 
@@ -49,8 +54,11 @@ export const AddUsuario = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     //verificarcheck();
-    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    let nombrex = capitalizar(nombre)
+    let apellidox = capitalizar(apellido)
+    
+    nombre=nombrex
+    apellido=apellidox
     ramas.forEach(rama => {
       if (document.getElementById(rama._id).checked) {
 

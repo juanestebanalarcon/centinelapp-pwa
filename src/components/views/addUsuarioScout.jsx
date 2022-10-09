@@ -21,6 +21,11 @@ const Scout = {
 
 export const AddUsuarioFicha = () => {
 
+  function capitalizar(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Scout);
 
 
@@ -42,8 +47,11 @@ export const AddUsuarioFicha = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    let nombrex = capitalizar(nombre)
+    let apellidox = capitalizar(apellido)
+    
+    nombre=nombrex
+    apellido=apellidox
     const idRama = document.getElementById('rama').value;
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === '') {
       swal({

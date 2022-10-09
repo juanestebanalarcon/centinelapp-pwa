@@ -25,7 +25,11 @@ export const ActPerfilAcudiente = () => {
   const { startListAcudientes, startUpdateAcudiente } = useAcudienteStore();
   const { acudientes } = useSelector(state => state.acudiente);
   const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
-
+  function capitalizar(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
 
   let { nombre = '', apellido = '', email = '', fecha_nacimiento = '', celular = '', onInputChange } = useForm(acudienteActual);
@@ -37,8 +41,11 @@ export const ActPerfilAcudiente = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const id = params._id
-    nombre = nombre.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
-    apellido = apellido.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))); 
+    let nombrex = capitalizar(nombre)
+    let apellidox = capitalizar(apellido)
+    
+    nombre=nombrex
+    apellido=apellidox
     
     
     if (nombre.trim() === '' || apellido.trim() === '' || email.trim() === '' || fecha_nacimiento.trim() === '' || celular.trim() === '') {

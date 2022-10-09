@@ -45,8 +45,8 @@ export const MostrarScout = () => {
           .then((willDelete) => {
             if (willDelete) {
                 startDeleteScout();
-                //falta hacer que se vea el cambio
-              navigate(`/adminscouts`)
+               
+              
             } else {
               
             }

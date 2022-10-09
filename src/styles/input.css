@@ -147,6 +147,10 @@ div#pass-input {
   padding: 10px 12px;
   width: 90%;
 }
+.cajon-input-pass:focus{
+  border: none;
+  outline: none;
+}
 
 
 
