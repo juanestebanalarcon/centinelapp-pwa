@@ -9,6 +9,7 @@ import "../../styles/login.css"
 import "../../styles/boton.css"
 import { useAuthStore, useForm } from "../../Hooks";
 import { Select } from "../select-tipo";
+import { InputPassword } from "../input-password";
 
 const login = {
     tipo: '',
@@ -54,7 +55,8 @@ export const Login = () => {
                     <h3>Correo electronico</h3>
                     <Input name="email" value={email} onChange={onInputChange} placeholder="example@mail.com" type="email" />
                     <h3>Contraseña</h3>
-                    <Input name="password" value={password} onChange={onInputChange} placeholder="Tu contraseña" type="password" />
+                    <InputPassword name="password" value={password} onChange={onInputChange} placeholder="Tu contraseña" type="password" />
+                    <br/>
                     <Button type="submit" variant="contained" color="primary">Ingresa</Button>
                 </form>
             </div>
