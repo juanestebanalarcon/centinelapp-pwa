@@ -25,20 +25,18 @@ button.btn-public {
     width: 96%;
 }
 
-.btn-public-s1 h2{
+.btn-public-s1 h2 {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 35px;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
-
-    /* Complementos/Blanco/Blanco3 */
-
     color: #FAFAFA;
+    margin: 3%;
+    margin-left: 5%;
+    justify-content: flex-start;
 }
 
 .conte-publicacion h3{

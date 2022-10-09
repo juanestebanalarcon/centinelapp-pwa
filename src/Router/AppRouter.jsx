@@ -27,6 +27,15 @@ import { MostrarAcudiente } from "../components/views/superadmin/mostrarAcudient
 import { ActPerfilAcudiente } from "../components/views/superadmin/act-perfil-acudiente"
 import { ActPerfilAdmin } from "../components/views/superadmin/act-perfil-admin"
 import {AddPublicacion} from "../components/views/addpublicacion"
+import { PublicacionGeneralAdmin } from "../components/views/admin/publicacion"
+import { EventoGeneralAdmin } from "../components/views/admin/evento"
+import { EventosGeneral } from "../components/views/eventos"
+import { AddEvento } from "../components/views/addevento"
+import { AddPublicacionAdmin } from "../components/views/admin/addpublicacion"
+import { AddEventoAdmin } from "../components/views/admin/addevento"
+import { AdminScoutsAdmin } from "../components/views/admin/admiScout"
+import { CamContrasenaAdmin } from "../components/views/admin/cambiarContrasena"
+import { ActAdmin } from "../components/views/admin/act-perfil"
 
 export const AppRouter = () => {
 
@@ -85,6 +94,12 @@ export const AppRouter = () => {
                         <Route path='/act-scout/:_id' element={<ActPerfilScout/>}/>
                         <Route path="/act-acud/:_id" element={<ActPerfilAcudiente/>}/>
                         <Route path="/act-admin/:_id" element={<ActPerfilAdmin/>}/>
+
+                        <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
+                        <Route path="/add-publicacion" element={<AddPublicacion/>}/>
+
+                        <Route path="/eventos" element={<EventosGeneral/>}/>
+                        <Route path="/add-evento" element={<AddEvento/>}/>
                 </Routes>
 
             )
@@ -94,9 +109,13 @@ export const AppRouter = () => {
             <Route path="/perfil" element={ <PerfilAdmin/>}/>
             <Route path="/" element={ <HomeAdmin/> }/>
             <Route path="/*" element={ <Navigate to="/"/> }/> 
-            <Route path="/adminscouts" element={<AdminScouts/>}/>
-            <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
-            <Route path="/add-publicacion" element={<AddPublicacion/>}/>
+            <Route path="/adminscouts" element={<AdminScoutsAdmin/>}/>
+            <Route path="/publicaciones" element={<PublicacionGeneralAdmin/>}/>
+            <Route path="/add-publicacion" element={<AddPublicacionAdmin/>}/>
+            <Route path="/eventos" element={<EventoGeneralAdmin/>}/>
+            <Route path="/add-evento" element={<AddEventoAdmin/>}/>
+            <Route path="/updatepassword" element={<CamContrasenaAdmin/>}/>
+            <Route path="/act-perfil" element={<ActAdmin/>}/>
             </Routes>
             )
     
@@ -107,7 +126,7 @@ export const AppRouter = () => {
                 <Route path="/" element={ <HomeScout/> }/>
                 <Route path="/*" element={ <Navigate to="/"/> }/> 
                 <Route path="/perfil" element={<PerfilScout/>}/>
-                <Route path="/act-perfil" element={<ActPerfil/>}/>
+                
                 <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
             </Routes>
             )

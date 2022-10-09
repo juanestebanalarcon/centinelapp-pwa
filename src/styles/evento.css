@@ -48,16 +48,16 @@ button.btn-event {
     display: flex;
 }
 
-.btn-event-s2 h2{
+.btn-event-s2 h2 {
     font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 2em;
-line-height: 35px;
-display: flex;
-align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2em;
+    line-height: 35px;
+    display: flex;
+    margin: auto;
+    align-items: center;
 }
-
 img.imgbtn{
     margin: auto;
 }

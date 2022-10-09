@@ -114,5 +114,43 @@ export const useAdminStore = () => {
         }
     
       }
-    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin}
+      const startUpdateAdminPersonal = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, RamasNuevas }) => {
+        
+        try {
+    
+          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
+          console.log(data)
+          
+          swal({
+            title: "El usuario ha sido actualizado con éxito!",
+            icon: "success",
+          });
+
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+
+      const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
+        
+        try {
+    
+          const { data } = await CentinelApi.post(`admin/changePassword`, { newPassword,currentPassword,email });
+          console.log(data)
+          
+          swal({
+            title: "El usuario ha sido actualizado con éxito!",
+            icon: "success",
+          });
+          navigate("/perfil")
+
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin, startUpdatePassword, startUpdateAdminPersonal}
 }

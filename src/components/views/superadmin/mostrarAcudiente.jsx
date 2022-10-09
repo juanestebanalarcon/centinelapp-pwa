@@ -58,7 +58,6 @@ export const MostrarAcudiente = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListScoutsAcudiente()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
     }, [])
 
     

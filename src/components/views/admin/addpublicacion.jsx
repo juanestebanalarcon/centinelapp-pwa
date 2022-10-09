@@ -1,17 +1,19 @@
-import { Input } from "../input"
-import { Navbar } from "../navbar"
+import { Input } from "../../input"
+import { Navbar } from "../../navbar"
 import Button from '@mui/material/Button'
-import "../../styles/boton.css"
-import "../../styles/styles.css"
-import "../../styles/login.css"
-import { useForm, useRamasStore, usePublicacionStore } from "../../Hooks"
+import "../../../styles/boton.css"
+import "../../../styles/styles.css"
+import "../../../styles/login.css"
+import { useForm, useAdminStore, usePublicacionStore } from "../../../Hooks"
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import { Header } from "../header"
+import { Header } from "../../header"
 import { useEffect } from 'react'
-import { Select } from "../select"
-import { TextArea } from "../textArea"
+
+import { TextArea } from "../../textArea"
 import { useSelector } from 'react-redux';
+import { SelectRamaAdmin } from "../../selectRamaAdmin"
+
 
 const Publicacion = {
     titulo: '',
@@ -19,7 +21,7 @@ const Publicacion = {
     
   
   }
-export const AddPublicacion = () => {
+export const AddPublicacionAdmin = () => {
     
     
       const { titulo, descripcion, onInputChange } = useForm(Publicacion);
@@ -27,7 +29,8 @@ export const AddPublicacion = () => {
     
     
       const { startCrearPublicacion } = usePublicacionStore();
-      const { startListarRamas } = useRamasStore();
+      
+      const {startAdminRama}=useAdminStore();
       const navigate = useNavigate();
     
       function redirect(e) {
@@ -74,7 +77,7 @@ export const AddPublicacion = () => {
         //console.log({nombre, apellido, correo, fechaNacimiento, celular})
         
       useEffect(() => {
-        startListarRamas();
+        startAdminRama(user?.uid);
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
     
@@ -87,7 +90,7 @@ export const AddPublicacion = () => {
               <h2>En este formulario puedes crear una nueva publicación</h2>
               <form onSubmit={onSubmit}>
                 <h3>Rama del mensaje*</h3>
-                <Select id='rama' placeholder="Selecciona una opción" />
+                <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
                 <h3>Titulo de la publicación*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
                 <h3>Mensaje*</h3>

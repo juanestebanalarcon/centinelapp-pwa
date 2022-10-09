@@ -5,11 +5,11 @@ export function BotonFlotante(props) {
     return (
         
         
-            <button onClick={props.onClick}>
-              <Fab size="medium" color="secondary" aria-label="add">
+            
+              <Fab size="medium" color="secondary" aria-label="add" onClick={props.onClick}>
                 <AddIcon />
               </Fab>
-              </button>
+              
 
     )
 }

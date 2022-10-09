@@ -30,7 +30,7 @@ export const Login = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         const tipo = parseInt(document.getElementById('tipo').value);
-        if (email === '' || password === '') {
+        if (email === '' || password === ''|| tipo.length===0) {
             swal({
                 title: "Ingrese los campos obligatorios",
                 icon: "warning"
@@ -39,9 +39,13 @@ export const Login = () => {
 
             return;
 
+        }else{
+            
+            console.log(email, password, tipo);
+            startLogin({ email, password, tipo });
+
         }
-        console.log(email, password, tipo);
-        startLogin({ email, password, tipo });
+        
     }
 
     return (
