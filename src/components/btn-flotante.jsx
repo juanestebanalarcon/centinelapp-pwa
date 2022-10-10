@@ -6,7 +6,14 @@ export function BotonFlotante(props) {
         
         
             
-              <Fab size="medium" color="secondary" aria-label="add" onClick={props.onClick}>
+              <Fab size="medium" color="secondary" aria-label="add" onClick={props.onClick} 
+                style={{
+                position: 'fixed',
+                right: '5%',
+                bottom: '10%',
+                background: '#C1121F'
+
+              }}>
                 <AddIcon />
               </Fab>
               
