@@ -39,6 +39,12 @@ export const useSuperAdminStore = () => {
     
         } catch (error) {
           console.log(error.response.status)
+          if(error.request.status===400){
+            swal({
+              title: "La contraseña actual es incorrecta!",
+              icon: "error",
+            });
+          }
         }
     
       }

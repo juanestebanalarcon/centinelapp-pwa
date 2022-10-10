@@ -5,11 +5,11 @@ import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
-import { SelectCreacion } from "../../selectCreacion"
+//import { SelectCreacion } from "../../selectCreacion"
 import { useAdminStore, usePublicacionStore, useRamasStore, useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../publicacioncompo"
@@ -25,19 +25,13 @@ export const PublicacionRama = () => {
     
     const {ramaSel}=useSelector(state => state.rama)
     const {publicaciones}=useSelector(state => state.publicacion)
-    const { admins } = useSelector(state => state.admin);
-    const { superadmins } = useSelector(state => state.superadmin);
+    // const { admins } = useSelector(state => state.admin);
+    // const { superadmins } = useSelector(state => state.superadmin);
     
     
-    const {user} = useSelector(state=>state.auth);
+    //const {user} = useSelector(state=>state.auth);
     console.log(publicaciones)
-    function ingresoPubli(e) {
-        e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
-    }
+    
     const navigate = useNavigate();
 
     function redireccion(e) {
@@ -56,27 +50,21 @@ export const PublicacionRama = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListSuperAdmin();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-
     }, [])
 
     return (
         <div className="contenido">
             <div className="conte-general-rela">
                 <Header />
-                <div className="conte-imp">
-                    {/* <h1>Rama:{ramaSel.nombre}</h1>
-                    <h3>Aqui estan los mensajes de la rama {ramaSel.nombre}</h3> */}
+                <div className="conte-imp" id="conte-sel">
+                    <h1>Rama:{ramaSel.nombre}</h1>
+                    <h3>Aqui estan los mensajes de la rama {ramaSel.nombre}</h3>
                     
                    
                     {
                         
                             publicaciones.map(publi =>{
-                                //let autor = superadmins.find(superadmin => superadmin._id === publi.autor);
-                                {/* if(autor.length ===0){
-                                    autor = admins.find(admin => admin._id === publi.autor);
-                                } */}
-                               // console.log(autor.nombre, autor.apellido)
-                              
+                                
                         return(
                             <Publicacion titulo={publi.titulo}
                             conte={publi.descripcion}

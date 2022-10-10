@@ -55,7 +55,12 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     } catch (error) {
       console.log(error.request.status)
       if(error.request.status===404){
-        alert('No hay publicaciones')
+        document.getElementById('nohay').innerHTML=''
+        swal({
+          
+          title: "No existen publicaciones actualmente para esta rama",
+          icon: "warning",
+        });  
         navigate('/publicaciones')
 
       }

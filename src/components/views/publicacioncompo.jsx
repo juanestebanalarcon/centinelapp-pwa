@@ -1,7 +1,7 @@
 import '../../styles/publicacion.css'
 export function Publicacion(props) {
     return (
-        <div className='btn-public'>
+        <div className='btn-public' id='nohay'>
             <button className='btn-public' onClick={props.onClick}>
                 <div className='btn-public-s1'>
                     <h2>{props.titulo}</h2>
