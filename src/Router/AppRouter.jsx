@@ -5,7 +5,6 @@ import { AddRama, AddUsuario, AddUsuarioFicha, Login, PublicacionGeneral } from 
 import { ActPerfil } from "../components/views/act-perfil"
 import { PerfilAcudiente } from "../components/views/acudiente/perfil"
 import { PerfilAdmin } from "../components/views/admin/perfil"
-import { CamContrasena } from "../components/views/cambiarContrasena"
 import { HomeScout } from "../components/views/scout/home"
 import { Loading } from "../components/views/loading"
 import { PerfilScout } from "../components/views/scout/perfil"
@@ -37,6 +36,9 @@ import { AdminScoutsAdmin } from "../components/views/admin/admiScout"
 import { CamContrasenaAdmin } from "../components/views/admin/cambiarContrasena"
 import { ActAdmin } from "../components/views/admin/act-perfil"
 import { PublicacionRama } from "../components/views/superadmin/publicacionRama"
+import { CamContrasenaScout } from "../components/views/scout/cambiarContrasena"
+import { CamContrasenaAcudiente } from "../components/views/acudiente/cambiarContrasena"
+import { CamContrasenaSuperAdmin } from "../components/views/superadmin/cambiarContrasena"
 
 export const AppRouter = () => {
 
@@ -79,6 +81,8 @@ export const AppRouter = () => {
                         <Route path="/addAcudiente" element={<AddUsuarioAcudiente/>}/>
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
                         <Route path="/act-perfil" element={<ActPerfil/>}/>
+                        <Route path="/updatepassword" element={<CamContrasenaSuperAdmin/>}/>
+                        
                         
                         
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
@@ -129,7 +133,7 @@ export const AppRouter = () => {
                 <Route path="/*" element={ <Navigate to="/"/> }/> 
                 <Route path="/perfil" element={<PerfilScout/>}/>
                 
-                <Route path="/cambio-contrasena" element={<CamContrasena/>}/>
+                <Route path="/updatepassword" element={<CamContrasenaScout/>}/>
             </Routes>
             )
             
@@ -140,6 +144,8 @@ export const AppRouter = () => {
             <Route path="/perfil" element={ <PerfilAcudiente/>}/>
             <Route path="/" element={ <HomeAcudiente/> }/>
             <Route path="/*" element={ <Navigate to="/"/> }/> 
+            <Route path="/updatepassword" element={<CamContrasenaAcudiente/>}/>
+            
 
             </Routes>
             )

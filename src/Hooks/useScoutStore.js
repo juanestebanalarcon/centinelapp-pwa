@@ -119,8 +119,28 @@ export const useScoutStore = () => {
     }
 
   }
+  const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
+        
+    console.log(newPassword,currentPassword,email)
+    try {
+
+      const { data } = await CentinelApi.post(`scouts/changePassword`, { newPassword,currentPassword,email });
+      console.log(data)
+      
+      swal({
+        title: "La contraseña ha sido actualizada con éxito!",
+        icon: "success",
+      });
+      navigate("/perfil")
+
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
 
 
-  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout }
+  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword }
 }

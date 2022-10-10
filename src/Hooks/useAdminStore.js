@@ -135,13 +135,14 @@ export const useAdminStore = () => {
 
       const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
         
+        console.log(newPassword,currentPassword,email)
         try {
     
           const { data } = await CentinelApi.post(`admin/changePassword`, { newPassword,currentPassword,email });
           console.log(data)
           
           swal({
-            title: "El usuario ha sido actualizado con éxito!",
+            title: "La contraseña ha sido actualizada con éxito!",
             icon: "success",
           });
           navigate("/perfil")

@@ -32,10 +32,14 @@ export const PerfilScout= ()=>{
         e.preventDefault();
         navigate(`/act-perfil`)
     }
+    function contrasena(e){ 
+        e.preventDefault();
+        navigate(`/updatepassword`)
+    }
     useEffect(() => {
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListarRamaID(user.uid)
+        startListarRamaID(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
    
@@ -46,7 +50,7 @@ export const PerfilScout= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
-        <h1>Hola, {scoutActual?.nombre}</h1>
+        <h1>Hola, {user?.nombre}</h1>
         <h2>Aquí están tus datos personales</h2>
  
         <h3>Nombre</h3>
@@ -67,6 +71,7 @@ export const PerfilScout= ()=>{
         <h3>Rama actual</h3>
         <h5>{ramaScout}</h5>
         
+        <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
         <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
         <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
       

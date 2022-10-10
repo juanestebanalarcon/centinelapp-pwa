@@ -99,7 +99,28 @@ export const useAcudienteStore = () => {
         }
     
       }
+      const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
+        
+        console.log(newPassword,currentPassword,email)
+        try {
+    
+          const { data } = await CentinelApi.post(`acudientes/changePassword`, { newPassword,currentPassword,email });
+          console.log(data)
+          
+          swal({
+            title: "La contraseña ha sido actualizada con éxito!",
+            icon: "success",
+          });
+          navigate("/perfil")
+    
+    
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    
 
 
-    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente}
+    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword}
 }

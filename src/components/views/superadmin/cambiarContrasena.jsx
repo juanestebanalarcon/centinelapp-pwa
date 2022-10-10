@@ -4,14 +4,14 @@ import Button from '@mui/material/Button'
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
-import { useForm, useAdminStore} from "../../../Hooks"
+import { useForm, useSuperAdminStore} from "../../../Hooks"
 import swal from 'sweetalert';
 import { Header } from "../../header"
 import { useSelector } from "react-redux"
 import { InputPassword } from "../../input-password"
 import { useNavigate } from "react-router-dom"
 
-const Administrador = {
+const SuperAdmin = {
     newPassword: '',
     email:'',
     newPasswordC:'',
@@ -21,12 +21,12 @@ const Administrador = {
   }
 
 
-export const CamContrasenaAdmin = () => {
+export const CamContrasenaSuperAdmin= () => {
     const navigate = useNavigate();
     const { user } = useSelector(state => state.auth);
    
-    const { newPassword,newPasswordC, currentPassword, onInputChange } = useForm(Administrador);
-    const {startUpdatePassword}=useAdminStore();
+    const { newPassword,newPasswordC, currentPassword, onInputChange } = useForm(SuperAdmin);
+    const {startUpdatePassword}=useSuperAdminStore();
     
     const onSubmit = (e) => {
         e.preventDefault();

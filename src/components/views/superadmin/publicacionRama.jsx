@@ -51,8 +51,11 @@ export const PublicacionRama = () => {
         startListPublicacion();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamasSel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListAdmin();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListSuperAdmin();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
 
     }, [])
 
@@ -68,16 +71,16 @@ export const PublicacionRama = () => {
                     {
                         
                             publicaciones.map(publi =>{
-                                let autor = superadmins.find(superadmin => superadmin._id === publi.autor);
+                                //let autor = superadmins.find(superadmin => superadmin._id === publi.autor);
                                 {/* if(autor.length ===0){
                                     autor = admins.find(admin => admin._id === publi.autor);
                                 } */}
-                                console.log(autor.nombre, autor.apellido)
+                               // console.log(autor.nombre, autor.apellido)
                               
                         return(
                             <Publicacion titulo={publi.titulo}
                             conte={publi.descripcion}
-                            persona={`${autor.nombre} ${autor.apellido}`}
+                            persona={`${publi.autor} `}
                             calendario={publi.fecha} />
                         )
                     
