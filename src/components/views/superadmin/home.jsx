@@ -45,10 +45,10 @@ export const HomeSuperAd = () => {
                 <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima' />
                 <h1>Acciones</h1>
                 <h3>Estas son las acciones que puedes hacer como super-administrador</h3>
-                <SelectCreacion nombre="Gestionar usuarios" desc="Consulta y edita los datos de los usuarios" onClick={gestionar} />
                 <SelectCreacion nombre="Registrar usuario" desc="Registrar un nuevo usuario" onClick={registrar} />
-
-                <SelectCreacion nombre="Crear una nueva rama" desc="Crea una nueva rama" onClick={rama} />
+                <SelectCreacion nombre="Gestionar usuarios" desc="Consulta y edita los datos de los usuarios" onClick={gestionar} />
+           
+                <SelectCreacion nombre="Gestionar ramas" desc="Crea una nueva rama" onClick={rama} />
 
 
             </div>

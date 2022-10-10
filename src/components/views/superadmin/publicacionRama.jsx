@@ -42,10 +42,11 @@ export const PublicacionRama = () => {
 
     
     useEffect(() => {
-        startListPublicacion();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamasSel();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListPublicacion();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
         startListAdmin();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListSuperAdmin();
@@ -57,8 +58,8 @@ export const PublicacionRama = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
-                    <h1>Rama:{ramaSel.nombre}</h1>
-                    <h3>Aqui estan los mensajes de la rama {ramaSel.nombre}</h3>
+                    {/* <h1>Rama:{ramaSel.nombre}</h1>
+                    <h3>Aqui estan los mensajes de la rama {ramaSel.nombre}</h3> */}
                     
                    
                     {
