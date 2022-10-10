@@ -4,6 +4,7 @@ export const ramaSlice = createSlice({
       name: 'rama',
       ramaScout: "",
       ramaIdScout:"",
+      ramaSel:"",
       initialState:{
          ramas: [],
       },
@@ -11,6 +12,9 @@ export const ramaSlice = createSlice({
           ListarRamas: (state, { payload = [] }) => {
             state.ramas = payload;
          },
+         ListarRamasSel: (state, { payload}) => {
+          state.ramaSel = payload;
+       },
          ListarRamaScout: (state, { payload}) => {
            state.ramaScout = payload; 
          },
@@ -20,4 +24,4 @@ export const ramaSlice = createSlice({
        }
 })
 
-export const { ListarRamas, ListarRamaScout,ListarIDRamaScout } = ramaSlice.actions
+export const { ListarRamas,ListarRamasSel, ListarRamaScout,ListarIDRamaScout } = ramaSlice.actions

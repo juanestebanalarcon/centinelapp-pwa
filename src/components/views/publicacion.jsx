@@ -31,6 +31,13 @@ export const PublicacionGeneral = () => {
         navigate(`/add-publicacion`)
     }
 
+    const publi = (idrama) => (e) => {
+        e.preventDefault();
+        navigate(`/pub-rama/${ idrama }`)
+      }
+    
+    
+
 
     
     useEffect(() => {
@@ -50,7 +57,7 @@ export const PublicacionGeneral = () => {
                         ramas.map(rama => {
                             return (
 
-                                <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={ingresoPubli}/>
+                                <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
 
 
                                 //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />

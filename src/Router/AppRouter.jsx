@@ -36,6 +36,7 @@ import { AddEventoAdmin } from "../components/views/admin/addevento"
 import { AdminScoutsAdmin } from "../components/views/admin/admiScout"
 import { CamContrasenaAdmin } from "../components/views/admin/cambiarContrasena"
 import { ActAdmin } from "../components/views/admin/act-perfil"
+import { PublicacionRama } from "../components/views/superadmin/publicacionRama"
 
 export const AppRouter = () => {
 
@@ -97,6 +98,7 @@ export const AppRouter = () => {
 
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/add-publicacion" element={<AddPublicacion/>}/>
+                        <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
 
                         <Route path="/eventos" element={<EventosGeneral/>}/>
                         <Route path="/add-evento" element={<AddEvento/>}/>

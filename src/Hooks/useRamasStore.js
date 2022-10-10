@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
 import { CentinelApi } from "../Api"
-import { ListarRamas, ListarRamaScout, ListarIDRamaScout} from "../store";
+import { ListarRamas, ListarRamaScout, ListarIDRamaScout, ListarRamasSel} from "../store";
 import swal from 'sweetalert';
+import { useParams } from "react-router-dom";
 export const useRamasStore = () => {
-  
+    const params = useParams();
     const dispatch = useDispatch();
     const startCrearRama = async ({ nombre, edadMax, edadMin}) => {
         // console.log({ nombre, edadMax, edadMin})
@@ -50,6 +51,21 @@ export const useRamasStore = () => {
         }
 
     }
+    const startListarRamasSel = async() => {
+
+        try {
+            
+            const { data } = await CentinelApi.get(`rama/${params._id}`);
+            console.log(data.rama_)
+            dispatch(ListarRamasSel(data.rama_));
+            
+            
+
+        } catch (error) {
+          console.log(error);  
+        }
+
+    }
     const startListarRamaID= async(id) => {
 
         try {
@@ -82,5 +98,5 @@ export const useRamasStore = () => {
 
     
 
-    return{ startCrearRama, startListarRamas, startListarRamaID, startListarRamaIDValue}
+    return{ startCrearRama, startListarRamas, startListarRamaID, startListarRamaIDValue, startListarRamasSel}
 }

@@ -1,23 +1,23 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-// import { onListPublicaciones } from "../store";
-// import { useDispatch } from "react-redux"
-// import { useParams } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { onListPublicaciones } from "../store";
+import { useDispatch } from "react-redux"
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const usePublicacionStore = () => {
-  // const dispatch = useDispatch()
-  // const params = useParams();
-  // const navigate = useNavigate();
-const startCrearPublicacion = async ({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada  }) => {
+  const dispatch = useDispatch()
+  const params = useParams();
+  const navigate = useNavigate();
+const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha  }) => {
     
-    console.log({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada})
+    console.log({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
 
     
 
 
     try {
-      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, ramaAsignada})
+      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
       // console.log(data)
 
       swal({
@@ -44,5 +44,28 @@ const startCrearPublicacion = async ({ titulo, descripcion, linkImagen, autor, f
     }
 
   }
-  return { startCrearPublicacion }
+  const startListPublicacion= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`publicaciones/byBranch/${params._id}`);
+      console.log(data.publicaciones_)
+      dispatch( onListPublicaciones( data.publicaciones_) )
+
+    } catch (error) {
+      console.log(error.request.status)
+      if(error.request.status===404){
+        alert('No hay publicaciones')
+        navigate('/publicaciones')
+
+      }
+    }
+
+  }
+
+
+
+
+
+  return { startCrearPublicacion, startListPublicacion}
 }

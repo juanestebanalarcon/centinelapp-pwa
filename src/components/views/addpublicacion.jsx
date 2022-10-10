@@ -41,9 +41,9 @@ export const AddPublicacion = () => {
         let autor=user?.uid
         console.log(user)
         let date = new Date();
-        let fecha= date.toLocaleDateString();
-        let rama= document.getElementById("rama").value
-        console.log(rama)
+        let fecha= date.toDateString()
+        let ramaAsignada= document.getElementById("rama").value
+        console.log(fecha)
         console.log(descripcion)
         
         
@@ -59,7 +59,7 @@ export const AddPublicacion = () => {
     
         }else{
           
-              startCrearPublicacion({ titulo, descripcion, rama, linkImagen, autor, fecha })
+              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha })
               navigate(`/home`)
             }
             
