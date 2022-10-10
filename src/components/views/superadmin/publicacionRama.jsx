@@ -23,7 +23,7 @@ export const PublicacionRama = () => {
     const { startListAdmin } = useAdminStore();
     
     
-    const {ramaSel}=useSelector(state => state.rama)
+    //const {ramaSel}=useSelector(state => state.rama)
     const {publicaciones}=useSelector(state => state.publicacion)
     // const { admins } = useSelector(state => state.admin);
     // const { superadmins } = useSelector(state => state.superadmin);
