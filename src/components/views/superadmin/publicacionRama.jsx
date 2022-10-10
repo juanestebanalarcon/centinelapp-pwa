@@ -8,7 +8,8 @@ import { Header } from "../../header"
 //import { SelectCreacion } from "../../selectCreacion"
 import { useAdminStore, usePublicacionStore, useRamasStore, useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react'
+import { useEffect} from 'react'
+//import {  useState } from 'react'
 //import swal from 'sweetalert';
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
@@ -23,11 +24,11 @@ export const PublicacionRama = () => {
     const { startListAdmin } = useAdminStore();
     
     
-    //const {ramaSel}=useSelector(state => state.rama)
+    const {ramaSel}=useSelector(state => state.rama)
     const {publicaciones}=useSelector(state => state.publicacion)
     // const { admins } = useSelector(state => state.admin);
     // const { superadmins } = useSelector(state => state.superadmin);
-    
+    // const [ autor, setAutor ]= useState('')
     
     //const {user} = useSelector(state=>state.auth);
     console.log(publicaciones)
@@ -58,13 +59,14 @@ export const PublicacionRama = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
-                    {/* <h1>Rama:{ramaSel.nombre}</h1>
-                    <h3>Aqui estan los mensajes de la rama {ramaSel.nombre}</h3> */}
+                    <h1>Rama:{ramaSel?.nombre}</h1>
+                    <h3>Aqui estan los mensajes de la rama {ramaSel?.nombre}</h3>
                     
                    
                     {
                         
                             publicaciones.map(publi =>{
+
                                 
                         return(
                             <Publicacion titulo={publi.titulo}
