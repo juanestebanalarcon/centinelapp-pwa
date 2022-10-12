@@ -9,7 +9,7 @@ import { SelectCreacion } from "../selectCreacion"
 import { useRamasStore } from "../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 import { BotonFlotante } from "../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 

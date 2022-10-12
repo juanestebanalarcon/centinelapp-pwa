@@ -9,7 +9,7 @@ import { SelectCreacion } from "../selectCreacion"
 import { useRamasStore } from "../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 import { BotonFlotante } from "../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 
@@ -17,13 +17,7 @@ export const PublicacionGeneral = () => {
 
     const { startListarRamas } = useRamasStore();
     const { ramas } = useSelector(state => state.rama);
-    function ingresoPubli(e) {
-        e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
-    }
+   
     const navigate = useNavigate();
 
     function redireccion(e) {

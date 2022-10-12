@@ -6,9 +6,9 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 //import { SelectCreacion } from "../../selectCreacion"
-import { useAdminStore, usePublicacionStore, useRamasStore, useSuperAdminStore } from "../../../Hooks"
+import { useAdminStore, usePublicacionStore, useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 //import swal from 'sweetalert';
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
@@ -18,16 +18,16 @@ import { Publicacion } from "../publicacioncompo"
 export const PublicacionRamaGeneral = () => {
     
     const {startListPublicacionGeneral}=usePublicacionStore();
-    const {startListarRamasSel}=useRamasStore();
+    
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
     
     
     
     const {publicaciones}=useSelector(state => state.publicacion)
-    const { admins } = useSelector(state => state.admin);
-    const { superadmins } = useSelector(state => state.superadmin);
-    const [autor, setAutor] = useState('');
+    //const { admins } = useSelector(state => state.admin);
+    //const { superadmins } = useSelector(state => state.superadmin);
+    //const [autor, setAutor] = useState('');
     
     //const {user} = useSelector(state=>state.auth);
     console.log(publicaciones)
