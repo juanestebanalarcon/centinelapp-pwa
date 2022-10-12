@@ -15,15 +15,15 @@ import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../publicacioncompo"
 
 
-export const PublicacionRama = () => {
+export const PublicacionRamaGeneral = () => {
     
-    const {startListPublicacion}=usePublicacionStore();
+    const {startListPublicacionGeneral}=usePublicacionStore();
     const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
     
     
-    const {ramaSel}=useSelector(state => state.rama)
+    
     const {publicaciones}=useSelector(state => state.publicacion)
     const { admins } = useSelector(state => state.admin);
     const { superadmins } = useSelector(state => state.superadmin);
@@ -54,9 +54,9 @@ export const PublicacionRama = () => {
 
     
     useEffect(() => {
-        startListarRamasSel();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListPublicacion();
+        
+        
+        startListPublicacionGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();
@@ -70,8 +70,8 @@ export const PublicacionRama = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
-                    <h1>Rama:{ramaSel?.nombre}</h1>
-                    <h3>Aqui estan los mensajes de la rama {ramaSel?.nombre}</h3>
+                    <h1>Rama:General</h1>
+                    <h3>Aqui estan los mensajes de todas las ramas</h3>
                     
                    
                     {

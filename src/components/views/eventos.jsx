@@ -17,12 +17,15 @@ export const EventosGeneral = () => {
 
     const { startListarRamas } = useRamasStore();
     const { ramas } = useSelector(state => state.rama);
-    function ingresoPubli(e) {
+    const publi = (idrama) => (e) => {
         e.preventDefault();
-        swal({
-            title: "Actualmente esta funcion se encuentra en desarrollo",
-            icon: "warning",
-          });
+        navigate(`/evento-rama/${ idrama }`)
+      }
+    
+
+    function general(e) {
+        e.preventDefault();
+        navigate(`/evento-General`)
     }
     const navigate = useNavigate();
 
@@ -45,12 +48,12 @@ export const EventosGeneral = () => {
                 <div className="conte-imp">
                     <h1>Eventos</h1>
                     <h3>Selecciona una rama para ver sus eventos, en icono + púedes crear un nuevo evento</h3>
-                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={ingresoPubli}/>
+                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={general}/>
                     {
                         ramas.map(rama => {
                             return (
 
-                                <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={ingresoPubli}/>
+                                <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
 
 
                                 //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />

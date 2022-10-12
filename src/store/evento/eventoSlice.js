@@ -8,7 +8,7 @@ export const eventoSlice = createSlice({
       },
       reducers:{
             onListEventos:(state, {payload=[]})=>{
-            state.publicaciones=payload;
+            state.eventos=payload;
            }
        }
 })

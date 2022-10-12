@@ -7,9 +7,24 @@ import { Header } from "../../header"
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { usePublicacionStore, useRamasStore, useScoutStore } from "../../../Hooks";
 export const HomeScout= ()=>{
     const {user} = useSelector(state=>state.auth);
-   
+    const { ramaIdScout } = useSelector(state => state.rama);
+    
+    console.log(ramaIdScout)
+    const { startListScouts } = useScoutStore();
+    const {startListarRamaIDValue}= useRamasStore();
+    const {startListLastPublicacionRama}= usePublicacionStore();
+
+    useEffect(() => {
+        startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListarRamaIDValue(user?.uid)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListLastPublicacionRama(ramaIdScout)
+    },[])
 
     return(
     <div className="contenido">

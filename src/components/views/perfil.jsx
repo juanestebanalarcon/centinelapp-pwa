@@ -62,7 +62,16 @@ export const Perfil = () => {
                     <h3>Rama actual</h3>
                     <h5>Cachorros</h5>
 
-                    <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
+                    <Button type="submit" variant="contained" color="primary" onClick={actualizar}style={{
+                    width: '90%',
+                    background: '#C1121F',
+                    margin: '5%',
+                    fontFamily: 'Ubuntu',
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    fontSize: '18px'
+
+              }}>Actualizar datos</Button>
                     <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
 
                 </div>

@@ -7,11 +7,17 @@ import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';
 
-import React from "react";
+import React, { useEffect } from "react";
+import { usePublicacionStore } from "../../../Hooks";
+import { useEventoStore } from "../../../Hooks/useEventoStore";
 export const HomeSuperAd = () => {
     const navigate = useNavigate();
     const { user } = useSelector(state => state.auth);
-
+    const {startListLastPublicacion}=usePublicacionStore()
+    const {startListLastEvento}=useEventoStore()
+    const {publicaciones}=useSelector(state => state.publicacion)
+    const {eventos}=useSelector(state => state.evento)
+    console.log(eventos)
 
     function gestionar(e) {
         e.preventDefault();
@@ -28,6 +34,14 @@ export const HomeSuperAd = () => {
         navigate(`/addUser`)
     }
 
+    useEffect(() => {
+        startListLastPublicacion();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListLastEvento();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [])
+   
+   
 
     return (
         <div className="contenido">
@@ -37,10 +51,24 @@ export const HomeSuperAd = () => {
                 <h1>Inicio</h1>
                 <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
                 <h1>Últimas publicaciones</h1>
-                <Publicacion titulo="Crear nuevo scout"
-                    conte='Corrupti iste quo quod sapiente quaerat ullam iure voluptate. Consequuntur perspiciatis sit ut amet nihil adipisci. Tempore beatae facere perferendis sapiente possimus itaque sapiente tempora repellat...'
-                    persona='Tracey Armstrong'
-                    calendario='09-09-2022' />
+                {
+                        
+                        publicaciones.map(publi =>{
+                            
+                    return(
+                        <Publicacion titulo={publi?.titulo}
+                        conte={publi?.descripcion}
+                        persona={`${publi?.autor} `}
+                        calendario={publi?.fecha} />
+                    )
+                
+                })
+
+                    
+                    
+                    
+
+                }
                 <h1>Siguiente evento</h1>
                 <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima' />
                 <h1>Acciones</h1>

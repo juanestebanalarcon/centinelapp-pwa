@@ -67,10 +67,65 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     }
 
   }
+  const startListPublicacionGeneral= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`publicaciones/allPublicaciones`);
+      console.log(data.publicaciones_)
+      dispatch( onListPublicaciones( data.publicaciones_) )
+
+    } catch (error) {
+      console.log(error.request.status)
+      if(error.request.status===404){
+        document.getElementById('nohay').innerHTML=''
+        swal({
+          
+          title: "No existen publicaciones actualmente para esta rama",
+          icon: "warning",
+        });  
+        navigate('/publicaciones')
+
+      }
+    }
+
+  }
+
+  const startListLastPublicacion= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`publicaciones/lastTwoPubli`);
+      console.log(data.publicaciones_)
+      dispatch( onListPublicaciones( data.publicaciones_) )
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+
+  const startListLastPublicacionRama= async(ramaIdScout) => {
+    
+    try {
+      
+      
+      const { data } = await CentinelApi.get(`publicaciones/lastTwoPubliByBranch/${ramaIdScout}`);
+      console.log(data.publicaciones_)
+      dispatch( onListPublicaciones( data.publicaciones_) )
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+
+  
+
+  
 
 
-
-
-
-  return { startCrearPublicacion, startListPublicacion}
+  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama}
 }

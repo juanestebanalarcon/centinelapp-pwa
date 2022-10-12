@@ -39,6 +39,9 @@ import { PublicacionRama } from "../components/views/superadmin/publicacionRama"
 import { CamContrasenaScout } from "../components/views/scout/cambiarContrasena"
 import { CamContrasenaAcudiente } from "../components/views/acudiente/cambiarContrasena"
 import { CamContrasenaSuperAdmin } from "../components/views/superadmin/cambiarContrasena"
+import { PublicacionRamaGeneral } from "../components/views/superadmin/publicacionRamaGeneral"
+import { EventoRamaGeneral } from "../components/views/superadmin/eventoRamaGeneral"
+import { EventoRama } from "../components/views/superadmin/eventoRama"
 
 export const AppRouter = () => {
 
@@ -103,9 +106,13 @@ export const AppRouter = () => {
                         <Route path="/publicaciones" element={<PublicacionGeneral/>}/>
                         <Route path="/add-publicacion" element={<AddPublicacion/>}/>
                         <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
+                        <Route path="/pub-General" element={<PublicacionRamaGeneral/>}/>
 
                         <Route path="/eventos" element={<EventosGeneral/>}/>
                         <Route path="/add-evento" element={<AddEvento/>}/>
+                        <Route path="/evento-General" element={<EventoRamaGeneral/>}/>
+                        <Route path="/evento-rama/:_id" element={<EventoRama/>}/>
+                        
                 </Routes>
 
             )

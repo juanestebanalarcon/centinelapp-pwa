@@ -35,9 +35,14 @@ export const PublicacionGeneral = () => {
         e.preventDefault();
         navigate(`/pub-rama/${ idrama }`)
       }
-    
-    
 
+      function publigeneral (e){
+        e.preventDefault();
+        navigate(`/pub-General`)
+        }
+    
+    
+      
 
     
     useEffect(() => {
@@ -52,7 +57,7 @@ export const PublicacionGeneral = () => {
                 <div className="conte-imp">
                     <h1>Publicaciones</h1>
                     <h3>Selecciona una rama para ver sus mensajes, en icono + púedes crear una nueva publicacion</h3>
-                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={ingresoPubli}/>
+                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
                     {
                         ramas.map(rama => {
                             return (

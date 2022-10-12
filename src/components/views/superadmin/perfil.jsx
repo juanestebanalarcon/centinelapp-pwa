@@ -57,7 +57,7 @@ export const PerfilSuperAdmin= ()=>{
         <h5>{superAdminAct?.email}</h5>
 
         
-        <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
+        <Button variant="contained" color="primary" onClick={contrasena} >Cambiar contraseña</Button>
         {/* <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button> */}
         <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
       

@@ -1,7 +1,7 @@
 import '../styles/evento.css'
 export function Eventos(props) {
     return (
-        <div className='btn-event'>
+        <div className='btn-event' id='nohay'>
             <button className='btn-event' onClick={props.onClick}>
                 <div className='btn-event-s1'>
                     <h2>{props.mes}</h2>

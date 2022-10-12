@@ -118,7 +118,7 @@ export const AddUsuarioFicha = () => {
               ref = { fileInputRef }
               style={{ display : 'none' }}
             /> */}
-            <Button type="submit" variant="contained" color="primary">Crear</Button>
+            <Button type="submit" variant="contained" color="primary" >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
