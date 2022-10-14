@@ -109,15 +109,16 @@ export const AddUsuarioFicha = () => {
             <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
-            {/* <h3>Ficha medica*</h3> */}
-            {/* <input
+            <h3>Ficha medica*</h3>
+            <input
               type="file"
-              accept=".pdf, .doc"
-              onChange={  onFileInputChange }
-              value={ link_ficha_medica}
-              ref = { fileInputRef }
-              style={{ display : 'none' }}
-            /> */}
+             
+            />
+            <h3>Foto*</h3>
+            <input
+              type="file"
+             
+            />
             <Button type="submit" variant="contained" color="primary" >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>

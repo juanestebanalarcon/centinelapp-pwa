@@ -121,6 +121,11 @@ export const AddUsuario = () => {
 
 
             </div>
+            <h3>Foto*</h3>
+            <input
+              type="file"
+             
+            />
 
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>

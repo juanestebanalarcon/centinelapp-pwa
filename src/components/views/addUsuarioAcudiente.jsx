@@ -127,6 +127,11 @@ export const AddUsuarioAcudiente = () => {
             <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
+            <h3>Foto*</h3>
+            <input
+              type="file"
+             
+            />
             <h3>Asignar scouts*</h3>
             <div className="asigScout">
             <SelectScout id='scouts1' placeholder="Selecciona una opción" />
