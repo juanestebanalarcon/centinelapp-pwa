@@ -47,13 +47,13 @@ export const AddUsuarioFicha = () => {
 
   const onFileInputChange  = async({ target }) =>{
     if( target.files === 0 ) return;
-    const link = startUploadingFiles( target.files, 'Fichas-Medicas' )
+    const link = await startUploadingFiles( target.files, 'Fichas-Medicas' )
     setlink_ficha_medica(link);
   }
 
   const onFileInputChangeI  = async({ target }) =>{
     if( target.files === 0 ) return;
-    const link = startUploadingFiles( target.files, 'Imagenes' )
+    const link = await startUploadingFiles( target.files, 'Imagenes' )
     setLinkImagen(link);
   }
 
@@ -95,7 +95,7 @@ export const AddUsuarioFicha = () => {
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
-    //console.log({linkImagen,link_ficha_medica})
+    //console.log({link_imagen,link_ficha_medica})
     
   }
 
