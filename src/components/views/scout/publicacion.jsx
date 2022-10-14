@@ -6,38 +6,46 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 import { SelectCreacion } from "../../selectCreacion"
-import { useAdminStore } from "../../../Hooks"
+import { useRamasStore, useScoutStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 //import swal from 'sweetalert';
-import { BotonFlotante } from "../../btn-flotante"
+
 import { useNavigate } from 'react-router-dom';
 
+export const PublicacionGeneralScout = () => {
 
-export const PublicacionGeneralAdmin = () => {
-    
-    const {startAdminRama}=useAdminStore();
-    const {ramasAdmin}=useSelector(state => state.admin)
+
     const {user} = useSelector(state=>state.auth);
-    console.log(ramasAdmin)
-    
+ 
+    const { ramas } = useSelector(state => state.rama);
+    console.log(ramas)
+    const { ramaIdScout } = useSelector(state => state.rama);
+    const ramascoutes = ramas.find(rama => rama._id === ramaIdScout);
+    console.log(ramascoutes)
     const navigate = useNavigate();
+    const {startListarRamaIDValue, startListarRamas}= useRamasStore();
+    const { startListScouts } = useScoutStore();
 
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-publicacion`)
-    }
-    function publigeneral (e){
-        e.preventDefault();
-        navigate(`/pub-General`)
-        }
     const publi = (idrama) => (e) => {
         e.preventDefault();
         navigate(`/pub-rama/${ idrama }`)
+      }
+
+      function publigeneral (e){
+        e.preventDefault();
+        navigate(`/pub-General`)
         }
     
+    
+      
+
+    
     useEffect(() => {
-        startAdminRama(user?.uid);
+        startListarRamas();
+        startListScouts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListarRamaIDValue(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -47,19 +55,15 @@ export const PublicacionGeneralAdmin = () => {
                 <Header />
                 <div className="conte-imp">
                     <h1>Publicaciones</h1>
-                    <h3>Selecciona una rama para ver sus mensajes, en icono + púedes crear una nueva publicacion</h3>
+                    <h3>Selecciona una rama para ver sus mensajes</h3>
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
-                    {ramasAdmin.map(rama =>{
-                        return(
-                            <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
-                        )
-                    })
+                  
 
-                    }
+                     <SelectCreacion nombre={ramascoutes.nombre} desc={ramascoutes.edadMin + "-" + ramascoutes.edadMax + " años"} onClick={publi(ramascoutes._id)}/>
+
+
+                          
                     
-                    
-                    
-                    <BotonFlotante onClick={redireccion}/>
 
                     
                 </div>

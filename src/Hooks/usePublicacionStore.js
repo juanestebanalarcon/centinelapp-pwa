@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListPublicaciones } from "../store";
+import { onListPublicaciones, onListPublicacionSel } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -121,11 +121,25 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     }
 
   }
+  const startListPublicacionBusca= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`publicaciones/${params._id}`);
+      console.log(data.publicaciones_)
+      dispatch( onListPublicacionSel( data.publicaciones_) )
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
 
   
 
   
 
 
-  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama}
+  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca}
 }

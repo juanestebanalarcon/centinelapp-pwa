@@ -31,7 +31,7 @@ export const EventoRama = () => {
     
     let idRama= params._id
       
-    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
+    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
     function convertir(mes) {    
     let res
@@ -50,6 +50,10 @@ export const EventoRama = () => {
     function redireccion(e) {
         e.preventDefault();
         navigate(`/add-evento`)
+    }
+    const rediEventos = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verEvento/${id}`)
     }
     
 
@@ -103,6 +107,7 @@ export const EventoRama = () => {
                             dia={dia}
                             
                             mes= {convertir(mes)}
+                            onClick={rediEventos(evento?._id)}
                              />
                         )
                     

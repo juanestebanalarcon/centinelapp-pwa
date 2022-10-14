@@ -38,6 +38,10 @@ export const PublicacionRamaGeneral = () => {
         e.preventDefault();
         navigate(`/add-publicacion`)
     }
+    const rediPublicacion = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verPublicacion/${id}`)
+    }
     // function autore(e) {
     //     e.preventDefault();
     // publicaciones.map(publi =>{
@@ -82,7 +86,9 @@ export const PublicacionRamaGeneral = () => {
                             <Publicacion titulo={publi?.titulo}
                             conte={publi?.descripcion}
                             persona={`${publi?.autor} `}
-                            calendario={publi?.fecha} />
+                            calendario={publi?.fecha} 
+                            onClick={rediPublicacion(publi?._id)}
+                            />
                         )
                     
                     })

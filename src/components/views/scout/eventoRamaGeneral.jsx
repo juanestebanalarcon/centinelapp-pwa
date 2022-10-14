@@ -17,7 +17,7 @@ import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
 
 
-export const EventoRamaGeneral = () => {
+export const EventoRamaGeneralView = () => {
     
     const {startListEventoGeneral}=useEventoStore();
     const { startListSuperAdmin } = useSuperAdminStore();
@@ -44,14 +44,7 @@ export const EventoRamaGeneral = () => {
     
     const navigate = useNavigate();
 
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-evento`)
-    }
-    const rediEventos = (id) => (e) => {
-        e.preventDefault();
-        navigate(`/verEvento/${id}`)
-    }
+    
     
 
     
@@ -103,7 +96,6 @@ export const EventoRamaGeneral = () => {
                             dia={dia}
                             
                             mes= {convertir(mes)}
-                            onClick={rediEventos(evento?._id)}
                              />
                         )
                     
@@ -117,7 +109,7 @@ export const EventoRamaGeneral = () => {
                     
                     
                     
-                    <BotonFlotante onClick={redireccion}/>
+                    
 
                     
                 </div>

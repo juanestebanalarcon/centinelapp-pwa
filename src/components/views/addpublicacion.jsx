@@ -22,7 +22,7 @@ const Publicacion = {
 export const AddPublicacion = () => {
     
     
-      const { titulo, descripcion, onInputChange } = useForm(Publicacion);
+     let { titulo, descripcion, onInputChange } = useForm(Publicacion);
       const { user } = useSelector(state => state.auth);
     
     
@@ -43,6 +43,9 @@ export const AddPublicacion = () => {
         let date = new Date();
         let fecha= date.toDateString()
         let ramaAsignada= document.getElementById("rama").value
+       
+        let desc=descripcion.replace(/n/g,'<br/>');
+        descripcion= desc
         console.log(fecha)
         console.log(descripcion)
         
@@ -71,7 +74,7 @@ export const AddPublicacion = () => {
         
     
     
-        //console.log({nombre, apellido, correo, fechaNacimiento, celular})
+      
         
       useEffect(() => {
         startListarRamas();

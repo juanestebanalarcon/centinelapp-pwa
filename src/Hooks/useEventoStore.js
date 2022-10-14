@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListEventos } from "../store";
+import { onListEventos, onListEventoSelect } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -102,13 +102,13 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
       console.log(data)
       dispatch( onListEventos( data.Eventos_) )
       if((data.Eventos_).length === 0){
-        document.getElementById('nohay').innerHTML=''
+        
         swal({
           
-          title: "No existen publicaciones actualmente para esta rama",
+          title: "No existen eventos actualmente para esta rama",
           icon: "warning",
         });  
-        navigate('/publicaciones')
+        navigate('/eventos')
 
       }
 
@@ -118,5 +118,20 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     }
 
   }
-  return { startCrearEvento,startListLastEvento, startListEventoGeneral, startListEvento }
+
+  const startListEventoBusca= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`evento/${params._id}`);
+      console.log(data.Eventos_)
+      dispatch( onListEventoSelect( data.Eventos_) )
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+  return { startCrearEvento,startListLastEvento, startListEventoGeneral, startListEvento, startListEventoBusca }
 }

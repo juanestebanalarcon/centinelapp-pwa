@@ -6,28 +6,31 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 //import { SelectCreacion } from "../../selectCreacion"
-import { useAdminStore,  useSuperAdminStore } from "../../../Hooks"
+import { useAdminStore, useRamasStore, useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react'
+import { useEffect} from 'react'
 //import swal from 'sweetalert';
 import { BotonFlotante } from "../../btn-flotante"
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
 
 
-export const EventoRamaGeneral = () => {
-    
-    const {startListEventoGeneral}=useEventoStore();
+export const EventoRamaView = () => {
+    const params = useParams();
+    const {startListEvento}=useEventoStore();
+    const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
      
-  
+    const {ramaSel}=useSelector(state => state.rama)
     const {eventos}=useSelector(state => state.evento)
     //const { admins } = useSelector(state => state.admin);
     //const { superadmins } = useSelector(state => state.superadmin);
     //const [autor, setAutor] = useState('');
+    
+    let idRama= params._id
+      
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
 
     function convertir(mes) {    
@@ -44,14 +47,7 @@ export const EventoRamaGeneral = () => {
     
     const navigate = useNavigate();
 
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-evento`)
-    }
-    const rediEventos = (id) => (e) => {
-        e.preventDefault();
-        navigate(`/verEvento/${id}`)
-    }
+    
     
 
     
@@ -71,8 +67,9 @@ export const EventoRamaGeneral = () => {
 
     
     useEffect(() => {
-        
-        startListEventoGeneral();
+        startListarRamasSel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListEvento(idRama);
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();
@@ -86,8 +83,8 @@ export const EventoRamaGeneral = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
-                    <h1>Rama:General</h1>
-                    <h3>Aqui estan los mensajes de todas las ramas</h3>
+                    <h1>Rama:{ramaSel?.nombre}</h1>
+                    <h3>Aqui estan los eventos de la rama {ramaSel?.nombre}</h3>
                     
                    
                     {
@@ -103,7 +100,6 @@ export const EventoRamaGeneral = () => {
                             dia={dia}
                             
                             mes= {convertir(mes)}
-                            onClick={rediEventos(evento?._id)}
                              />
                         )
                     
@@ -117,7 +113,7 @@ export const EventoRamaGeneral = () => {
                     
                     
                     
-                    <BotonFlotante onClick={redireccion}/>
+                   
 
                     
                 </div>

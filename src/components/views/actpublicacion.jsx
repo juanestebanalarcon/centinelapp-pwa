@@ -1,19 +1,17 @@
-import { Input } from "../../input"
-import { Navbar } from "../../navbar"
+import { Input } from "../input"
+import { Navbar } from "../navbar"
 import Button from '@mui/material/Button'
-import "../../../styles/boton.css"
-import "../../../styles/styles.css"
-import "../../../styles/login.css"
-import { useForm, useAdminStore, usePublicacionStore } from "../../../Hooks"
+import "../../styles/boton.css"
+import "../../styles/styles.css"
+import "../../styles/login.css"
+import { useForm, useRamasStore, usePublicacionStore } from "../../Hooks"
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import { Header } from "../../header"
+import { Header } from "../header"
 import { useEffect } from 'react'
-
-import { TextArea } from "../../textArea"
+import { Select } from "../select"
+import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
-import { SelectRamaAdmin } from "../../selectRamaAdmin"
-
 
 const Publicacion = {
     titulo: '',
@@ -21,16 +19,15 @@ const Publicacion = {
     
   
   }
-export const AddPublicacionAdmin = () => {
+export const AddPublicacion = () => {
     
     
-      const { titulo, descripcion, onInputChange } = useForm(Publicacion);
+     let { titulo, descripcion, onInputChange } = useForm(Publicacion);
       const { user } = useSelector(state => state.auth);
     
     
       const { startCrearPublicacion } = usePublicacionStore();
-      
-      const {startAdminRama}=useAdminStore();
+      const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
     
       function redirect(e) {
@@ -44,9 +41,12 @@ export const AddPublicacionAdmin = () => {
         let autor=user?.uid
         console.log(user)
         let date = new Date();
-        let fecha= date.toLocaleDateString();
+        let fecha= date.toDateString()
         let ramaAsignada= document.getElementById("rama").value
-        console.log(ramaAsignada)
+       
+        let desc=descripcion.replace(/n/g,'<br/>');
+        descripcion= desc
+        console.log(fecha)
         console.log(descripcion)
         
         
@@ -74,10 +74,13 @@ export const AddPublicacionAdmin = () => {
         
     
     
-        //console.log({nombre, apellido, correo, fechaNacimiento, celular})
+        function salto() {
+
+          
+      } 
         
       useEffect(() => {
-        startAdminRama(user?.uid);
+        startListarRamas();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
     
@@ -90,7 +93,7 @@ export const AddPublicacionAdmin = () => {
               <h2>En este formulario puedes crear una nueva publicación</h2>
               <form onSubmit={onSubmit}>
                 <h3>Rama del mensaje*</h3>
-                <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
+                <Select id='rama' placeholder="Selecciona una opción" />
                 <h3>Titulo de la publicación*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
                 <h3>Mensaje*</h3>

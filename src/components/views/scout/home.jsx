@@ -12,7 +12,7 @@ import { usePublicacionStore, useRamasStore, useScoutStore } from "../../../Hook
 export const HomeScout= ()=>{
     const {user} = useSelector(state=>state.auth);
     const { ramaIdScout } = useSelector(state => state.rama);
-    
+    const {publicaciones}=useSelector(state => state.publicacion)
     console.log(ramaIdScout)
     const { startListScouts } = useScoutStore();
     const {startListarRamaIDValue}= useRamasStore();
@@ -35,10 +35,22 @@ export const HomeScout= ()=>{
         <h1>Inicio</h1>
         <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
         <h1>Últimas publicaciones</h1>
-        <Publicacion titulo="Crear nuevo scout" 
-                    conte='Corrupti iste quo quod sapiente quaerat ullam iure voluptate. Consequuntur perspiciatis sit ut amet nihil adipisci. Tempore beatae facere perferendis sapiente possimus itaque sapiente tempora repellat...'
-                    persona='Tracey Armstrong'
-                    calendario='09-09-2022'/>
+        {
+                        
+                        publicaciones.map(publi =>{
+                            
+                    return(
+                        <Publicacion titulo={publi?.titulo}
+                        conte={publi?.descripcion}
+                        persona={`${publi?.autor} `}
+                        calendario={publi?.fecha} />
+                    )
+                
+                })                  
+                    
+                    
+
+                }
         <h1>Siguiente evento</h1>
         <Eventos mes='Sep' dia='22' nombre='Salida Lago Calima'/>
        

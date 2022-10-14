@@ -42,6 +42,14 @@ import { CamContrasenaSuperAdmin } from "../components/views/superadmin/cambiarC
 import { PublicacionRamaGeneral } from "../components/views/superadmin/publicacionRamaGeneral"
 import { EventoRamaGeneral } from "../components/views/superadmin/eventoRamaGeneral"
 import { EventoRama } from "../components/views/superadmin/eventoRama"
+import { PublicacionGeneralScout } from "../components/views/scout/publicacion"
+import { EventoGeneralScout } from "../components/views/scout/eventos"
+import { PublicacionRamaView } from "../components/views/scout/publicacionRama"
+import { PublicacionRamaGeneralView } from "../components/views/scout/publicacionRamaGeneral"
+import { EventoRamaGeneralView } from "../components/views/scout/eventoRamaGeneral"
+import { EventoRamaView } from "../components/views/scout/eventoRama"
+import { VerPublicacion } from "../components/views/verPublicacion"
+import { VerEvento } from "../components/views/verEventos"
 
 export const AppRouter = () => {
 
@@ -107,11 +115,14 @@ export const AppRouter = () => {
                         <Route path="/add-publicacion" element={<AddPublicacion/>}/>
                         <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
                         <Route path="/pub-General" element={<PublicacionRamaGeneral/>}/>
+                        <Route path="/verPublicacion/:_id" element={<VerPublicacion/>}/>
 
                         <Route path="/eventos" element={<EventosGeneral/>}/>
                         <Route path="/add-evento" element={<AddEvento/>}/>
                         <Route path="/evento-General" element={<EventoRamaGeneral/>}/>
                         <Route path="/evento-rama/:_id" element={<EventoRama/>}/>
+                        <Route path="/verEvento/:_id" element={<VerEvento/>}/>
+
                         
                 </Routes>
 
@@ -125,8 +136,15 @@ export const AppRouter = () => {
             <Route path="/adminscouts" element={<AdminScoutsAdmin/>}/>
             <Route path="/publicaciones" element={<PublicacionGeneralAdmin/>}/>
             <Route path="/add-publicacion" element={<AddPublicacionAdmin/>}/>
+
+            <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
+            <Route path="/pub-General" element={<PublicacionRamaGeneral/>}/>
+
             <Route path="/eventos" element={<EventoGeneralAdmin/>}/>
             <Route path="/add-evento" element={<AddEventoAdmin/>}/>
+            <Route path="/evento-General" element={<EventoRamaGeneral/>}/>
+            <Route path="/evento-rama/:_id" element={<EventoRama/>}/>
+
             <Route path="/updatepassword" element={<CamContrasenaAdmin/>}/>
             <Route path="/act-perfil" element={<ActAdmin/>}/>
             </Routes>
@@ -139,6 +157,13 @@ export const AppRouter = () => {
                 <Route path="/" element={ <HomeScout/> }/>
                 <Route path="/*" element={ <Navigate to="/"/> }/> 
                 <Route path="/perfil" element={<PerfilScout/>}/>
+                <Route path="/publicaciones" element={<PublicacionGeneralScout/>}/>
+                <Route path="/pub-rama/:_id" element={<PublicacionRamaView/>}/>
+                <Route path="/pub-General" element={<PublicacionRamaGeneralView/>}/>
+
+                <Route path="/eventos" element={<EventoGeneralScout/>}/>
+                <Route path="/evento-General" element={<EventoRamaGeneralView/>}/>
+                <Route path="/evento-rama/:_id" element={<EventoRamaView/>}/>
                 
                 <Route path="/updatepassword" element={<CamContrasenaScout/>}/>
             </Routes>

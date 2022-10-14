@@ -6,53 +6,33 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 //import { SelectCreacion } from "../../selectCreacion"
-import { useAdminStore,  useSuperAdminStore } from "../../../Hooks"
+import { useAdminStore, usePublicacionStore, useRamasStore, useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 //import swal from 'sweetalert';
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
-
-import { useEventoStore } from "../../../Hooks/useEventoStore"
-import { Eventos } from "../../eventos"
+import { Publicacion } from "../publicacioncompo"
 
 
-export const EventoRamaGeneral = () => {
+export const PublicacionRamaView = () => {
     
-    const {startListEventoGeneral}=useEventoStore();
+    const {startListPublicacion}=usePublicacionStore();
+    const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
-     
-  
-    const {eventos}=useSelector(state => state.evento)
+    
+    
+    const {ramaSel}=useSelector(state => state.rama)
+    const {publicaciones}=useSelector(state => state.publicacion)
     //const { admins } = useSelector(state => state.admin);
     //const { superadmins } = useSelector(state => state.superadmin);
     //const [autor, setAutor] = useState('');
-    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
-
-    function convertir(mes) {    
-    let res
-    var numeroMes = parseInt(mes);
-    if(! isNaN(numeroMes) && numeroMes >= 1  && numeroMes <= 12 ) {
-        res = meses[numeroMes - 1];
-    }
-    return res
-    }
     
     //const {user} = useSelector(state=>state.auth);
-    console.log(eventos)
+    console.log(publicaciones)
     
     const navigate = useNavigate();
-
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-evento`)
-    }
-    const rediEventos = (id) => (e) => {
-        e.preventDefault();
-        navigate(`/verEvento/${id}`)
-    }
-    
 
     
     // function autore(e) {
@@ -71,8 +51,9 @@ export const EventoRamaGeneral = () => {
 
     
     useEffect(() => {
-        
-        startListEventoGeneral();
+        startListarRamasSel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListPublicacion();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();
@@ -86,25 +67,19 @@ export const EventoRamaGeneral = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
-                    <h1>Rama:General</h1>
-                    <h3>Aqui estan los mensajes de todas las ramas</h3>
+                    <h1>Rama:{ramaSel?.nombre}</h1>
+                    <h3>Aqui estan los mensajes de la rama {ramaSel?.nombre}</h3>
                     
                    
                     {
                         
-                        eventos.map(evento =>{
-                            var Navidad = (evento?.fechaYHoraInicio).toString();
-                           var mes= Navidad.substring(4, 6)
-                           var dia= Navidad.substring(6, 8)
-                            
+                            publicaciones.map(publi =>{
                                 
                         return(
-                            <Eventos nombre={evento?.titulo} 
-                            dia={dia}
-                            
-                            mes= {convertir(mes)}
-                            onClick={rediEventos(evento?._id)}
-                             />
+                            <Publicacion titulo={publi?.titulo}
+                            conte={publi?.descripcion}
+                            persona={`${publi?.autor} `}
+                            calendario={publi?.fecha} />
                         )
                     
                     })
@@ -117,8 +92,7 @@ export const EventoRamaGeneral = () => {
                     
                     
                     
-                    <BotonFlotante onClick={redireccion}/>
-
+                    
                     
                 </div>
             </div>
