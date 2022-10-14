@@ -70,6 +70,9 @@ export const MostrarAcudiente = () => {
                 <div className="conte-imp">
                     <h1>Usuario:{`${acudienteActual?.nombre} ${acudienteActual?.apellido}`}</h1>
 
+                    {/* AQUI VA LA FOTO DEL USUARIO */}
+                    <img></img>
+
 
                     <h3>Nombre</h3>
                     <h5>{acudienteActual?.nombre}</h5>

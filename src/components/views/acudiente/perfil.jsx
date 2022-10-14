@@ -49,6 +49,9 @@ export const PerfilAcudiente= ()=>{
         <div className="conte-imp">
         <h1>Hola, {acudienteActual?.nombre}</h1>
         <h2>Aqui estan tus datos personales</h2>
+
+        {/* AQUI VA LA FOTO DEL USUARIO */}
+        <img></img>
  
         <h3>Nombre</h3>
         <h5>{acudienteActual?.nombre}</h5>

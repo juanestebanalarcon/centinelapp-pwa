@@ -67,7 +67,9 @@ export const MostrarScout = () => {
                 <Header />
                 <div className="conte-imp">
                     <h1>Usuario:{`${scoutActual?.nombre} ${scoutActual?.apellido}`}</h1>
-
+                    
+                    {/* AQUI VA LA FOTO DEL USUARIO */}
+                    <img></img>
 
                     <h3>Nombre</h3>
                     <h5>{scoutActual?.nombre}</h5>
