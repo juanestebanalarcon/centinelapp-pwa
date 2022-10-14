@@ -10,8 +10,7 @@ import { useAdminStore,  useSuperAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 //import swal from 'sweetalert';
-import { BotonFlotante } from "../../btn-flotante"
-import { useNavigate } from 'react-router-dom';
+//import { BotonFlotante } from "../../btn-flotante"
 
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
@@ -42,7 +41,7 @@ export const EventoRamaGeneralView = () => {
     //const {user} = useSelector(state=>state.auth);
     console.log(eventos)
     
-    const navigate = useNavigate();
+
 
     
     

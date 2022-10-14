@@ -10,8 +10,7 @@ import { useAdminStore, usePublicacionStore, useRamasStore, useSuperAdminStore }
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 //import swal from 'sweetalert';
-import { BotonFlotante } from "../../btn-flotante"
-import { useNavigate } from 'react-router-dom';
+//import { BotonFlotante } from "../../btn-flotante"
 import { Publicacion } from "../publicacioncompo"
 
 
@@ -32,7 +31,7 @@ export const PublicacionRamaView = () => {
     //const {user} = useSelector(state=>state.auth);
     console.log(publicaciones)
     
-    const navigate = useNavigate();
+    
 
     
     // function autore(e) {
