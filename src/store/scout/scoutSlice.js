@@ -5,12 +5,16 @@ export const scoutSlice = createSlice({
       initialState:{
          scouts: [],
          errorMessage: null,
+         isFileUploading: false,
       },
       reducers:{
            onListScouts:(state, {payload=[]})=>{
             state.scouts=payload;
+           },
+           onUploadFileScout:(state, { payload })=>{
+            state.isFileUploading = payload;
            }
        }
 })
 
-export const { onListScouts } = scoutSlice.actions
+export const { onListScouts, onUploadFileScout } = scoutSlice.actions

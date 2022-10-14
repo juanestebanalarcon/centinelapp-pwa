@@ -4,6 +4,7 @@ import { onListAcudiente, onListAcudienteScout } from "../store";
 import { useDispatch } from "react-redux"
 import {  useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { fileUpload } from "../Helpers";
 export const useAcudienteStore = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -126,7 +127,21 @@ export const useAcudienteStore = () => {
     
       }
     
+      const startUploadingImages = async( files = [] ) => {
 
+        try {
+        
+          const imagen = await fileUpload( files[0], 'Imagenes' );
+    
+          return imagen;
+        
+        } catch (error) {
+        
+          console.log(error)
+        
+        }
+        
+      }
 
-    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword}
+    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword, startUploadingImages}
 }

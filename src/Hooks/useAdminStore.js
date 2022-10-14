@@ -4,6 +4,7 @@ import { onListAdmin, onListAdminRamas } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { fileUpload } from "../Helpers";
 export const useAdminStore = () => {
     const dispatch = useDispatch()
     const params = useParams();
@@ -159,5 +160,22 @@ export const useAdminStore = () => {
         }
     
       }
-    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin, startUpdatePassword, startUpdateAdminPersonal}
+
+      const startUploadingImages = async( files = [] ) => {
+
+        try {
+        
+          const imagen = await fileUpload( files[0], 'Imagenes' );
+    
+          return imagen;
+        
+        } catch (error) {
+        
+          console.log(error)
+        
+        }
+        
+      }
+
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin, startUpdatePassword, startUpdateAdminPersonal, startUploadingImages}
 }

@@ -1,21 +1,22 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListScouts } from "../store";
+import { onListScouts, onUploadFileScout } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { fileUpload } from "../Helpers";
 export const useScoutStore = () => {
   const dispatch = useDispatch()
   const params = useParams();
   const navigate = useNavigate();
-  const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, idRama }) => {
+  const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, link_ficha_medica, link_imagen, idRama }) => {
     // console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
 
-    let link_ficha_medica = 'no tiene'
+    //let link_ficha_medica = 'no tiene'
 
 
     try {
-      await CentinelApi.post('scouts/create-scout', { nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica })
+      await CentinelApi.post('scouts/create-scout', { nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica, link_imagen })
       // console.log(data)
 
       swal({
@@ -146,7 +147,23 @@ export const useScoutStore = () => {
 
   }
 
+  const startUploadingFiles = async( files = [], tipo = '' ) => {
+
+    dispatch(onUploadFileScout(true));
+
+    try {
+    
+      const link = await fileUpload( files[0], tipo );
+      dispatch(onUploadFileScout(false));
+      return link;
+
+    } catch (error) {
+      return console.log(error)
+    }
+    
+  }
 
 
-  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword }
+
+  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword, startUploadingFiles }
 }

@@ -1,11 +1,11 @@
-export const fileUpload = async( file ) =>{
+export const fileUpload = async( file, uploadPreset ) =>{
 
-    if( !file ) throw new Error('No hay archivo para subir')
+    if( !file ) throw new Error('No hay archivo para subir.')
 
-    const cloudUrl = ''
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/scouts2022/upload'
 
     const formData = new FormData();
-    formData.append('upload_preset','Usuarios')
+    formData.append('upload_preset',uploadPreset)
     formData.append('file', file)
 
     try {
@@ -14,7 +14,7 @@ export const fileUpload = async( file ) =>{
             body: formData
         });
 
-        if( !resp.ok ) throw new Error('No se pudo subir la imagen')
+        if( !resp.ok ) throw new Error('No se pudo subir el archivo.')
 
         const cloudResp = await resp.json();
         return cloudResp.secure_url;

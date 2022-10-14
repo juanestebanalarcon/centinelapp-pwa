@@ -6,6 +6,7 @@ export const acudienteSlice = createSlice({
          acudientes: [],
          acudienteScout:[],
          errorMessage: null,
+         isFileUploading: false,
       },
       reducers:{
            onListAcudiente:(state, {payload=[]})=>{
@@ -13,8 +14,11 @@ export const acudienteSlice = createSlice({
            },
            onListAcudienteScout:(state, {payload=[]})=>{
             state.acudienteScout=payload;
+           },
+           onUploadFileAcudiente:(state, { payload })=>{
+            state.isFileUploading = payload;
            }
        }
 })
 
-export const { onListAcudiente, onListAcudienteScout } = acudienteSlice.actions
+export const { onListAcudiente, onListAcudienteScout, onUploadFileAcudiente } = acudienteSlice.actions

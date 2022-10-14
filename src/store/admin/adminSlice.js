@@ -6,6 +6,7 @@ export const adminSlice = createSlice({
          admins: [],
          ramasAdmin:[],
          errorMessage: null,
+         isFileUploading: false,
       },
       reducers:{
             onListAdmin:(state, {payload=[]})=>{
@@ -13,8 +14,11 @@ export const adminSlice = createSlice({
            },
            onListAdminRamas:(state, {payload=[]})=>{
             state.ramasAdmin=payload;
+           },
+           onUploadFileAdmin:(state, { payload })=>{
+            state.isFileUploading = payload;
            }
        }
 })
 
-export const { onListAdmin, onListAdminRamas } = adminSlice.actions
+export const { onListAdmin, onListAdminRamas, onUploadFileAdmin } = adminSlice.actions

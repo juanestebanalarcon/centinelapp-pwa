@@ -6,10 +6,12 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 import { Select } from "../select"
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useForm, useRamasStore, useScoutStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux"
+import { UploadOutlined } from "@mui/icons-material"
 
 const Scout = {
   nombre: '',
@@ -21,6 +23,13 @@ const Scout = {
 
 export const AddUsuarioFicha = () => {
 
+  const { isFileUploading } = useSelector( state => state.scout );
+
+  const fileInputRef = useRef();
+  const fileInputRefI = useRef();
+
+  const { startUploadingFiles } = useScoutStore();
+
   function capitalizar(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -28,18 +37,26 @@ export const AddUsuarioFicha = () => {
   }
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Scout);
 
+  let imagen, archivo;
 
   const { startCrearScout } = useScoutStore();
   const { startListarRamas } = useRamasStore();
-  // const [ link_ficha_medica, setlink_ficha_medica ] = useState('');
+  const [ link_ficha_medica, setlink_ficha_medica ] = useState('');
+  const [ link_imagen, setLinkImagen ] = useState('');
   const navigate = useNavigate();
 
+  const onFileInputChange  = async({ target }) =>{
+    if( target.files === 0 ) return;
+    const link = startUploadingFiles( target.files, 'Fichas-Medicas' )
+    setlink_ficha_medica(link);
+  }
 
+  const onFileInputChangeI  = async({ target }) =>{
+    if( target.files === 0 ) return;
+    const link = startUploadingFiles( target.files, 'Imagenes' )
+    setLinkImagen(link);
+  }
 
-  // const onFileInputChange  = async({ target }) =>{
-  //   if( target.files === 0 ) return;
-  //   setlink_ficha_medica( await startUploadingImages( target.files ));
-  // }
   function redirect(e) {
     e.preventDefault();
     navigate(`/home`)
@@ -71,14 +88,14 @@ export const AddUsuarioFicha = () => {
         });
 
       }else{
-        startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, idRama })
+        startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, link_imagen, link_ficha_medica, idRama })
         
       }
     }
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
-
+    //console.log({linkImagen,link_ficha_medica})
     
   }
 
@@ -110,16 +127,45 @@ export const AddUsuarioFicha = () => {
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
             <h3>Ficha medica*</h3>
+
             <input
               type="file"
-             
+              onChange={  onFileInputChange }
+              value={ archivo }
+              ref = { fileInputRef }
+              style={{ display : 'none' }}
             />
+
+            <button className='subir'
+              onClick = { (e)=> {
+                e.preventDefault();
+                fileInputRef.current.click()
+                }}
+            >
+              <UploadOutlined/>
+            </button>
+
             <h3>Foto*</h3>
+
             <input
               type="file"
-             
+              accept="image/*"
+              onChange={  onFileInputChangeI }
+              value={ imagen }
+              ref = { fileInputRefI }
+              style={{ display : 'none' }}
             />
-            <Button type="submit" variant="contained" color="primary" >Crear</Button>
+
+            <button className='subir'
+              onClick = { (e)=> {
+                e.preventDefault();
+                fileInputRefI.current.click()
+                }}
+            >
+              <UploadOutlined/>
+            </button>
+
+            <Button type="submit" variant="contained" color="primary" disabled={ isFileUploading } >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
