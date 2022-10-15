@@ -35,10 +35,23 @@ export const AddRama = () => {
       });
       return;
 
+    }else{
+      if(edadMax< 1 ||edadMin < 1 ){
+        swal({
+          title: "Las edades deben ser superiores o iguales a 1 año",
+          icon: "warning"
+        });
+        return;
+
+      }else{
+        startCrearRama({ nombre, edadMax, edadMin })
+      }
+      
+
     }
 
 
-    startCrearRama({ nombre, edadMax, edadMin })
+    
   }
 
 
@@ -54,8 +67,8 @@ export const AddRama = () => {
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre de la rama" type="text" />
             <h3>Edades*</h3>
             <div className="hori-edad">
-              <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" />
-              <Input name='edadMin' iddiv='minedad' value={edadMin} onChange={onInputChange} placeholder="Min" type="number" />
+              <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" min="1"/>
+              <Input name='edadMin' iddiv='minedad' value={edadMin} onChange={onInputChange} placeholder="Min" type="number" min= "1"/>
             </div>
             <br/>
             <Button type="submit" variant="contained" color="primary">Crear</Button>
