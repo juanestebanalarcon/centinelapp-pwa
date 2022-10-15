@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListAdmin, onListAdminRamas } from "../store";
+import { onListAdmin, onListAdminRamas, onUploadFileAdmin } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -161,21 +161,21 @@ export const useAdminStore = () => {
     
       }
 
-      const startUploadingImages = async( files = [] ) => {
+      const startUploadingFiles = async( files = [], tipo = '' ) => {
 
+        dispatch(onUploadFileAdmin(true));
+    
         try {
         
-          const imagen = await fileUpload( files[0], 'Imagenes' );
+          const link = await fileUpload( files[0], tipo );
+          dispatch(onUploadFileAdmin(false));
+          return link;
     
-          return imagen;
-        
         } catch (error) {
-        
-          console.log(error)
-        
+          return console.log(error)
         }
         
       }
 
-    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin, startUpdatePassword, startUpdateAdminPersonal, startUploadingImages}
+    return { startCrearAdmin, startListAdmin, startBusqRamaAdm, startAdminRama, startDeleteAdmin, startUpdateAdmin, startUpdatePassword, startUpdateAdminPersonal, startUploadingFiles}
 }

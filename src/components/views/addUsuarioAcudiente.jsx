@@ -12,6 +12,7 @@ import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { SelectScout } from "../select-scout"
 import AddIcon from '@mui/icons-material/Add';
+import { CameraAlt } from "@mui/icons-material"
 
 const Acudiente = {
   nombre: '',
@@ -31,8 +32,9 @@ export const AddUsuarioAcudiente = () => {
   }
 
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
-
-
+  let imagen;
+  const [link_imagen, setLinkImagen] = useState('');
+  const fileInputRefI = useRef();
   const { startCrearAcudiente } = useAcudienteStore();
   const { startListScouts } = useScoutStore();
   const navigate = useNavigate();
@@ -40,6 +42,12 @@ export const AddUsuarioAcudiente = () => {
   function redirect(e) {
     e.preventDefault();
     navigate(`/home`)
+  }
+
+  const onFileInputChangeI = async ({ target }) => {
+    if (target.files === 0) return;
+    const link = await startUploadingFiles(target.files, 'Imagenes')
+    setLinkImagen(link);
   }
 
   const onSubmit = (e) => {
@@ -78,7 +86,7 @@ export const AddUsuarioAcudiente = () => {
           if(idScout2.length > 0 ){
             Scouts.push(idScout2)
           }
-          startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts })
+          startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
           navigate(`/home`)
         }
         
@@ -130,8 +138,23 @@ export const AddUsuarioAcudiente = () => {
             <h3>Foto*</h3>
             <input
               type="file"
-             
+              accept="image/*"
+              onChange={onFileInputChangeI}
+              value={imagen}
+              ref={fileInputRefI}
+              style={{ display: 'none' }}
             />
+
+            <button className='subir'
+              onClick={(e) => {
+                e.preventDefault();
+                fileInputRefI.current.click()
+              }}
+            >
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
+              <h2 className="sel">Seleccione una foto de perfil*</h2>
+            </button>
+            <br/>
             <h3>Asignar scouts*</h3>
             <div className="asigScout">
             <SelectScout id='scouts1' placeholder="Selecciona una opción" />

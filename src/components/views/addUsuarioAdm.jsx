@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { CameraAlt } from "@mui/icons-material"
 
 const Admin = {
   nombre: '',
@@ -30,7 +31,9 @@ export const AddUsuario = () => {
   }
 
   let { nombre, apellido, email, ramasAsignadas, onInputChange } = useForm(Admin);
-
+  let imagen;
+  const [link_imagen, setLinkImagen] = useState('');
+  const fileInputRefI = useRef();
   const { startCrearAdmin } = useAdminStore();
   const { startListarRamas } = useRamasStore();
   const { ramas } = useSelector(state => state.rama);
@@ -41,6 +44,13 @@ export const AddUsuario = () => {
     e.preventDefault();
     navigate(`/home`)
   }
+
+  const onFileInputChangeI = async ({ target }) => {
+    if (target.files === 0) return;
+    const link = await startUploadingFiles(target.files, 'Imagenes')
+    setLinkImagen(link);
+  }
+
   // const verificarcheck =(e)=>{
   //     e.preventDefault();
   //     ramas.map(rama => {
@@ -75,7 +85,7 @@ export const AddUsuario = () => {
       return;
 
     }else{
-      startCrearAdmin({ nombre, apellido, email, ramasAsignadas })
+      startCrearAdmin({ nombre, apellido, email, ramasAsignadas, link_imagen })
 
     }
 
@@ -124,8 +134,23 @@ export const AddUsuario = () => {
             <h3>Foto*</h3>
             <input
               type="file"
-             
+              accept="image/*"
+              onChange={onFileInputChangeI}
+              value={imagen}
+              ref={fileInputRefI}
+              style={{ display: 'none' }}
             />
+
+            <button className='subir'
+              onClick={(e) => {
+                e.preventDefault();
+                fileInputRefI.current.click()
+              }}
+            >
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
+              <h2 className="sel">Seleccione una foto de perfil*</h2>
+            </button>
+            <br/>
 
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
