@@ -88,8 +88,7 @@ export const MostrarScout = () => {
 
                     <h3>Rama actual</h3>
                     <h5>{ramaScout}</h5>
-
-                    <Button  variant="contained" color="primary" >Descargar Ficha Medica</Button>
+                    <a id="des" href={scoutActual?.link_ficha_medica} download><Button  variant="contained" color="primary">Descargar Ficha Medica</Button></a>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 
