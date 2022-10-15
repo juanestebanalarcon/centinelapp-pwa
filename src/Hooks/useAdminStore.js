@@ -10,7 +10,7 @@ export const useAdminStore = () => {
     const params = useParams();
     const navigate = useNavigate();
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas, link_imagen}) => {
-        // console.log({ nombre, apellido, email, ramasAsignadas})
+        console.log({ nombre, apellido, email, ramasAsignadas})
       
         try {
              await CentinelApi.post('admin/create-admin',{ nombre, apellido, email, ramasAsignadas, link_imagen})

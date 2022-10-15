@@ -14,54 +14,54 @@ import { useNavigate } from 'react-router-dom';
 export const MostrarAdmin = () => {
     const params = useParams();
 
-   
+
     //const {startBusqRamaAdm }=useAdminStore();
 
     const { admins } = useSelector(state => state.admin);
-    const {ramasAdmin}=useSelector(state => state.admin)
+    const { ramasAdmin } = useSelector(state => state.admin)
     const adminActual = admins.find(admin => admin._id === (params._id));
     const { startListAdmin, startDeleteAdmin } = useAdminStore();
-    const {startAdminRama}=useAdminStore();
+    const { startAdminRama } = useAdminStore();
     console.log(ramasAdmin)
-   
 
 
-   const navigate = useNavigate();
+
+    const navigate = useNavigate();
 
     function actualizar(e) {
         e.preventDefault();
         navigate(`/act-admin/${params._id}`)
     }
     function eliminar(e) {
-        
+
         e.preventDefault();
         console.log(params._id)
-        
+
         swal({
             title: "Borrar administrador",
             text: "Si acepta borrar el administrador se eliminaran todos los registros del usuario",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                startDeleteAdmin();
-                //falta hacer que se vea el cambio
-              
-            } else {
-              
-            }
-          });
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    startDeleteAdmin();
+                    //falta hacer que se vea el cambio
+
+                } else {
+
+                }
+            });
     }
-     useEffect(() => {
+    useEffect(() => {
         startListAdmin()
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startAdminRama(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [])
+    }, [])
 
-    
+
 
     return (
         <div className="contenido">
@@ -70,7 +70,7 @@ export const MostrarAdmin = () => {
                 <div className="conte-imp">
                     <h1>Usuario:{`${adminActual?.nombre} ${adminActual?.apellido}`}</h1>
                     {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img src={ adminActual?.link_imagen } className='foto' alt="foto"/>
+                    <img src={adminActual?.link_imagen} className='foto' alt="foto" />
 
 
                     <h3>Nombre</h3>
@@ -84,17 +84,21 @@ export const MostrarAdmin = () => {
 
                     {/* <h3>Numero de celular</h3>
                     <h5>{adminActual?.celular}</h5> */}
+                    <div className="conte-ramas">
+                        <h3>Ramas administradas</h3>
+                        <ul>
+                        {ramasAdmin.map(ramaA => {
+                            return (
+                                
+                                    <li>{ramaA.nombre}</li>
+                                
+                            )
+                        })
 
-                    <h3>Ramas administradas</h3>
-                    {ramasAdmin.map(ramaA =>{
-                        return(
-                            <h5>{ramaA.nombre}</h5>
-                        )
-                    })
+                        }
+                        </ul>
 
-                    }
-
-                    
+                    </div>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 

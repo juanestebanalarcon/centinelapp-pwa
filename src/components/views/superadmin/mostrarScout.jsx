@@ -14,20 +14,20 @@ import swal from 'sweetalert';
 
 export const MostrarScout = () => {
     const params = useParams();
-    
+
     const { startListScouts } = useScoutStore();
     const { startDeleteScout } = useScoutStore();
-    const {startListarRamaID, startListarRamaIDValue}= useRamasStore();
+    const { startListarRamaID, startListarRamaIDValue } = useRamasStore();
 
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaScout } = useSelector(state => state.rama);
     const { ramaIdScout } = useSelector(state => state.rama);
     console.log(ramaIdScout)
-    
 
 
-   const navigate = useNavigate();
+
+    const navigate = useNavigate();
 
     function actualizar(e) {
         e.preventDefault();
@@ -36,23 +36,23 @@ export const MostrarScout = () => {
     function eliminar(e) {
         e.preventDefault();
         console.log(params._id)
-        
+
         swal({
             title: "Borrar scout",
             text: "Si acepta borrar el scout se eliminaran todos los registros del usuario",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                startDeleteScout();
-               
-              
-            } else {
-              
-            }
-          });
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    startDeleteScout();
+
+
+                } else {
+
+                }
+            });
     }
     useEffect(() => {
         startListScouts()
@@ -63,7 +63,7 @@ export const MostrarScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    
+
 
     return (
         <div className="contenido">
@@ -71,28 +71,30 @@ export const MostrarScout = () => {
                 <Header />
                 <div className="conte-imp">
                     <h1>Usuario:{`${scoutActual?.nombre} ${scoutActual?.apellido}`}</h1>
-                    
+
                     {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img src={ scoutActual?.link_imagen } className='foto' alt="foto"/>
+                    <img src={scoutActual?.link_imagen} className='foto' alt="foto" />
+                    <div className="conte-datos">
+                        <h3>Nombre</h3>
+                        <h5>{scoutActual?.nombre}</h5>
 
-                    <h3>Nombre</h3>
-                    <h5>{scoutActual?.nombre}</h5>
+                        <h3>Apellido</h3>
+                        <h5>{scoutActual?.apellido}</h5>
 
-                    <h3>Apellido</h3>
-                    <h5>{scoutActual?.apellido}</h5>
+                        <h3>Email</h3>
+                        <h5>{scoutActual?.email}</h5>
 
-                    <h3>Email</h3>
-                    <h5>{scoutActual?.email}</h5>
+                        <h3>Fecha de nacimiento</h3>
+                        <h5>{scoutActual?.fecha_nacimiento}</h5>
 
-                    <h3>Fecha de nacimiento</h3>
-                    <h5>{scoutActual?.fecha_nacimiento}</h5>
-
-                    <h3>Numero de celular</h3>
-                    <h5>{scoutActual?.celular}</h5>
-
-                    <h3>Rama actual</h3>
-                    <h5>{ramaScout}</h5>
-                    <a id="des" href={scoutActual?.link_ficha_medica} filename={`${scoutActual?.nombre}_${scoutActual?.apellido}_fichaMedica.docx`}><Button  variant="contained" color="primary">Descargar Ficha Medica</Button></a>
+                        <h3>Numero de celular</h3>
+                        <h5>{scoutActual?.celular}</h5>
+                        <div className="conte-ramas">
+                            <h3>Rama actual</h3>
+                            <h5>{ramaScout}</h5>
+                        </div>
+                    </div>
+                    <a id="des" href={scoutActual?.link_ficha_medica} filename={`${scoutActual?.nombre}_${scoutActual?.apellido}_fichaMedica.docx`}><Button variant="contained" color="primary">Descargar Ficha Medica</Button></a>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 

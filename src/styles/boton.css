@@ -147,3 +147,11 @@ a#des {
     text-decoration: none;
     color: black;
 }
+.conte-ramas ul {
+    color: #292929;
+    font-family: 'Jost';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    
+}

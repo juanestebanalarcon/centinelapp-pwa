@@ -91,21 +91,19 @@ export const MostrarAcudiente = () => {
                     <h5>{acudienteActual?.celular}</h5>
 
                     <h3>Scout asociado</h3>
+                    <div className="conte-ramas">
+                    <ul>
                  
-                    {
-                        
+                    {                       
                         acudienteScout.map(acu =>{
-                       
-                        
-                      
                         return(
-                            <h5 id="scou">{`${acu.nombre} ${acu.apellido} `}</h5>
+                            <li id="scou">{`${acu.nombre} ${acu.apellido} `}</li>
                         )
                        
                     })
-                    
-
                     } 
+                    </ul>
+                    </div>
 
                     
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>

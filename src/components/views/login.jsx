@@ -32,9 +32,10 @@ export const Login = () => {
         e.preventDefault();
         let emailx = email.toLowerCase()
         const tipo = parseInt(document.getElementById('tipo').value);
+        let tipos= document.getElementById('tipo').value
         email= emailx
         console.log(email)
-        if (email === '' || password === ''|| tipo ==='') {
+        if (email === '' || password === ''|| tipos ==='') {
             swal({
                 title: "Ingrese los campos obligatorios",
                 icon: "warning"
