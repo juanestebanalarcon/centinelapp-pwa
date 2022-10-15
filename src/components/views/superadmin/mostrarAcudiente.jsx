@@ -71,7 +71,8 @@ export const MostrarAcudiente = () => {
                     <h1>Usuario:{`${acudienteActual?.nombre} ${acudienteActual?.apellido}`}</h1>
 
                     {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img></img>
+                    
+                    <img src={ acudienteActual?.link_imagen } className='foto' alt="foto"/>
 
 
                     <h3>Nombre</h3>

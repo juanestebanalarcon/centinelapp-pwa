@@ -20,6 +20,7 @@ export const useAcudienteStore = () => {
                     title: "El usuario ha sido creado con éxito!",
                     icon: "success",
                   });
+                  navigate(`/home`)
             
            
             

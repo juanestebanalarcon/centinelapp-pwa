@@ -24,6 +24,7 @@ export const useScoutStore = () => {
         icon: "success",
       });
 
+      navigate(`/home`)
 
 
       //Alertas con el ok que viene en la data if(data.ok === true )

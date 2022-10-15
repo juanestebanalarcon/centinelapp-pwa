@@ -137,6 +137,7 @@ button.subir {
 }
 img.foto {
     width: 200px;
+    height: 200px;
     margin: auto;
     display: flex;
     border-radius: 50%;

@@ -70,7 +70,8 @@ export const MostrarAdmin = () => {
                 <div className="conte-imp">
                     <h1>Usuario:{`${adminActual?.nombre} ${adminActual?.apellido}`}</h1>
                     {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img></img>
+                    <img src={ adminActual?.link_imagen } className='foto' alt="foto"/>
+
 
                     <h3>Nombre</h3>
                     <h5>{adminActual?.nombre}</h5>

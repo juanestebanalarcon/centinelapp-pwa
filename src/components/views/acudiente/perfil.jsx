@@ -51,7 +51,7 @@ export const PerfilAcudiente= ()=>{
         <h2>Aqui estan tus datos personales</h2>
 
         {/* AQUI VA LA FOTO DEL USUARIO */}
-        <img></img>
+        <img src={ acudienteActual?.link_imagen } className='foto' alt="foto"/>
  
         <h3>Nombre</h3>
         <h5>{acudienteActual?.nombre}</h5>

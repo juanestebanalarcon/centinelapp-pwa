@@ -53,7 +53,7 @@ export const PerfilAdmin= ()=>{
         <h1>Hola, {adminActual?.nombre}</h1>
         <h2>Aqui estan tus datos personales</h2>
         {/* AQUI VA LA FOTO DEL USUARIO */}
-        <img></img>
+        <img src={ adminActual?.link_imagen } className='foto' alt="foto"/>
  
         <h3>Nombre</h3>
         <h5>{adminActual?.nombre}</h5>

@@ -53,7 +53,7 @@ export const PerfilScout= ()=>{
         <h1>Hola, {user?.nombre}</h1>
         <h2>Aquí están tus datos personales</h2>
         {/* AQUI VA LA FOTO DEL USUARIO */}
-        <img></img>
+        <img src={ scoutActual?.link_imagen } className='foto' alt="foto"/>
         <h3>Nombre</h3>
         <h5>{scoutActual?.nombre}</h5>
 

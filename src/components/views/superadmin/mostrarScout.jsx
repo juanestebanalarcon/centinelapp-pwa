@@ -69,7 +69,7 @@ export const MostrarScout = () => {
                     <h1>Usuario:{`${scoutActual?.nombre} ${scoutActual?.apellido}`}</h1>
                     
                     {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img src={ scoutActual?.link_imagen } className='foto'/>
+                    <img src={ scoutActual?.link_imagen } className='foto' alt="foto"/>
 
                     <h3>Nombre</h3>
                     <h5>{scoutActual?.nombre}</h5>
@@ -88,7 +88,7 @@ export const MostrarScout = () => {
 
                     <h3>Rama actual</h3>
                     <h5>{ramaScout}</h5>
-                    <a id="des" href={scoutActual?.link_ficha_medica} download><Button  variant="contained" color="primary">Descargar Ficha Medica</Button></a>
+                    <a id="des" href={scoutActual?.link_ficha_medica} filename={`${scoutActual?.nombre}_${scoutActual?.apellido}_fichaMedica.docx`}><Button  variant="contained" color="primary">Descargar Ficha Medica</Button></a>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 

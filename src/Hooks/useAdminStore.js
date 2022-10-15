@@ -20,7 +20,7 @@ export const useAdminStore = () => {
                     title: "El usuario ha sido creado con éxito! ",
                     icon: "success",
                   });
-            
+                  navigate(`/home`)
            
             
             //Alertas con el ok que viene en la data if(data.ok === true )
