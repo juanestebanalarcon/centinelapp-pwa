@@ -6,7 +6,7 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useForm, useScoutStore, useAcudienteStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +24,7 @@ const Acudiente = {
 }
 
 export const AddUsuarioAcudiente = () => {
+  const { startUploadingFiles } = useAcudienteStore();
   
   function capitalizar(str) {
     return str.replace(/\w\S*/g, function(txt){
@@ -59,8 +60,9 @@ export const AddUsuarioAcudiente = () => {
     
     nombre=nombrex
     apellido=apellidox
+    console.log(link_imagen)
 
-    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '') {
+    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === ''|| link_imagen ==='') {
       swal({
         title: "Ingrese los campos obligatorios",
         icon: "warning"
@@ -79,7 +81,11 @@ export const AddUsuarioAcudiente = () => {
 
       }else{
         if(idScout1===idScout2){
-          alert('Agregue difernte')
+          swal({
+            title: "Ingrese un scout diferente",
+            icon: "warning"
+  
+          });
         }else{
           let Scouts=[]
           Scouts.push(idScout1)
@@ -166,7 +172,7 @@ export const AddUsuarioAcudiente = () => {
             </div>
             
 
-
+            <br/>
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>

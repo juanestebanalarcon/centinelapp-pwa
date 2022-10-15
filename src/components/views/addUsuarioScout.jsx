@@ -71,7 +71,7 @@ export const AddUsuarioFicha = () => {
     nombre = nombrex
     apellido = apellidox
     const idRama = document.getElementById('rama').value;
-    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === '') {
+    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === ''||link_imagen ===''||link_ficha_medica=='') {
       swal({
         title: "Ingrese los campos obligatorios",
         icon: "warning"

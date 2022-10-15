@@ -9,11 +9,11 @@ export const useAcudienteStore = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const params = useParams();
-    const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, Scouts}) => {
+    const startCrearAcudiente = async ({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen}) => {
     
       
         try {
-            await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, Scouts})
+            await CentinelApi.post('acudientes/create-acudiente',{ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen})
            
          
                 swal({

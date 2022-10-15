@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 import { Header } from "../header"
 
 import { useForm, useRamasStore, useAdminStore } from "../../Hooks"
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +24,11 @@ const Admin = {
 }
 export const AddUsuario = () => {
 
+  const { isFileUploading } = useSelector(state => state.scout);
+  const fileInputRefI = useRef();
+
+  const { startUploadingFiles } = useAdminStore();
+
   function capitalizar(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -32,10 +37,13 @@ export const AddUsuario = () => {
 
   let { nombre, apellido, email, ramasAsignadas, onInputChange } = useForm(Admin);
   let imagen;
-  const [link_imagen, setLinkImagen] = useState('');
-  const fileInputRefI = useRef();
+  
+  
+  
+  
   const { startCrearAdmin } = useAdminStore();
   const { startListarRamas } = useRamasStore();
+  const [link_imagen, setLinkImagen] = useState('');
   const { ramas } = useSelector(state => state.rama);
 
   const navigate = useNavigate();
@@ -75,7 +83,7 @@ export const AddUsuario = () => {
         ramasAsignadas.push(rama._id)
       }
     })
-    if (nombre === '' || apellido === '' || email === '' || ramasAsignadas.length === 0) {
+    if (nombre === '' || apellido === '' || email === '' || ramasAsignadas.length === 0 ||link_imagen ==='') {
       swal({
         title: "Ingrese los campos obligatorios",
         icon: "warning"
@@ -85,6 +93,7 @@ export const AddUsuario = () => {
       return;
 
     }else{
+      console.log(nombre, apellido, email, ramasAsignadas, link_imagen)
       startCrearAdmin({ nombre, apellido, email, ramasAsignadas, link_imagen })
 
     }
@@ -152,7 +161,7 @@ export const AddUsuario = () => {
             </button>
             <br/>
 
-            <Button type="submit" variant="contained" color="primary">Crear</Button>
+            <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
