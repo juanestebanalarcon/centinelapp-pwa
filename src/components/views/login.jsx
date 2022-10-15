@@ -44,9 +44,20 @@ export const Login = () => {
             return;
 
         }else{
-            
-            console.log(email, password, tipo);
+            if(password.length<8){
+                swal({
+                    title: "Las contraseñas deben ser mayores a 8 caracteres",
+                    icon: "warning"
+    
+                });
+
+            }else{
+                console.log(email, password, tipo);
             startLogin({ email, password, tipo });
+
+            }
+            
+            
 
         }
         
