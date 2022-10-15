@@ -46,3 +46,15 @@
     flex-direction: column;
     align-items: center;
 }
+.conte-calendar-s1 h2{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+margin-bottom: 1%;
+}
+.conte-calendar-s2 h2{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+margin-bottom: 1%;
+}

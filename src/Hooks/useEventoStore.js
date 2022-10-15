@@ -46,17 +46,14 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
 
   }
 
-  const startListLastEvento= async() => {
-    const fecha = new Date();
-    const hoy = fecha.getDate();
-    const mesActual = fecha.getMonth() + 1; 
-    const añoActual = fecha.getFullYear();
+  const startListLastEvento= async({startDate,finalDate}) => {
+    
        
-    let startDate =`${hoy}/${mesActual}/${añoActual}`
+    
     console.log(startDate)
     try {
       
-      const { data } = await CentinelApi.get(`evento/getEventsOfWeek`, {startDate});
+      const { data } = await CentinelApi.get(`evento/getEventsOfWeek`, {startDate,finalDate});
       console.log(data)
       dispatch( onListEventos( data.Eventos_) )
 

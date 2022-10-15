@@ -109,3 +109,29 @@ button.subir-imagen {
 div#scout2{
     display: none;
 }
+button.subir {
+    background: #EEEEEE;
+    border: 2px dashed #292929;
+    border-radius: 10px;
+    width: 96%;
+    margin: auto;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+.sel {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top:auto;
+    margin-bottom: auto;
+    
+
+}

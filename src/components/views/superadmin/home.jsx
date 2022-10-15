@@ -18,6 +18,15 @@ export const HomeSuperAd = () => {
     const {publicaciones}=useSelector(state => state.publicacion)
     const {eventos}=useSelector(state => state.evento)
     console.log(eventos)
+    const fecha = new Date();
+    let startDate=fecha.toISOString();
+  
+    console.log(startDate)
+  
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
+    var finalDate =nextweek.toISOString();
+    console.log(finalDate)
 
     function gestionar(e) {
         e.preventDefault();
@@ -33,11 +42,15 @@ export const HomeSuperAd = () => {
         e.preventDefault();
         navigate(`/addUser`)
     }
+    const rediPublicacion = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verPublicacion/${id}`)
+    }
 
     useEffect(() => {
         startListLastPublicacion();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListLastEvento();
+        startListLastEvento({startDate,finalDate});
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
    
@@ -59,7 +72,9 @@ export const HomeSuperAd = () => {
                         <Publicacion titulo={publi?.titulo}
                         conte={publi?.descripcion}
                         persona={`${publi?.autor} `}
-                        calendario={publi?.fecha} />
+                        calendario={publi?.fecha} 
+                        onClick={rediPublicacion(publi?._id)}
+                        />
                     )
                 
                 })

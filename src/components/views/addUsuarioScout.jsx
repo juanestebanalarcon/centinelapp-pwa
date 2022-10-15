@@ -11,8 +11,9 @@ import { useForm, useRamasStore, useScoutStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux"
-import { UploadOutlined } from "@mui/icons-material"
 
+import { UploadFile } from '@mui/icons-material';
+import { CameraAlt } from '@mui/icons-material';
 const Scout = {
   nombre: '',
   apellido: '',
@@ -23,7 +24,7 @@ const Scout = {
 
 export const AddUsuarioFicha = () => {
 
-  const { isFileUploading } = useSelector( state => state.scout );
+  const { isFileUploading } = useSelector(state => state.scout);
 
   const fileInputRef = useRef();
   const fileInputRefI = useRef();
@@ -31,8 +32,8 @@ export const AddUsuarioFicha = () => {
   const { startUploadingFiles } = useScoutStore();
 
   function capitalizar(str) {
-    return str.replace(/\w\S*/g, function(txt){
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Scout);
@@ -41,19 +42,19 @@ export const AddUsuarioFicha = () => {
 
   const { startCrearScout } = useScoutStore();
   const { startListarRamas } = useRamasStore();
-  const [ link_ficha_medica, setlink_ficha_medica ] = useState('');
-  const [ link_imagen, setLinkImagen ] = useState('');
+  const [link_ficha_medica, setlink_ficha_medica] = useState('');
+  const [link_imagen, setLinkImagen] = useState('');
   const navigate = useNavigate();
 
-  const onFileInputChange  = async({ target }) =>{
-    if( target.files === 0 ) return;
-    const link = await startUploadingFiles( target.files, 'Fichas-Medicas' )
+  const onFileInputChange = async ({ target }) => {
+    if (target.files === 0) return;
+    const link = await startUploadingFiles(target.files, 'Fichas-Medicas')
     setlink_ficha_medica(link);
   }
 
-  const onFileInputChangeI  = async({ target }) =>{
-    if( target.files === 0 ) return;
-    const link = await startUploadingFiles( target.files, 'Imagenes' )
+  const onFileInputChangeI = async ({ target }) => {
+    if (target.files === 0) return;
+    const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
   }
 
@@ -66,9 +67,9 @@ export const AddUsuarioFicha = () => {
     e.preventDefault();
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
-    
-    nombre=nombrex
-    apellido=apellidox
+
+    nombre = nombrex
+    apellido = apellidox
     const idRama = document.getElementById('rama').value;
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === '') {
       swal({
@@ -87,16 +88,16 @@ export const AddUsuarioFicha = () => {
 
         });
 
-      }else{
+      } else {
         startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, link_imagen, link_ficha_medica, idRama })
-        
+
       }
     }
 
 
     //console.log({nombre, apellido, correo, fechaNacimiento, celular})
     //console.log({link_imagen,link_ficha_medica})
-    
+
   }
 
 
@@ -130,19 +131,20 @@ export const AddUsuarioFicha = () => {
 
             <input
               type="file"
-              onChange={  onFileInputChange }
-              value={ archivo }
-              ref = { fileInputRef }
-              style={{ display : 'none' }}
+              onChange={onFileInputChange}
+              value={archivo}
+              ref={fileInputRef}
+              style={{ display: 'none' }}
             />
 
             <button className='subir'
-              onClick = { (e)=> {
+              onClick={(e) => {
                 e.preventDefault();
                 fileInputRef.current.click()
-                }}
+              }}
             >
-              <UploadOutlined/>
+              <UploadFile style={{ color: '#D5D5D5', fontSize: '35px' }} />
+              <h2 className="sel">Seleccione un archivo*</h2>
             </button>
 
             <h3>Foto*</h3>
@@ -150,23 +152,24 @@ export const AddUsuarioFicha = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={  onFileInputChangeI }
-              value={ imagen }
-              ref = { fileInputRefI }
-              style={{ display : 'none' }}
+              onChange={onFileInputChangeI}
+              value={imagen}
+              ref={fileInputRefI}
+              style={{ display: 'none' }}
             />
 
             <button className='subir'
-              onClick = { (e)=> {
+              onClick={(e) => {
                 e.preventDefault();
                 fileInputRefI.current.click()
-                }}
+              }}
             >
-              <UploadOutlined/>
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
+              <h2 className="sel">Seleccione una foto de perfil*</h2>
             </button>
-
-            <Button type="submit" variant="contained" color="primary" disabled={ isFileUploading } >Crear</Button>
-            <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
+            <br/>
+            <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} style={{fontFamily: 'Ubuntu'}}>Crear</Button>
+            <Button variant="outlined" color="primary" onClick={redirect} style={{fontFamily: 'Ubuntu'}}>Cancelar</Button>
           </form>
         </div>
       </div>

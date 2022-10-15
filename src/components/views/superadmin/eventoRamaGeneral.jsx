@@ -93,9 +93,9 @@ export const EventoRamaGeneral = () => {
                     {
                         
                         eventos.map(evento =>{
-                            var Navidad = (evento?.fechaYHoraInicio).toString();
-                           var mes= Navidad.substring(4, 6)
-                           var dia= Navidad.substring(6, 8)
+                            let fecha = (evento?.fechaYHoraInicio).toString();
+                            let mes= fecha.substring(5, 7)
+                            let dia= fecha.substring(8, 10)
                             
                                 
                         return(
