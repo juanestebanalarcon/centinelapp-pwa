@@ -110,6 +110,7 @@ export const useScoutStore = () => {
 
     try {
       const id = params._id
+      
       console.log(id)
       const { data } = await CentinelApi.delete(`scouts/${params._id}`);
       console.log(data)

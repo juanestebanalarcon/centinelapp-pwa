@@ -17,11 +17,13 @@ export const MostrarScout = () => {
     
     const { startListScouts } = useScoutStore();
     const { startDeleteScout } = useScoutStore();
-    const {startListarRamaID}= useRamasStore();
+    const {startListarRamaID, startListarRamaIDValue}= useRamasStore();
 
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaScout } = useSelector(state => state.rama);
+    const { ramaIdScout } = useSelector(state => state.rama);
+    console.log(ramaIdScout)
     
 
 
@@ -57,6 +59,7 @@ export const MostrarScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamaID(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListarRamaIDValue(params._id)
     }, [])
 
     
