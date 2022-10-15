@@ -60,6 +60,7 @@ export const MostrarScout = () => {
         startListarRamaID(params._id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamaIDValue(params._id)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     

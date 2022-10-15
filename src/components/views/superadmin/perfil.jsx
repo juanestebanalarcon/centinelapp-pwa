@@ -47,8 +47,7 @@ export const PerfilSuperAdmin= ()=>{
         <h1>Hola, {user?.nombre}</h1>
         <h2>Aqui estan tus datos personales</h2>
         
-        {/* AQUI VA LA FOTO DEL USUARIO */}
-        <img></img>
+        
         
         <h3>Nombre</h3>
         <h5>{superAdminAct?.nombre}</h5>
