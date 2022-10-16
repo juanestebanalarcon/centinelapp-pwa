@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
 import { AddRama, AddUsuario, AddUsuarioFicha, Login, PublicacionGeneral } from "../components/views"
-import { ActPerfil } from "../components/views/act-perfil"
 import { PerfilAcudiente } from "../components/views/acudiente/perfil"
 import { PerfilAdmin } from "../components/views/admin/perfil"
 import { HomeScout } from "../components/views/scout/home"
@@ -50,6 +49,10 @@ import { EventoRamaGeneralView } from "../components/views/scout/eventoRamaGener
 import { EventoRamaView } from "../components/views/scout/eventoRama"
 import { VerPublicacion } from "../components/views/verPublicacion"
 import { VerEvento } from "../components/views/verEventos"
+import { ActEvento } from "../components/views/act-evento"
+import { ActPublicacion } from "../components/views/act-publicacion"
+import { VerPublicacionView } from "../components/views/scout/verPublicacion"
+import { VerEventoView } from "../components/views/scout/verEventos"
 
 export const AppRouter = () => {
 
@@ -91,7 +94,6 @@ export const AppRouter = () => {
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
                         <Route path="/addAcudiente" element={<AddUsuarioAcudiente/>}/>
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
-                        <Route path="/act-perfil" element={<ActPerfil/>}/>
                         <Route path="/updatepassword" element={<CamContrasenaSuperAdmin/>}/>
                         
                         
@@ -116,13 +118,15 @@ export const AppRouter = () => {
                         <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
                         <Route path="/pub-General" element={<PublicacionRamaGeneral/>}/>
                         <Route path="/verPublicacion/:_id" element={<VerPublicacion/>}/>
-
+                        <Route path="/actPublicacion/:_id" element={<ActPublicacion/>}/>
+                        
                         <Route path="/eventos" element={<EventosGeneral/>}/>
                         <Route path="/add-evento" element={<AddEvento/>}/>
                         <Route path="/evento-General" element={<EventoRamaGeneral/>}/>
                         <Route path="/evento-rama/:_id" element={<EventoRama/>}/>
                         <Route path="/verEvento/:_id" element={<VerEvento/>}/>
-
+                        <Route path="/actEvento/:_id" element={<ActEvento/>}/>
+                        
                         
                 </Routes>
 
@@ -160,11 +164,12 @@ export const AppRouter = () => {
                 <Route path="/publicaciones" element={<PublicacionGeneralScout/>}/>
                 <Route path="/pub-rama/:_id" element={<PublicacionRamaView/>}/>
                 <Route path="/pub-General" element={<PublicacionRamaGeneralView/>}/>
+                <Route path="/verPublicacion/:_id" element={<VerPublicacionView/>}/>
 
                 <Route path="/eventos" element={<EventoGeneralScout/>}/>
                 <Route path="/evento-General" element={<EventoRamaGeneralView/>}/>
                 <Route path="/evento-rama/:_id" element={<EventoRamaView/>}/>
-                
+                <Route path="/verEvento/:_id" element={<VerEventoView/>}/>
                 <Route path="/updatepassword" element={<CamContrasenaScout/>}/>
             </Routes>
             )

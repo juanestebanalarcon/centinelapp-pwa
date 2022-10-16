@@ -14,10 +14,11 @@ import { useEffect } from 'react'
 
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
+import { useNavigate } from "react-router-dom"
 
 
 export const EventoRamaGeneralView = () => {
-    
+    const navigate = useNavigate();    
     const {startListEventoGeneral}=useEventoStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
@@ -40,6 +41,11 @@ export const EventoRamaGeneralView = () => {
     
     //const {user} = useSelector(state=>state.auth);
     console.log(eventos)
+    const rediEventos = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verEvento/${id}`)
+    }
+
     
 
 
@@ -85,9 +91,9 @@ export const EventoRamaGeneralView = () => {
                     {
                         
                         eventos.map(evento =>{
-                            var Navidad = (evento?.fechaYHoraInicio).toString();
-                           var mes= Navidad.substring(4, 6)
-                           var dia= Navidad.substring(6, 8)
+                            let fecha = (evento?.fechaYHoraInicio).toString();
+                            let mes= fecha.substring(5, 7)
+                            let dia= fecha.substring(8, 10)
                             
                                 
                         return(
@@ -95,6 +101,7 @@ export const EventoRamaGeneralView = () => {
                             dia={dia}
                             
                             mes= {convertir(mes)}
+                            onClick={rediEventos(evento?._id)}
                              />
                         )
                     

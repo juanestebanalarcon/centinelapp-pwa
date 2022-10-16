@@ -52,12 +52,19 @@ button.btn-event {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 500;
-    font-size: 2em;
-    line-height: 35px;
-    display: flex;
+    font-size: 20px;
+    /* line-height: 35px; */
+    /* display: flex; */
     margin: auto;
-    margin-left: 3%;
-    align-items: center;
+    /* margin-left: 1%; */
+    margin-right: 5%;
+    align-items: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-left: 5%;
+    text-overflow: ellipsis;
 }
 img.imgbtn{
     margin: auto;

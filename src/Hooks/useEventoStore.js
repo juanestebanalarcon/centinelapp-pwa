@@ -46,14 +46,19 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
 
   }
 
-  const startListLastEvento= async({startDate,finalDate}) => {
+  const startListLastEvento= async() => {
     
        
     
-    console.log(startDate)
+    const fecha = new Date();
+    let startDate=fecha.toISOString();
+
     try {
       
-      const { data } = await CentinelApi.get(`evento/getEventsOfWeek`, {startDate,finalDate});
+      
+      const { data } = await CentinelApi.get(`evento/getEventsOfWeek/${startDate}`);
+
+     
       console.log(data)
       dispatch( onListEventos( data.Eventos_) )
 
@@ -65,6 +70,33 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     }
 
   }
+
+  const startListLastEventoRama= async({idRama}) => {
+    
+       
+    
+    const fecha = new Date();
+    let startDate=fecha.toISOString();
+
+    try {
+      
+      
+      const { data } = await CentinelApi.get(`evento/getEventByBranch/${idRama}/${startDate}`);
+
+     
+      console.log(data)
+      dispatch( onListEventos( data.Eventos_) )
+
+    } catch (error) {
+      console.log(error)
+      
+
+      
+    }
+
+  }
+
+ 
 
   const startListEventoGeneral= async() => {
 
@@ -130,5 +162,35 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     }
 
   }
-  return { startCrearEvento,startListLastEvento, startListEventoGeneral, startListEvento, startListEventoBusca }
+
+  const startUpdateEvento= async({titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama}) => {
+
+    try {
+      
+      const { data } = await CentinelApi.put(`evento/${params._id}`,{titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama});
+      console.log(data.Eventos_)
+      navigate(`/verEvento/${params._id}`)
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+
+  const startDeleteEvento = async() => {
+
+    try {
+      const id= params._id
+      console.log(id)
+      const { data } = await CentinelApi.delete(`evento/${params._id}`);
+      console.log(data)
+      
+      navigate(`/eventos`)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento}
 }

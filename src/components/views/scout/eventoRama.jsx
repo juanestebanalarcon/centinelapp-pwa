@@ -11,13 +11,14 @@ import { useSelector } from 'react-redux';
 import { useEffect} from 'react'
 //import swal from 'sweetalert';
 //import { BotonFlotante } from "../../btn-flotante"
-import {useParams } from 'react-router-dom';
+import {useNavigate, useParams } from 'react-router-dom';
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
 
 
 export const EventoRamaView = () => {
     const params = useParams();
+    const navigate = useNavigate();
     const {startListEvento}=useEventoStore();
     const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
@@ -45,6 +46,10 @@ export const EventoRamaView = () => {
     //const {user} = useSelector(state=>state.auth);
     console.log(eventos)
     
+    const rediEventos = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verEvento/${id}`)
+    }
     
     
     
@@ -89,9 +94,9 @@ export const EventoRamaView = () => {
                     {
                         
                         eventos.map(evento =>{
-                            var Navidad = (evento?.fechaYHoraInicio).toString();
-                           var mes= Navidad.substring(4, 6)
-                           var dia= Navidad.substring(6, 8)
+                            let fecha = (evento?.fechaYHoraInicio).toString();
+                            let mes= fecha.substring(5, 7)
+                            let dia= fecha.substring(8, 10)
                             
                                 
                         return(
@@ -99,6 +104,7 @@ export const EventoRamaView = () => {
                             dia={dia}
                             
                             mes= {convertir(mes)}
+                            onClick={rediEventos(evento?._id)}
                              />
                         )
                     

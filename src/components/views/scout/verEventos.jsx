@@ -1,20 +1,20 @@
-import { Navbar } from "../navbar"
+import { Navbar } from "../../navbar"
 import Button from '@mui/material/Button'
-import "../../styles/boton.css"
-import "../../styles/styles.css"
-import "../../styles/login.css"
-import "../../styles/publicacionsel.css"
+import "../../../styles/boton.css"
+import "../../../styles/styles.css"
+import "../../../styles/login.css"
+import "../../../styles/publicacionsel.css"
 
 import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
-import { Header } from "../header"
+import { Header } from "../../header"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { BotonFlotanteEdit } from "../btn-flotante-edit"
-import { useEventoStore } from "../../Hooks/useEventoStore"
-import { Calendar } from "../calendar"
 
-export const VerEvento = () => {
+import { useEventoStore } from "../../../Hooks/useEventoStore"
+import { Calendar } from "../../calendar"
+
+export const VerEventoView = () => {
 
 
     const params = useParams();
@@ -43,31 +43,8 @@ export const VerEvento = () => {
        var mesfin= fin.substring(5,7)
        var diafin= fin.substring(8, 10)
 
-       const rediEvento = (id) => (e) => {
-        e.preventDefault();
-        navigate(`/actEvento/${id}`)
-    }
-    function eliminar(e) {
-        e.preventDefault();
-        console.log(params._id)
-        
-        swal({
-            title: "Borrar evento",
-            text: "¿Esta seguro de borrar todo el contenido del evento?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                startDeleteEvento();
-                
-              
-            } else {
-                return
-            }
-          });
-    }
+    
+    
     
 
 
@@ -106,10 +83,10 @@ export const VerEvento = () => {
                     <br/>
                     
                     
-                    <Button variant="outlined" color="primary" onClick={eliminar} >Eliminar</Button>
+                    
 
                 </div>
-                <BotonFlotanteEdit onClick={rediEvento(eventoActual?._id)}/>
+                
             </div>
             <Navbar />
         </div>

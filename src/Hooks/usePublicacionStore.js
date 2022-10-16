@@ -106,8 +106,8 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
   }
 
-  const startListLastPublicacionRama= async(ramaIdScout) => {
-    
+  const startListLastPublicacionRama= async({ramaIdScout}) => {
+    console.log(ramaIdScout)
     try {
       
       
@@ -135,11 +135,39 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     }
 
   }
+  const startUpdatePublicacion= async({titulo, descripcion, ramaAsignada, linkImagen, fecha}) => {
+
+    try {
+      
+      const { data } = await CentinelApi.put(`publicaciones/${params._id}`,{titulo, descripcion, ramaAsignada, linkImagen, fecha});
+      console.log(data.publicaciones_)
+      navigate(`/verPublicacion/${params._id}`)
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+  const startDeletePublicacion = async() => {
+
+    try {
+      const id= params._id
+      console.log(id)
+      const { data } = await CentinelApi.delete(`publicaciones/${params._id}`);
+      console.log(data)
+      
+      navigate(`/publicaciones`)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   
 
   
 
 
-  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca}
+  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca, startUpdatePublicacion, startDeletePublicacion}
 }

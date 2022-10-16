@@ -81,12 +81,15 @@ export const PublicacionRamaGeneral = () => {
                     {
                         
                             publicaciones.map(publi =>{
+                            
+                            let fechaes = (publi?.fecha).toString()
+                            fechaes=fechaes.split('T')[0]
                                 
                         return(
                             <Publicacion titulo={publi?.titulo}
                             conte={publi?.descripcion}
                             persona={`${publi?.autor} `}
-                            calendario={publi?.fecha} 
+                            calendario={fechaes} 
                             onClick={rediPublicacion(publi?._id)}
                             />
                         )

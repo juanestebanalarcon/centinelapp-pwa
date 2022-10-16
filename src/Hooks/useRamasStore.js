@@ -67,6 +67,8 @@ export const useRamasStore = () => {
 
     }
     const startListarRamaID= async(id) => {
+        console.log(id)
+        
 
         try {
             
@@ -81,13 +83,13 @@ export const useRamasStore = () => {
   
     }
     const startListarRamaIDValue= async(id) => {
-
+        console.log(id)
         try {
             
             const { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
             //console.log(data.branch.nombre)
             dispatch(ListarIDRamaScout(data.branch._id));
-                      
+            console.log(data.branch._id)
   
         } catch (error) {
           console.log(error);  

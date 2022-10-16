@@ -12,10 +12,12 @@ import { useEffect } from 'react'
 //import swal from 'sweetalert';
 //import { BotonFlotante } from "../../btn-flotante"
 import { Publicacion } from "../publicacioncompo"
+import { useNavigate } from "react-router-dom"
 
 
 export const PublicacionRamaView = () => {
-    
+    const navigate = useNavigate();
+
     const {startListPublicacion}=usePublicacionStore();
     const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
@@ -24,30 +26,14 @@ export const PublicacionRamaView = () => {
     
     const {ramaSel}=useSelector(state => state.rama)
     const {publicaciones}=useSelector(state => state.publicacion)
-    //const { admins } = useSelector(state => state.admin);
-    //const { superadmins } = useSelector(state => state.superadmin);
-    //const [autor, setAutor] = useState('');
-    
-    //const {user} = useSelector(state=>state.auth);
+   
     console.log(publicaciones)
+    const rediPublicacion = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verPublicacion/${id}`)
+    }
     
     
-
-    
-    // function autore(e) {
-    //     e.preventDefault();
-    // publicaciones.map(publi =>{
-    //     if(autor.length < 0){
-    //         autor = admins.find(admin => admin._id === (publi?.autor));
-    //     }else{
-    //         autor = superadmins.find(sadmin => sadmin._id === (publi?.autor));
-
-    //     }
-        
-    //     console.log(autor)
-    // })
-    // }
-
     
     useEffect(() => {
         startListarRamasSel();
@@ -78,7 +64,9 @@ export const PublicacionRamaView = () => {
                             <Publicacion titulo={publi?.titulo}
                             conte={publi?.descripcion}
                             persona={`${publi?.autor} `}
-                            calendario={publi?.fecha} />
+                            calendario={publi?.fecha} 
+                            onClick={rediPublicacion(publi?._id)}
+                            />
                         )
                     
                     })

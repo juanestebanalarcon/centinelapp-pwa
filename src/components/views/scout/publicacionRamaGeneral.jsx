@@ -38,19 +38,10 @@ export const PublicacionRamaGeneralView = () => {
         e.preventDefault();
         navigate(`/add-publicacion`)
     }
-    // function autore(e) {
-    //     e.preventDefault();
-    // publicaciones.map(publi =>{
-    //     if(autor.length < 0){
-    //         autor = admins.find(admin => admin._id === (publi?.autor));
-    //     }else{
-    //         autor = superadmins.find(sadmin => sadmin._id === (publi?.autor));
-
-    //     }
-        
-    //     console.log(autor)
-    // })
-    // }
+    const rediPublicacion = (id) => (e) => {
+        e.preventDefault();
+        navigate(`/verPublicacion/${id}`)
+    }
 
     
     useEffect(() => {
@@ -82,7 +73,8 @@ export const PublicacionRamaGeneralView = () => {
                             <Publicacion titulo={publi?.titulo}
                             conte={publi?.descripcion}
                             persona={`${publi?.autor} `}
-                            calendario={publi?.fecha} />
+                            calendario={publi?.fecha}
+                            onClick={rediPublicacion(publi?._id)} />
                         )
                     
                     })
@@ -95,7 +87,7 @@ export const PublicacionRamaGeneralView = () => {
                     
                     
                     
-                    <BotonFlotante onClick={redireccion}/>
+                    
 
                     
                 </div>

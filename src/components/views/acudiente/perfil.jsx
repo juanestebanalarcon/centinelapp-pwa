@@ -68,8 +68,6 @@ export const PerfilAcudiente= ()=>{
         <h3>Numero de celular</h3>
         <h5>{acudienteActual?.celular}</h5>
 
-        <h3>Rama actual</h3>
-        <h5>Cachorros</h5>
         
         <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
         <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>

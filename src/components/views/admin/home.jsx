@@ -9,14 +9,29 @@ import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useAdminStore } from "../../../Hooks"
+
 export const HomeAdmin= ()=>{
     const navigate = useNavigate();
+    const { startListAdmin,startAdminRama } = useAdminStore();
+    const {user} = useSelector(state=>state.auth);
+    const { admins } = useSelector(state => state.admin);
+    const {ramasAdmin}=useSelector(state => state.admin)
+    
+    const adminActual = admins.find(admin => admin._id === user.uid);
+
     function admiScout(e){ 
         e.preventDefault();
         navigate(`/adminscouts`)
     }
-    const {user} = useSelector(state=>state.auth);
     
+    useEffect(() => {
+        startListAdmin()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startAdminRama(user?.uid)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return(
     <div className="contenido">

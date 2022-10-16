@@ -14,7 +14,7 @@ import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 import { useEventoStore } from "../../Hooks/useEventoStore"
 
-const Publicacion = {
+const Evento = {
     titulo: '',
     descripcion: '',
     fechaYHoraInicio: '',
@@ -26,13 +26,16 @@ const Publicacion = {
 export const AddEvento = () => {
     
     
-      const { titulo, descripcion, fechaYHoraInicio, fechaYHoraFinal,  onInputChange } = useForm(Publicacion);
+      const { titulo, descripcion, fechaYHoraInicio, fechaYHoraFinal,  onInputChange } = useForm(Evento);
       const { user } = useSelector(state => state.auth);
-    
+      const fecha = new Date();
+      let hoy=(fecha.toISOString()).toString().split('T')[0]
     
       const { startCrearEvento } = useEventoStore();
       const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
+
+
     
       function redirect(e) {
         e.preventDefault();
@@ -60,10 +63,23 @@ export const AddEvento = () => {
           return;
     
         }else{
-          
+          if( fechaYHoraInicio>fechaYHoraFinal ){
+            swal({
+              title: "La fecha de inicio debe ser inferior a la fecha de finalizacion",
+              icon: "warning"
+      
+            });
+      
+            return;
+
+          }else{
             startCrearEvento({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama })
               navigate(`/home`)
             }
+
+          }
+          
+            
             
     
        
@@ -95,9 +111,9 @@ export const AddEvento = () => {
                 <h3>Mensaje*</h3>
                 <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción del evento" type="text" />
                 <h3>Fecha de inicio*</h3>
-                <Input name='fechaYHoraInicio' value={fechaYHoraInicio} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" />
+                <Input name='fechaYHoraInicio' value={fechaYHoraInicio} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
                 <h3>Fecha de fin*</h3>
-                <Input name='fechaYHoraFinal' value={fechaYHoraFinal} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" />
+                <Input name='fechaYHoraFinal' value={fechaYHoraFinal} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy}/>
                 <br/>             
       
                 <Button type="submit" variant="contained" color="primary">Crear</Button>

@@ -1,19 +1,18 @@
-import { Navbar } from "../navbar"
-import Button from '@mui/material/Button'
-import "../../styles/boton.css"
-import "../../styles/styles.css"
-import "../../styles/login.css"
-import "../../styles/publicacionsel.css"
+import { Navbar } from "../../navbar"
+
+import "../../../styles/boton.css"
+import "../../../styles/styles.css"
+import "../../../styles/login.css"
+import "../../../styles/publicacionsel.css"
 
 import { useNavigate, useParams } from 'react-router-dom';
-import swal from 'sweetalert';
-import { Header } from "../header"
+
+import { Header } from "../../header"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { usePublicacionStore } from "../../Hooks"
-import { BotonFlotanteEdit } from "../btn-flotante-edit"
+import { usePublicacionStore } from "../../../Hooks"
 
-export const VerPublicacion = () => {
+export const VerPublicacionView = () => {
 
 
     const params = useParams();
@@ -24,32 +23,7 @@ export const VerPublicacion = () => {
     const { publicaciones } = useSelector(state => state.publicacion)
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
     console.log(publicacionActual)
-    function eliminar(e) {
-        e.preventDefault();
-        console.log(params._id)
-        
-        swal({
-            title: "Borrar publicacion",
-            text: "¿Esta seguro de borrar todo el contenido de la publicacion ?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                startDeletePublicacion();
-                
-              
-            } else {
-             return
-            }
-          });
-    }
-    const rediPublicacion = (id) => (e) => {
-        e.preventDefault();
-        navigate(`/actPublicacion/${id}`)
-    }
-
+    
 
     useEffect(() => {
 
@@ -79,10 +53,10 @@ export const VerPublicacion = () => {
                         </div>
                     </div>
                     <br/>
-                    <Button variant="outlined" color="primary" onClick={eliminar} >Eliminar</Button>
+                   
 
                 </div>
-                <BotonFlotanteEdit onClick={rediPublicacion(publicacionActual?._id)}/>
+                
             </div>
             <Navbar />
         </div>

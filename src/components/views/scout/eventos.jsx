@@ -59,7 +59,7 @@ export const EventoGeneralScout = () => {
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
                   
 
-                     <SelectCreacion nombre={ramascoutes.nombre} desc={ramascoutes.edadMin + "-" + ramascoutes.edadMax + " años"} onClick={publi(ramascoutes._id)}/>
+                     <SelectCreacion nombre={ramascoutes?.nombre} desc={ramascoutes?.edadMin + "-" + ramascoutes?.edadMax + " años"} onClick={publi(ramascoutes?._id)}/>
 
 
                           

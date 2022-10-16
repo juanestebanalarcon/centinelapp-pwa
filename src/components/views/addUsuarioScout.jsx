@@ -30,6 +30,8 @@ export const AddUsuarioFicha = () => {
   const fileInputRefI = useRef();
 
   const { startUploadingFiles } = useScoutStore();
+  const fecha = new Date();
+  let hoy=(fecha.toISOString()).toString().split('T')[0]
 
   function capitalizar(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -124,7 +126,7 @@ export const AddUsuarioFicha = () => {
             <h3>Asignar rama*</h3>
             <Select id='rama' placeholder="Selecciona una opción" />
             <h3>Fecha de nacimiento*</h3>
-            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
+            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy}/>
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
             <h3>Ficha medica*</h3>

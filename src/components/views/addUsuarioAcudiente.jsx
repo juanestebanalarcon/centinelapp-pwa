@@ -25,7 +25,8 @@ const Acudiente = {
 
 export const AddUsuarioAcudiente = () => {
   const { startUploadingFiles } = useAcudienteStore();
-  
+  const fecha = new Date();
+  let hoy=(fecha.toISOString()).toString().split('T')[0]
   function capitalizar(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -138,7 +139,7 @@ export const AddUsuarioAcudiente = () => {
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Fecha de nacimiento*</h3>
-            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" />
+            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy}/>
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
             <h3>Foto*</h3>
