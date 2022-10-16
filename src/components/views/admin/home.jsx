@@ -16,10 +16,10 @@ export const HomeAdmin= ()=>{
     const navigate = useNavigate();
     const { startListAdmin,startAdminRama } = useAdminStore();
     const {user} = useSelector(state=>state.auth);
-    const { admins } = useSelector(state => state.admin);
-    const {ramasAdmin}=useSelector(state => state.admin)
+    //const { admins } = useSelector(state => state.admin);
+    // const {ramasAdmin}=useSelector(state => state.admin)
     
-    const adminActual = admins.find(admin => admin._id === user.uid);
+    // const adminActual = admins.find(admin => admin._id === user.uid);
 
     function admiScout(e){ 
         e.preventDefault();

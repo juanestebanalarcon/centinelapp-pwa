@@ -1,12 +1,12 @@
 import { Navbar } from "../../navbar"
-import Button from '@mui/material/Button'
+
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import "../../../styles/publicacionsel.css"
 
-import { useNavigate, useParams } from 'react-router-dom';
-import swal from 'sweetalert';
+import { useParams } from 'react-router-dom';
+
 import { Header } from "../../header"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
@@ -18,10 +18,10 @@ export const VerEventoView = () => {
 
 
     const params = useParams();
-    const navigate = useNavigate();
+    
     
 
-    const {startListEventoGeneral, startListEventoBusca, startDeleteEvento}=useEventoStore();
+    const {startListEventoGeneral, startListEventoBusca}=useEventoStore();
     const { eventos } = useSelector(state => state.evento)
     const eventoActual = eventos.find(evento => evento._id === params._id);
     console.log(eventoActual)

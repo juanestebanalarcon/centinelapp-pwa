@@ -5,7 +5,7 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import "../../../styles/publicacionsel.css"
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Header } from "../../header"
 import { useEffect } from "react"
@@ -16,10 +16,10 @@ export const VerPublicacionView = () => {
 
 
     const params = useParams();
-    const navigate = useNavigate();
+   
     
 
-    const { startListPublicacionGeneral, startListPublicacionBusca, startDeletePublicacion } = usePublicacionStore()
+    const { startListPublicacionGeneral, startListPublicacionBusca} = usePublicacionStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
     console.log(publicacionActual)

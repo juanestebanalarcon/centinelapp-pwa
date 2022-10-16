@@ -10,7 +10,7 @@ import { useAdminStore, usePublicacionStore, useSuperAdminStore } from "../../..
 import { useSelector } from 'react-redux';
 import { useEffect} from 'react'
 //import swal from 'sweetalert';
-import { BotonFlotante } from "../../btn-flotante"
+
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../publicacioncompo"
 
@@ -34,10 +34,7 @@ export const PublicacionRamaGeneralView = () => {
     
     const navigate = useNavigate();
 
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-publicacion`)
-    }
+    
     const rediPublicacion = (id) => (e) => {
         e.preventDefault();
         navigate(`/verPublicacion/${id}`)

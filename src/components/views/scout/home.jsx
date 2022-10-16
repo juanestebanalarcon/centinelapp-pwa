@@ -51,9 +51,9 @@ export const HomeScout = () => {
         startListarRamaIDValue(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListLastPublicacionRama(ramaIdScout)
-        
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListLastEventoRama(ramaIdScout)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     

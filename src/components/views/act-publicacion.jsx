@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"
 import { useEffect } from 'react'
-import { Select } from "../select"
+//import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 
@@ -82,7 +82,9 @@ export const ActPublicacion = () => {
         startListarRamas();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListPublicacionGeneral();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListPublicacionBusca();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
     
       return (

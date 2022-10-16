@@ -9,7 +9,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"
 import { useEffect } from 'react'
-import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 import { useEventoStore } from "../../Hooks/useEventoStore"
