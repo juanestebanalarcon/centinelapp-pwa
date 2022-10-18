@@ -58,8 +58,6 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
       
       const { data } = await CentinelApi.get(`evento/getEventsOfWeek/${startDate}`);
 
-     
-      console.log(data)
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
@@ -71,7 +69,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
 
   }
 
-  const startListLastEventoRama= async({idRama}) => {
+  const startListLastEventoRama= async(idRama) => {
     
        
     
@@ -83,8 +81,6 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
       
       const { data } = await CentinelApi.get(`evento/getEventByBranch/${idRama}/${startDate}`);
 
-     
-      console.log(data)
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
@@ -103,7 +99,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     try {
       
       const { data } = await CentinelApi.get(`evento/allEvents`);
-      console.log(data.Eventos_)
+      
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
@@ -128,7 +124,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
           
            
       const { data } = await CentinelApi.get(`evento/getEventByBranch/${params._id}`);
-      console.log(data)
+      
       dispatch( onListEventos( data.Eventos_) )
       if((data.Eventos_).length === 0){
         
@@ -153,7 +149,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
     try {
       
       const { data } = await CentinelApi.get(`evento/${params._id}`);
-      console.log(data.Eventos_)
+
       dispatch( onListEventoSelect( data.Eventos_) )
 
     } catch (error) {
@@ -167,8 +163,8 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
 
     try {
       
-      const { data } = await CentinelApi.put(`evento/${params._id}`,{titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama});
-      console.log(data.Eventos_)
+      await CentinelApi.put(`evento/${params._id}`,{titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama});
+    
       navigate(`/verEvento/${params._id}`)
 
     } catch (error) {
@@ -181,11 +177,9 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
   const startDeleteEvento = async() => {
 
     try {
-      const id= params._id
-      console.log(id)
-      const { data } = await CentinelApi.delete(`evento/${params._id}`);
-      console.log(data)
       
+      await CentinelApi.delete(`evento/${params._id}`);
+ 
       navigate(`/eventos`)
     } catch (error) {
       console.log(error)

@@ -34,14 +34,14 @@ export const useAuthStore = () => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('token-init-date', new Date().getTime() );
                 console.log(data)
-                dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo }) );
+                dispatch( onLogin({ nombre: data.nombre, uid: data._id, email: data.email, rol: tipo }) );
 
             }else if(tipo=== 3 ){
                 const { data } = await CentinelApi.post('acudientes/log-in-acudiente',{ email, password });
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('token-init-date', new Date().getTime() );
                 console.log(data)
-                dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: tipo}) );
+                dispatch( onLogin({ nombre: data.nombre, uid: data._id, email: data.email, rol: tipo}) );
 
             }else{
                 dispatch( onLogout() ) 

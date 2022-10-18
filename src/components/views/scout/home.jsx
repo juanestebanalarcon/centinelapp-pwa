@@ -48,14 +48,25 @@ export const HomeScout = () => {
     useEffect(() => {
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        
+    }, [])
+    useEffect(() => {
+        
         startListarRamaIDValue(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        
+    }, [])
+    useEffect(() => {
+        
         startListLastPublicacionRama(ramaIdScout)
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        
+    }, [])
+    useEffect(() => {
+        
         startListLastEventoRama(ramaIdScout)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
     
 
     return (

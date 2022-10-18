@@ -12,10 +12,6 @@ export const usePublicacionStore = () => {
 const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha  }) => {
     
     console.log({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
-
-    
-
-
     try {
       await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
       // console.log(data)
@@ -25,9 +21,6 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
         icon: "success",
       });
 
-
-
-      //Alertas con el ok que viene en la data if(data.ok === true )
 
     } catch (error) {
       // console.log(error.request.status)
@@ -49,7 +42,6 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     try {
       
       const { data } = await CentinelApi.get(`publicaciones/byBranch/${params._id}`);
-      console.log(data.publicaciones_)
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
@@ -72,7 +64,6 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     try {
       
       const { data } = await CentinelApi.get(`publicaciones/allPublicaciones`);
-      console.log(data.publicaciones_)
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
@@ -96,7 +87,6 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     try {
       
       const { data } = await CentinelApi.get(`publicaciones/lastTwoPubli`);
-      console.log(data.publicaciones_)
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
@@ -106,13 +96,12 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
   }
 
-  const startListLastPublicacionRama= async({ramaIdScout}) => {
+  const startListLastPublicacionRama= async(ramaIdScout) => {
     console.log(ramaIdScout)
     try {
       
       
       const { data } = await CentinelApi.get(`publicaciones/lastTwoPubliByBranch/${ramaIdScout}`);
-      console.log(data.publicaciones_)
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
@@ -126,7 +115,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
     try {
       
       const { data } = await CentinelApi.get(`publicaciones/${params._id}`);
-      console.log(data.publicaciones_)
+
       dispatch( onListPublicacionSel( data.publicaciones_) )
 
     } catch (error) {
@@ -139,8 +128,8 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
     try {
       
-      const { data } = await CentinelApi.put(`publicaciones/${params._id}`,{titulo, descripcion, ramaAsignada, linkImagen, fecha});
-      console.log(data.publicaciones_)
+      await CentinelApi.put(`publicaciones/${params._id}`,{titulo, descripcion, ramaAsignada, linkImagen, fecha});
+      
       navigate(`/verPublicacion/${params._id}`)
 
     } catch (error) {
@@ -152,10 +141,9 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
   const startDeletePublicacion = async() => {
 
     try {
-      const id= params._id
-      console.log(id)
-      const { data } = await CentinelApi.delete(`publicaciones/${params._id}`);
-      console.log(data)
+      
+      await CentinelApi.delete(`publicaciones/${params._id}`);
+      
       
       navigate(`/publicaciones`)
     } catch (error) {
