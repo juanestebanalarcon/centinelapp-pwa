@@ -27,7 +27,7 @@ export const ActPublicacion = () => {
 
 
   let { titulo='', descripcion='', ramaAsignada='', onInputChange } = useForm(publicacionActual);
-  console.log(publicacionActual)  
+  
   
       
       
@@ -46,10 +46,8 @@ export const ActPublicacion = () => {
         let fecha= date.toDateString()
         ramaAsignada= document.getElementById("rama").value
        
-        let desc=descripcion.replace(/n/g,'<br/>');
-        descripcion= desc
-        console.log(fecha)
-        console.log(descripcion)
+        
+        
         
         
     

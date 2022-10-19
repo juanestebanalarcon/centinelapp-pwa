@@ -16,7 +16,7 @@ export const PerfilSuperAdmin= ()=>{
     const {user} = useSelector(state=>state.auth);
     const { superadmins } = useSelector(state => state.superadmin);
     const superAdminAct = superadmins.find(superadmin => superadmin._id === user.uid);
-    console.log(superAdminAct)
+    console.log(user)
     
     const { startListSuperAdmin } = useSuperAdminStore();
     

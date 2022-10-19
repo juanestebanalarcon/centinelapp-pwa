@@ -45,7 +45,9 @@ export const AddEvento = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let linkImagen='no tiene'
-        let autor=user?.uid
+        let autorNom=user?.nombre
+        let autorId=user?.uid
+        let autorApe=user?.apellido
         console.log(user)
         let idRama= document.getElementById("rama").value
         console.log(idRama)
@@ -73,7 +75,7 @@ export const AddEvento = () => {
             return;
 
           }else{
-            startCrearEvento({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama })
+            startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama })
               navigate(`/home`)
             }
 

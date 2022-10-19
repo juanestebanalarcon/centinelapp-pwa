@@ -10,16 +10,11 @@ export const useEventoStore = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama }) => {
-    
-    console.log({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama})
-
-    
-
-
-    try {
-      await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama  })
-      // console.log(data)
+const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama }) => {
+    console.log( titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama)
+       try {
+      await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama  })
+      
 
       swal({
         title: "El evento ha sido creado con éxito!",
@@ -31,14 +26,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
       //Alertas con el ok que viene en la data if(data.ok === true )
 
     } catch (error) {
-      // console.log(error.request.status)
-        alert(error)
-        // swal({
-        //   title: "Error",
-        //   text: "El correo ya se encuentra registrado!",
-        //   icon: "error",
-        // });
-      
+  
 
 
       console.log(error)
@@ -51,7 +39,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
        
     
     const fecha = new Date();
-    let startDate=fecha.toISOString();
+    let startDate=((fecha.toISOString()).toString()).split('T')[0]
 
     try {
       
@@ -126,8 +114,11 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
       const { data } = await CentinelApi.get(`evento/getEventByBranch/${params._id}`);
       
       dispatch( onListEventos( data.Eventos_) )
-      if((data.Eventos_).length === 0){
-        
+      
+
+    } catch (error) {
+      if(error.request.status===404){
+        document.getElementById('nohay').innerHTML=''
         swal({
           
           title: "No existen eventos actualmente para esta rama",
@@ -136,10 +127,6 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autor, fechaY
         navigate('/eventos')
 
       }
-
-    } catch (error) {
-      console.log(error)
-      
     }
 
   }

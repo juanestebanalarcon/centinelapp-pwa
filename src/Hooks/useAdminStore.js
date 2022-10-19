@@ -10,7 +10,7 @@ export const useAdminStore = () => {
     const params = useParams();
     const navigate = useNavigate();
     const startCrearAdmin = async ({ nombre, apellido, email,ramasAsignadas, link_imagen}) => {
-        console.log({ nombre, apellido, email, ramasAsignadas})
+        
       
         try {
              await CentinelApi.post('admin/create-admin',{ nombre, apellido, email, ramasAsignadas, link_imagen})
@@ -46,7 +46,7 @@ export const useAdminStore = () => {
         try {
           
           const { data } = await CentinelApi.get('admin/AllAdmins');
-          console.log(data)
+       
           dispatch( onListAdmin( data.admins_) )
     
         } catch (error) {
@@ -60,7 +60,7 @@ export const useAdminStore = () => {
         try {
           
           const { data } = await CentinelApi.get(`rama/${id}`);
-          console.log(data)
+       
           dispatch( onListAdminRamas( data.admin_) )
     
         } catch (error) {
@@ -74,7 +74,7 @@ export const useAdminStore = () => {
         try {
           
           const { data } = await CentinelApi.get(`admin/getAdminBranch/${id}`);
-          console.log(data)
+         
           dispatch( onListAdminRamas( data.admon.ramasAsignadas) )
     
         } catch (error) {
@@ -85,10 +85,10 @@ export const useAdminStore = () => {
       const startDeleteAdmin = async() => {
 
         try {
-          const id= params._id
-          console.log(id)
-          const { data } = await CentinelApi.delete(`admin/${params._id}`);
-          console.log(data)
+ 
+    
+          await CentinelApi.delete(`admin/${params._id}`);
+        
           navigate(`/adminadmin`)
           
         } catch (error) {
@@ -100,10 +100,10 @@ export const useAdminStore = () => {
         
         try {
     
-          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
-          console.log(data)
-          const { datat } =await CentinelApi.put(`admin/changeAdminBranch/${params._id}`, {RamasNuevas});
-          console.log(datat)
+          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
+       
+          await CentinelApi.put(`admin/changeAdminBranch/${params._id}`, {RamasNuevas});
+        
           swal({
             title: "El usuario ha sido actualizado con éxito!",
             icon: "success",
@@ -119,8 +119,8 @@ export const useAdminStore = () => {
         
         try {
     
-          const { data } = await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
-          console.log(data)
+          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
+          
           
           swal({
             title: "El usuario ha sido actualizado con éxito!",
@@ -136,11 +136,11 @@ export const useAdminStore = () => {
 
       const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
         
-        console.log(newPassword,currentPassword,email)
+        
         try {
     
-          const { data } = await CentinelApi.post(`admin/changePassword`, { newPassword,currentPassword,email });
-          console.log(data)
+          await CentinelApi.post(`admin/changePassword`, { newPassword,currentPassword,email });
+          
           
           swal({
             title: "La contraseña ha sido actualizada con éxito!",

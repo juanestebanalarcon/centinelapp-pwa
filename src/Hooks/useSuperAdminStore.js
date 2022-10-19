@@ -24,7 +24,7 @@ export const useSuperAdminStore = () => {
       }
       const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
         
-        console.log(newPassword,currentPassword,email)
+       
         try {
     
           const { data } = await CentinelApi.post(`superAdmin/changePassword`, { newPassword,currentPassword,email });

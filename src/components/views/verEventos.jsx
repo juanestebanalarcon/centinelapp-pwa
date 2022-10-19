@@ -24,7 +24,7 @@ export const VerEvento = () => {
     const {startListEventoGeneral, startListEventoBusca, startDeleteEvento}=useEventoStore();
     const { eventos } = useSelector(state => state.evento)
     const eventoActual = eventos.find(evento => evento._id === params._id);
-    console.log(eventoActual)
+
     
     function convertir(mes) {    
         let res
@@ -49,7 +49,7 @@ export const VerEvento = () => {
     }
     function eliminar(e) {
         e.preventDefault();
-        console.log(params._id)
+        
         
         swal({
             title: "Borrar evento",
@@ -95,7 +95,7 @@ export const VerEvento = () => {
                         <div className='sub-conte-1'>
                             <img classname="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
 
-                            <h3>{eventoActual?.autor}</h3>
+                            <h3>{`${eventoActual?.autor?.nombre} ${eventoActual?.autor?.apellido} `}</h3>
 
 
                         </div>

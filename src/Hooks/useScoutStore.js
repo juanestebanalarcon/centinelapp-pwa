@@ -10,10 +10,7 @@ export const useScoutStore = () => {
   const params = useParams();
   const navigate = useNavigate();
   const startCrearScout = async ({ nombre, apellido, email, fecha_nacimiento, celular, link_ficha_medica, link_imagen, idRama }) => {
-    // console.log({ nombre, apellido, email, fecha_nacimiento, celular, idRama})
-
-    //let link_ficha_medica = 'no tiene'
-
+    
 
     try {
       await CentinelApi.post('scouts/create-scout', { nombre, apellido, email, fecha_nacimiento, celular, idRama, link_ficha_medica, link_imagen })
@@ -66,7 +63,7 @@ export const useScoutStore = () => {
     try {
 
       const { data } = await CentinelApi.get(`rama/getScoutsAsignados/${id}`);
-      console.log(data)
+     
       if (data.rama.Scout.length === 0) {
         console.log('No hat scouts')
         document.getElementById("Noe").innerHTML="No existen scouts registrados en esta rama"
@@ -83,16 +80,13 @@ export const useScoutStore = () => {
 
   }
   const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
-    console.log(idRama)
-    console.log(idScout)
-    console.log(idRamaNueva)
+    
     
     try {
 
-      const { data } = await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
-      const { datar } = await CentinelApi.put(`rama/changeScoutBranch/${idRama}`, { idScout, idRamaNueva });
-      console.log(data)
-      console.log(datar)
+      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
+      await CentinelApi.put(`rama/changeScoutBranch/${idRama}`, { idScout, idRamaNueva });
+      
       swal({
         title: "El usuario ha sido actualizado con éxito!",
         icon: "success",
@@ -109,11 +103,10 @@ export const useScoutStore = () => {
   const startDeleteScout = async () => {
 
     try {
-      const id = params._id
-      
-      console.log(id)
-      const { data } = await CentinelApi.delete(`scouts/${params._id}`);
-      console.log(data)
+       
+   
+      await CentinelApi.delete(`scouts/${params._id}`);
+
       
       navigate(`/adminscouts`)
 
@@ -124,11 +117,11 @@ export const useScoutStore = () => {
   }
   const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
         
-    console.log(newPassword,currentPassword,email)
+    
     try {
 
-      const { data } = await CentinelApi.post(`scouts/changePassword`, { newPassword,currentPassword,email });
-      console.log(data)
+      await CentinelApi.post(`scouts/changePassword`, { newPassword,currentPassword,email });
+      
       
       swal({
         title: "La contraseña ha sido actualizada con éxito!",

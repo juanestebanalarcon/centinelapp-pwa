@@ -17,7 +17,7 @@ export function Publicacion(props) {
                             <h3>{props.persona}</h3>
                         </div>
                         <div className='sub-conte-2'>
-                            <img classname="imgbtn" src='./images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />
+                            <img className="imgbtn" src='./images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />
                             <h3>{props.calendario}</h3>
                         </div>
                     </div>

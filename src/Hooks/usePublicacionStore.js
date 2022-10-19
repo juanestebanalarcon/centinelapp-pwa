@@ -5,16 +5,17 @@ import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+
 export const usePublicacionStore = () => {
   const dispatch = useDispatch()
   const params = useParams();
   const navigate = useNavigate();
-const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha  }) => {
+const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha  }) => {
     
-    console.log({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
+    
     try {
-      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor, fecha})
-      // console.log(data)
+      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fecha})
+      
 
       swal({
         title: "La publicacion ha sido creado con éxito!",
@@ -23,14 +24,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
 
     } catch (error) {
-      // console.log(error.request.status)
-        alert(error)
-        // swal({
-        //   title: "Error",
-        //   text: "El correo ya se encuentra registrado!",
-        //   icon: "error",
-        // });
-      
+     
 
 
       console.log(error)
@@ -45,7 +39,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
-      console.log(error.request.status)
+  
       if(error.request.status===404){
         document.getElementById('nohay').innerHTML=''
         swal({
@@ -67,7 +61,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {
-      console.log(error.request.status)
+      
       if(error.request.status===404){
         document.getElementById('nohay').innerHTML=''
         swal({
@@ -97,7 +91,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
   }
 
   const startListLastPublicacionRama= async(ramaIdScout) => {
-    console.log(ramaIdScout)
+    
     try {
       
       

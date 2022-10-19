@@ -7,11 +7,11 @@ export const useRamasStore = () => {
     const params = useParams();
     const dispatch = useDispatch();
     const startCrearRama = async ({ nombre, edadMax, edadMin}) => {
-        // console.log({ nombre, edadMax, edadMin})
+      
 
         try {
             await CentinelApi.post('rama/create-Rama',{ nombre, edadMax, edadMin})
-            // console.log(data)
+            
             
                 swal({
                     title: "La rama ha sido creada con éxito!",
@@ -56,7 +56,7 @@ export const useRamasStore = () => {
         try {
             
             const { data } = await CentinelApi.get(`rama/${params._id}`);
-            console.log(data.rama_)
+            
             dispatch(ListarRamasSel(data.rama_));
             
             
@@ -67,13 +67,13 @@ export const useRamasStore = () => {
 
     }
     const startListarRamaID= async(id) => {
-        console.log(id)
+      
         
 
         try {
             
             const { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
-            //console.log(data.branch.nombre)
+           
             dispatch(ListarRamaScout(data.branch.nombre));
                       
   
@@ -83,13 +83,14 @@ export const useRamasStore = () => {
   
     }
     const startListarRamaIDValue= async(id) => {
-        console.log(id)
+        
+        
         try {
             
             const { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
-            //console.log(data.branch.nombre)
+            
             dispatch(ListarIDRamaScout(data.branch._id));
-            console.log(data.branch._id)
+        
   
         } catch (error) {
           console.log(error);  

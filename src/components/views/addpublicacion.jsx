@@ -12,6 +12,7 @@ import { useEffect } from 'react'
 import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
+import { Checkbox } from "@mui/material"
 
 const Publicacion = {
     titulo: '',
@@ -24,11 +25,19 @@ export const AddPublicacion = () => {
     
      let { titulo, descripcion, onInputChange } = useForm(Publicacion);
       const { user } = useSelector(state => state.auth);
-    
+      console.log(user)
     
       const { startCrearPublicacion } = usePublicacionStore();
       const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
+
+      // if (document.getElementById('men-general').checked) {
+
+      //   document.getElementById('ramaform').style.display='none'
+      // }else{
+      //   document.getElementById('ramaform').style.display='block'
+      // }
+
     
       function redirect(e) {
         e.preventDefault();
@@ -38,17 +47,14 @@ export const AddPublicacion = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let linkImagen='no tiene'
-        let autor=user?.uid
+        let autorNom=user?.nombre
+        let autorId=user?.uid
+        let autorApe=user?.apellido
         console.log(user)
         let date = new Date();
         let fecha= date.toDateString()
         let ramaAsignada= document.getElementById("rama").value
-       
-        let desc=descripcion.replace(/n/g,'<br/>');
-        descripcion= desc
-        console.log(fecha)
-        console.log(descripcion)
-        
+             
         
     
         if (titulo === '' || descripcion === '' ) {
@@ -62,7 +68,7 @@ export const AddPublicacion = () => {
     
         }else{
           
-              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha })
+              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha })
               navigate(`/home`)
             }
             
@@ -89,8 +95,11 @@ export const AddPublicacion = () => {
               <h1>Crear una publicación</h1>
               <h2>En este formulario puedes crear una nueva publicación</h2>
               <form onSubmit={onSubmit}>
+              <Checkbox color="secondary" id='men-general'/><label>Mensaje general</label>
+                <div id='ramaform'>
                 <h3>Rama del mensaje*</h3>
                 <Select id='rama' placeholder="Selecciona una opción" />
+                </div>
                 <h3>Titulo de la publicación*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
                 <h3>Mensaje*</h3>

@@ -23,7 +23,7 @@ export const ActEvento = () => {
   const { eventos } = useSelector(state => state.evento)
   const eventoActual = eventos.find(evento => evento._id === params._id);
   const { ramas } = useSelector(state => state.rama);
-  console.log(eventos)
+
   const fecha = new Date();
   let hoy=(fecha.toISOString()).toString().split('T')[0]
   const { titulo= '', descripcion='', fechaYHoraInicio='', fechaYHoraFinal='', ramaAsignada='',  onInputChange } = useForm(eventoActual);
@@ -74,7 +74,7 @@ export const ActEvento = () => {
         
     
     
-        //console.log({nombre, apellido, correo, fechaNacimiento, celular})
+       
         
       useEffect(() => {
         startListarRamas();

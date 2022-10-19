@@ -23,10 +23,11 @@ export const VerPublicacion = () => {
     const { startListPublicacionGeneral, startListPublicacionBusca, startDeletePublicacion } = usePublicacionStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
-    console.log(publicacionActual)
+    
+   
     function eliminar(e) {
         e.preventDefault();
-        console.log(params._id)
+        
         
         swal({
             title: "Borrar publicacion",
@@ -71,10 +72,11 @@ export const VerPublicacion = () => {
                         <div className='sub-conte-1'>
                             <img classname="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
 
-                            <h3>{publicacionActual?.autor}</h3>
+                            <h3>{`${publicacionActual?.autor?.nombre} ${publicacionActual?.autor?.apellido} `}</h3>
                         </div>
                         <div className='sub-conte-2'>
                             <img classname="imgbtn" src='../images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />
+                            
                             <h3>{publicacionActual?.fecha}</h3>
                         </div>
                     </div>

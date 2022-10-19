@@ -60,7 +60,7 @@ export const useAcudienteStore = () => {
           
           const { data } = await CentinelApi.get(`acudientes/getScouts/${params._id}`);
           
-         console.log(data.scouts_.Scout)
+       
          dispatch( onListAcudienteScout( data.scouts_.Scout) )
     
         } catch (error) {
@@ -71,10 +71,10 @@ export const useAcudienteStore = () => {
       const startDeleteAcudiente = async() => {
 
         try {
-          const id= params._id
-          console.log(id)
-          const { data } = await CentinelApi.delete(`acudientes/${params._id}`);
-          console.log(data)
+        
+      
+          await CentinelApi.delete(`acudientes/${params._id}`);
+
           
           navigate(`/adminacudiente`)
         } catch (error) {
@@ -87,9 +87,9 @@ export const useAcudienteStore = () => {
         
         try {
     
-          const { data } = await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, scouts });
+          await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, scouts });
           
-          console.log(data)
+         
           swal({
             title: "El usuario ha sido actualizado con éxito!",
             icon: "success",
@@ -103,11 +103,10 @@ export const useAcudienteStore = () => {
       }
       const startUpdatePassword = async ({ newPassword,currentPassword,email}) => {
         
-        console.log(newPassword,currentPassword,email)
         try {
     
-          const { data } = await CentinelApi.post(`acudientes/changePassword`, { newPassword,currentPassword,email });
-          console.log(data)
+          await CentinelApi.post(`acudientes/changePassword`, { newPassword,currentPassword,email });
+   
           
           swal({
             title: "La contraseña ha sido actualizada con éxito!",

@@ -77,9 +77,10 @@ export const HomeSuperAd = () => {
                             fechaes=fechaes.split('T')[0]
 
                         return (
-                            <Publicacion titulo={publi?.titulo}
+                            <Publicacion key={publi?.id} 
+                                titulo={publi?.titulo}
                                 conte={publi?.descripcion}
-                                persona={`${publi?.autor} `}
+                                persona={`${publi?.autor?.nombre} ${publi?.autor?.apellido} `}
                                 calendario={fechaes}
                                 onClick={rediPublicacion(publi?._id)}
                             />
@@ -98,7 +99,9 @@ export const HomeSuperAd = () => {
                             
                                 
                         return(
-                            <Eventos nombre={event?.titulo} 
+                            <Eventos 
+                            key={event?._id}
+                            nombre={event?.titulo} 
                             dia={dia}
                             
                             mes= {convertir(mes)}
